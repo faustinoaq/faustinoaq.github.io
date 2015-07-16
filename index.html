@@ -11,16 +11,25 @@
       a {
         text-decoration: none;
       }
-      a:hover, a:active, a:focus {
+
+      a:hover, a:active {
         text-decoration: underline;
       }
-      a:visited {
-        color: #4B0C7C;
-      }
+
       body {
+        animation: fadein 2s;
         font-family: 'Source Code Pro', monospace;
         font-size: 24px;
         margin: 5%;
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     </style>
   </head>

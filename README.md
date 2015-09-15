@@ -1,2 +1,2 @@
-# zetatino.github.io
+# My site
 My personal URL

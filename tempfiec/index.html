@@ -87,7 +87,7 @@
       $(document).ready(function() {
       setInterval(function () {
         $.ajax({
-          url: "http://104.248.48.50:3000:3000/temperaturas.json" + time,
+          url: "http://104.248.48.50:3000/temperaturas.json" + time,
           type: 'GET',
           dataType: 'json',
           success: function(data) { addData(data); },

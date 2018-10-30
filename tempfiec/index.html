@@ -84,9 +84,22 @@
         render(data);
       }
       var time = window.location.search;
+      $(document).ready(function() {
       setInterval(function () {
-        $.getJSON("http://104.248.48.50:3000/temperaturas.json" + time, addData)
+        $.ajax({
+          url: "http://104.248.48.50:3000:3000/temperaturas.json" + time,
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) { addData(data); },
+          error: function() { console.log("Error fetching data!"); },
+          beforeSend: setHeader
+        });  
       }, 1000);
+    });
+
+    function setHeader(xhr) {
+      xhr.setRequestHeader('X-Origin', window.location.origin);
+    }
     </script>
   </div>
 </body>

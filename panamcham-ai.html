@@ -41,11 +41,15 @@
             text-align: left;
             margin: 0 auto;
             max-width: 900px;
-            min-height: 400px;
+            min-height: 800px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
+        }
+        .reveal .slides section.present {
+            min-height: 700px !important;
+            padding-top: 24px !important;
         }
         .reveal .slides section:first-child {
             align-items: center;
@@ -172,184 +176,259 @@
                 <p style="color: var(--dell-blue-300); text-align:center;">Introducción interactiva para la transformación digital</p>
                 <p style="font-size: 0.7em; margin-top: 20px; text-align:center;">Capacidades estratégicas en IA • Innovación responsable • Competitividad empresarial</p>
             </section>
-            <!-- Slide 2: ¿Qué es la IA? -->
+            <!-- Slide: Interactivo AI responde -->
+            <section>
+                <h2>¿Cómo respondería una IA?</h2>
+                <p>Completa la frase y observa cómo una IA podría responder en tiempo real:</p>
+                <div style="margin-top: 18px;">
+                    <span style="font-weight:bold;">Pregunta:</span> <span id="ai-prompt">La inteligencia artificial en mi empresa puede ayudar a...</span>
+                </div>
+                <div style="margin-top: 18px;">
+                    <button id="ai-answer-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver respuesta de la IA</button>
+                </div>
+                <div id="ai-typing-answer" style="margin-top: 24px; min-height: 48px; font-size: 1.1em; color: var(--dell-blue-100); font-style: italic;"></div>
+            </section>
+            <!-- Slide: Interactivo necesidades industria (Salud) -->
+            <section>
+                <h2>¿Qué necesita el sector salud para aprovechar la IA?</h2>
+                <p style="font-size:0.85em;">Lee el siguiente párrafo y haz clic para ver cómo una IA identificaría las necesidades clave:</p>
+                <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 14px; border-radius: 6px; color: #D9F5FD; font-size:0.85em;">
+                    El sector salud enfrenta retos como la gestión eficiente de historiales médicos, la predicción de enfermedades, la optimización de recursos hospitalarios y la personalización de tratamientos para los pacientes.
+                </div>
+                <button id="ai-health-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver necesidades identificadas por IA</button>
+                <ul id="ai-health-list" style="margin-top: 22px; display: none; color: #D9F5FD; font-size: 1em;"></ul>
+            </section>
+            <!-- Slide: Interactivo necesidades industria (Retail) -->
+            <section>
+                <h2>¿Cómo puede la IA transformar el sector retail?</h2>
+                <p style="font-size:0.85em;">Lee el siguiente contexto y haz clic para ver cómo una IA desglosa oportunidades clave:</p>
+                <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 14px; border-radius: 6px; color: #D9F5FD; font-size:0.85em;">
+                    El sector retail busca mejorar la experiencia del cliente, optimizar inventarios, personalizar ofertas y anticipar tendencias de consumo en un entorno cada vez más digitalizado.
+                </div>
+                <button id="ai-retail-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver oportunidades identificadas por IA</button>
+                <ul id="ai-retail-list" style="margin-top: 22px; display: none; color: #D9F5FD; font-size: 1em;"></ul>
+            </section>
+            <!-- Slide: Interactivo necesidades industria (Logística) -->
+            <section>
+                <h2>IA en logística y transporte</h2>
+                <p style="font-size:0.85em;">Haz clic para ver cómo una IA identifica mejoras clave en logística:</p>
+                <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 14px; border-radius: 6px; color: #D9F5FD; font-size:0.85em;">
+                    Las empresas de logística enfrentan desafíos como la optimización de rutas, la gestión de flotas, la predicción de demanda y la reducción de tiempos de entrega.
+                </div>
+                <button id="ai-log-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver mejoras sugeridas por IA</button>
+                <ul id="ai-log-list" style="margin-top: 22px; display: none; color: #D9F5FD; font-size: 1em;"></ul>
+            </section>
+            <!-- Slide: Interactivo pregunta sobre PDF -->
+            <section>
+                <h2>IA responde a documentación</h2>
+                <p>Simula que tienes acceso al PDF <a href="https://reports.weforum.org/docs/WEF_Artificial_Intelligence_for_Efficiency_Sustainability_and_Inclusivity_in_TradeTech_2025.pdf" target="_blank">WEF: AI Sustainability</a>. Haz clic para ver cómo una IA respondería a una pregunta clave:</p>
+                <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 16px; border-radius: 6px; color: #D9F5FD;">
+                    <strong>Pregunta:</strong> ¿Cómo puede la IA contribuir a la sostenibilidad en el comercio internacional?
+                </div>
+                <button id="ai-pdf-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver respuesta de la IA</button>
+                <div id="ai-pdf-answer" style="margin-top: 22px; min-height: 48px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: Diseño CAD Inteligente -->
+            <section>
+                <h2>IA en Diseño CAD</h2>
+                <p>Observa cómo la IA analiza y optimiza un diseño mecánico en tiempo real:</p>
+                <canvas id="canvas-design" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #001122;"></canvas>
+                <button id="design-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Optimizar con IA</button>
+                <div id="cad-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Gestión de Proyectos -->
+            <section>
+                <h2>IA en Gestión de Proyectos</h2>
+                <p>Ve cómo la IA analiza un cronograma y sugiere optimizaciones automáticamente:</p>
+                <canvas id="canvas-project" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #0f1419;"></canvas>
+                <button id="project-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Optimizar cronograma con IA</button>
+                <div id="project-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Diagnóstico Médico -->
+            <section>
+                <h2>IA en Diagnóstico Médico</h2>
+                <p>Observa cómo la IA analiza una radiografía y asiste en el diagnóstico:</p>
+                <canvas id="canvas-medical" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #0c0c0c;"></canvas>
+                <button id="medical-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Analizar con IA médica</button>
+                <div id="medical-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Revisión de Código -->
+            <section>
+                <h2>IA en Revisión de Código</h2>
+                <p>Ve cómo la IA detecta vulnerabilidades, bugs y optimiza código automáticamente:</p>
+                <canvas id="canvas-code" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #1e1e1e;"></canvas>
+                <button id="code-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Revisar código con IA</button>
+                <div id="code-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
             <section>
                 <h2>¿Qué es la Inteligencia Artificial?</h2>
-                <p><strong>Objetivo:</strong> Entender los conceptos clave, historia y aplicaciones de la IA en el mundo empresarial.</p>
-                <ul>
-                    <li><strong>Definición:</strong> Sistemas que simulan capacidades humanas como aprender, razonar y resolver problemas.</li>
-                    <li><strong>Historia:</strong> De Turing a ChatGPT: evolución en 70 años.</li>
-                    <li><strong>Tipos:</strong> IA débil (narrow), IA general (AGI), superinteligencia.</li>
-                    <li><strong>Subcampos:</strong> Machine Learning, Deep Learning, NLP, Computer Vision.</li>
-                    <li><strong>Aplicaciones:</strong> Manufactura, logística, salud, finanzas, retail.</li>
-                    <li><strong>Mitos vs. realidad:</strong> Separando ciencia ficción de oportunidades reales.</li>
-                </ul>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Recursos:</strong> <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/open-source-technology-in-the-age-of-ai" target="_blank">McKinsey: The Age of AI</a> | <a href="https://reports.weforum.org/docs/WEF_Artificial_Intelligence_for_Efficiency_Sustainability_and_Inclusivity_in_TradeTech_2025.pdf" target="_blank">WEF: AI Sustainability</a></p>
+                <p>La IA son sistemas computacionales diseñados para simular capacidades humanas como el aprendizaje, razonamiento y resolución de problemas.</p>
+                <p style="font-size: 0.85em; color: #94DCF7; margin-top: 16px;">Pero... ¿cómo explicaría esto una IA de manera más profunda y accesible?</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-def-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">Consultar a la IA</button>
+                    <div id="ai-def-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section>
+                <h2>Historia de la IA</h2>
+                <p>La inteligencia artificial tiene una fascinante evolución de más de 70 años, desde las primeras ideas de Alan Turing hasta los modernos sistemas como ChatGPT.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-hist-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">Ver resumen histórico de la IA</button>
+                    <div id="ai-hist-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section>
+                <h2>Tipos de IA</h2>
+                <p>Existen diferentes categorías de inteligencia artificial según su capacidad y alcance: desde la IA débil que vemos hoy en día, hasta conceptos futuros como la superinteligencia.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-tipos-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Cómo explicaría una IA los tipos?</button>
+                    <div id="ai-tipos-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section>
+                <h2>Subcampos y aplicaciones</h2>
+                <p>La IA abarca múltiples disciplinas especializadas como Machine Learning, Procesamiento de Lenguaje Natural y Visión por Computadora, con aplicaciones revolucionarias en manufactura, salud, finanzas y más.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-apps-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué ejemplos daría una IA?</button>
+                    <div id="ai-apps-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section>
+                <h2>Mitos vs. Realidad</h2>
+                <p>Existen muchos conceptos erróneos sobre la IA, desde la idea de que reemplazará todos los trabajos hasta la creencia de que es consciente como en las películas de ciencia ficción.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-mitos-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué aclararía una IA?</button>
+                    <div id="ai-mitos-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide 3: Pregunta 1 -->
             <section data-background-color="var(--dell-blue-800)">
                 <div class="question">
-                    <p>¿Cuál de estos NO es un tipo de IA según la clasificación por capacidad?</p>
-                    <button onclick="showFeedback(this, false)">IA Débil</button>
-                    <button onclick="showFeedback(this, false)">IA General</button>
-                    <button onclick="showFeedback(this, true)">IA Aplicada</button>
-                    <button onclick="showFeedback(this, false)">Superinteligencia</button>
+                    <p>¿Cuál es el principal beneficio de la IA en los negocios?</p>
+                    <button onclick="showFeedback(this, false, 'La IA puede reducir costos, pero su principal valor está en generar nuevas oportunidades de negocio y mejorar la toma de decisiones estratégicas.')">Reducir costos</button>
+                    <button onclick="showFeedback(this, true, 'Exactamente. La IA automatiza tareas rutinarias, liberando tiempo humano para actividades de mayor valor, mejora la precisión en decisiones y descubre patrones ocultos en los datos que impulsan la innovación.')">Automatizar procesos y mejorar decisiones</button>
+                    <button onclick="showFeedback(this, false, 'Aunque la IA puede reemplazar algunas tareas, su mayor impacto está en augmentar las capacidades humanas y crear nuevos roles que requieren colaboración humano-IA.')">Reemplazar empleados</button>
                     <p class="feedback" style="display:none;"></p>
                 </div>
             </section>
             <!-- Slide 4: IA Responsable -->
             <section>
                 <h2>IA Responsable y Ética</h2>
-                <p><strong>Objetivo:</strong> Conocer los principios éticos y regulatorios para el uso responsable de la IA.</p>
-                <ul>
-                    <li><strong>Transparencia:</strong> Explicabilidad y auditoría de sistemas.</li>
-                    <li><strong>Equidad:</strong> Evitar sesgos y discriminación.</li>
-                    <li><strong>Privacidad:</strong> Protección de datos personales.</li>
-                    <li><strong>Seguridad:</strong> Sistemas robustos y confiables.</li>
-                    <li><strong>Responsabilidad:</strong> Asignación clara de responsabilidades.</li>
-                </ul>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Referencias:</strong> <a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank">UNESCO AI Ethics</a> | <a href="https://oecd.ai/en/ai-principles" target="_blank">OECD AI Principles</a></p>
+                <p>El desarrollo de IA responsable requiere considerar principios éticos fundamentales como la transparencia para explicar decisiones automatizadas y la equidad para evitar sesgos discriminatorios.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-ethics-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué diría una IA sobre la ética?</button>
+                    <div id="ai-ethics-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide 5: Pregunta 2 -->
             <section data-background-color="var(--dell-blue-800)">
                 <div class="question">
                     <p>¿Cuál de estos es un principio clave de la IA Responsable?</p>
-                    <button onclick="showFeedback(this, false)">Opacidad</button>
-                    <button onclick="showFeedback(this, true)">Transparencia</button>
-                    <button onclick="showFeedback(this, false)">Rentabilidad</button>
+                    <button onclick="showFeedback(this, false, 'La opacidad es lo contrario de lo que buscamos en IA responsable. Necesitamos transparencia para entender cómo toman decisiones los sistemas de IA. Sin esta visibilidad, no podemos confiar en las decisiones automatizadas, especialmente en sectores críticos como salud, finanzas o justicia donde las decisiones de IA pueden tener impactos significativos en la vida de las personas.')">Opacidad</button>
+                    <button onclick="showFeedback(this, true, 'Correcto. La transparencia es fundamental para la IA responsable porque permite que usuarios, reguladores y stakeholders entiendan cómo funciona el sistema, qué datos utiliza, cómo llega a sus conclusiones y si existe algún sesgo. Esta explicabilidad genera confianza, facilita la auditoría y permite la mejora continua del sistema.')">Transparencia</button>
+                    <button onclick="showFeedback(this, false, 'Aunque la rentabilidad es importante para la sostenibilidad empresarial, no es un principio ético de IA responsable. Los principios éticos como equidad, transparencia, responsabilidad y beneficencia van más allá del beneficio económico, buscando asegurar que la IA sirva al bien común y no cause daños a individuos o grupos vulnerables.')">Rentabilidad</button>
                     <p class="feedback" style="display:none;"></p>
                 </div>
             </section>
             <!-- Slide 6: Agentes de IA -->
             <section>
                 <h2>Agentes de IA</h2>
-                <p><strong>Objetivo:</strong> Explorar el impacto de los agentes autónomos en los procesos empresariales.</p>
-                <ul>
-                    <li><strong>Agentes autónomos:</strong> Sistemas que actúan hacia objetivos específicos.</li>
-                    <li><strong>Sistemas multiagente:</strong> Colaboración entre agentes.</li>
-                    <li><strong>Agentes conversacionales:</strong> Chatbots avanzados.</li>
-                    <li><strong>Agentes especializados:</strong> Ventas, soporte, análisis financiero.</li>
-                </ul>
-                <p><strong>Casos de uso:</strong> Automatización de procesos, asistentes virtuales, análisis predictivo, gestión de inventario.</p>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.langchain.com/docs/" target="_blank">LangChain</a> | <a href="https://microsoft.github.io/autogen/" target="_blank">Microsoft AutoGen</a> | <a href="https://openai.com/blog/introducing-gpts" target="_blank">OpenAI GPTs</a></p>
+                <p>Los agentes de IA son sistemas autónomos que pueden actuar hacia objetivos específicos, desde chatbots conversacionales hasta sistemas multiagente que colaboran en tareas complejas. Incluyen agentes especializados para ventas, soporte y análisis financiero.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-agents-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué dice la IA sobre agentes?</button>
+                    <div id="ai-agents-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.langchain.com/docs/" target="_blank">LangChain</a> | <a href="https://microsoft.github.io/autogen/" target="_blank">Microsoft AutoGen</a> | <a href="https://openai.com/blog/introducing-gpts" target="_blank">OpenAI GPTs</a></p>
             </section>
             <!-- Slide 7: IA Generativa -->
             <section>
                 <h2>IA Generativa</h2>
-                <p><strong>Objetivo:</strong> Comprender la IA generativa y su aplicación en la empresa.</p>
-                <ul>
-                    <li><strong>Texto:</strong> GPT-4, Claude, Gemini.</li>
-                    <li><strong>Imágenes:</strong> DALL-E, Midjourney, Stable Diffusion.</li>
-                    <li><strong>Audio:</strong> ElevenLabs, Murf.</li>
-                    <li><strong>Video:</strong> Runway ML, Synthesia.</li>
-                </ul>
-                <p><strong>Aplicaciones:</strong> Marketing, documentación, prototipado, simulaciones.</p>
-                <p><strong>Consideraciones:</strong> Verificación, derechos de autor, integración con procesos.</p>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Plataformas:</strong> <a href="https://openai.com/dall-e-2" target="_blank">DALL-E 2</a> | <a href="https://www.midjourney.com/" target="_blank">Midjourney</a> | <a href="https://stability.ai/" target="_blank">Stability AI</a></p>
+                <p>La IA generativa revoluciona la creación de contenido al producir texto, imágenes, música y código de forma automática. Modelos como GPT-4 y Claude transforman el texto, mientras que DALL-E revoluciona la generación de imágenes.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-gen-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Cómo explicaría una IA la IA generativa?</button>
+                    <div id="ai-gen-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide 8: Pregunta 3 -->
             <section data-background-color="var(--dell-blue-800)">
                 <div class="question">
                     <p>¿Cuál de los siguientes es un ejemplo de modelo de IA Generativa?</p>
-                    <button onclick="showFeedback(this, false)">Excel</button>
-                    <button onclick="showFeedback(this, true)">GPT</button>
-                    <button onclick="showFeedback(this, false)">Photoshop</button>
+                    <button onclick="showFeedback(this, false, 'Excel es una herramienta de hoja de cálculo tradicional que no utiliza modelos generativos de IA, aunque las versiones más recientes pueden integrar funciones de IA como asistentes para análisis de datos. Sin embargo, Excel en sí mismo es software de productividad, no un modelo de inteligencia artificial generativa.')">Excel</button>
+                    <button onclick="showFeedback(this, true, 'Exacto. GPT (Generative Pre-trained Transformer) es un modelo de IA generativa que puede crear texto coherente y natural a partir de instrucciones o prompts. Utiliza arquitectura transformer y ha sido entrenado en enormes datasets de texto para aprender patrones del lenguaje y generar respuestas contextualmente relevantes, siendo uno de los ejemplos más conocidos de esta tecnología.')">GPT</button>
+                    <button onclick="showFeedback(this, false, 'Photoshop es un editor de imágenes tradicional creado por Adobe. Aunque las versiones más recientes incluyen herramientas de IA generativa como relleno generativo y filtros neurales, el software en sí no es un modelo de IA generativa sino una aplicación que puede integrar estas tecnologías como características adicionales.')">Photoshop</button>
                     <p class="feedback" style="display:none;"></p>
                 </div>
             </section>
             <!-- Slide 9: Industria 4.0 -->
             <section>
                 <h2>IA en la Industria 4.0</h2>
-                <p><strong>Objetivo:</strong> Aplicar IA en la transformación digital industrial.</p>
-                <ul>
-                    <li><strong>Industria 4.0:</strong> Integración de sistemas físicos y digitales.</li>
-                    <li><strong>Mantenimiento predictivo:</strong> Sensores e IA para anticipar fallos.</li>
-                    <li><strong>Control de calidad:</strong> Visión por computadora para inspección.</li>
-                    <li><strong>Optimización logística:</strong> Predicción de demanda y rutas.</li>
-                    <li><strong>Gemelos digitales:</strong> Simulación virtual de procesos.</li>
-                </ul>
-                <p><strong>Beneficios:</strong> Reducción de costos, eficiencia energética, menos inactividad.</p>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Plataformas:</strong> <a href="https://www.microsoft.com/en-us/industry/manufacturing/industrial-transformation" target="_blank">Azure IoT</a> | <a href="https://www.ge.com/digital/predix" target="_blank">GE Predix</a> | <a href="https://www.siemens.com/global/en/products/automation/topic-areas/digital-enterprise.html" target="_blank">Siemens Digital Enterprise</a></p>
+                <p>La Industria 4.0 representa la integración inteligente de sistemas físicos y digitales, donde la IA juega un rol fundamental en el mantenimiento predictivo para anticipar fallos antes de que ocurran y en la optimización continua de procesos.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-ind40-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué valor ve una IA en la industria 4.0?</button>
+                    <div id="ai-ind40-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide 10: Gobernanza de Datos -->
             <section>
                 <h2>Gobernanza de Datos</h2>
-                <p><strong>Objetivo:</strong> Entender la importancia de la gobernanza de datos para IA.</p>
-                <ul>
-                    <li><strong>Calidad de datos:</strong> Precisión, consistencia, actualidad.</li>
-                    <li><strong>Gestión de metadatos:</strong> Catalogación y documentación.</li>
-                    <li><strong>Seguridad y privacidad:</strong> Cumplimiento normativo.</li>
-                    <li><strong>Linaje de datos:</strong> Trazabilidad y control.</li>
-                    <li><strong>Democratización:</strong> Acceso seguro para equipos autorizados.</li>
-                </ul>
-                <p><strong>Buenas prácticas:</strong> Comité de gobernanza, políticas claras, capacitación.</p>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.microsoft.com/en-us/azure/purview/" target="_blank">Microsoft Purview</a> | <a href="https://www.collibra.com/" target="_blank">Collibra</a> | <a href="https://www.informatica.com/products/data-governance.html" target="_blank">Informatica</a></p>
+                <p>La gobernanza de datos es fundamental para el éxito de cualquier iniciativa de IA, asegurando la calidad, precisión y actualidad de la información, así como el cumplimiento de regulaciones de seguridad y privacidad.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-gob-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Por qué es clave la gobernanza según IA?</button>
+                    <div id="ai-gob-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide 11: Talleres y Casos de Uso -->
             <section>
                 <h2>Talleres y Casos de Uso</h2>
-                <p><strong>Objetivo:</strong> Aplicar los conocimientos en escenarios reales.</p>
-                <ul>
-                    <li><strong>Atención al cliente:</strong> Chatbots y asistentes virtuales.</li>
-                    <li><strong>Optimización de rutas:</strong> Logística y transporte inteligente.</li>
-                    <li><strong>Control de calidad:</strong> Automatización y visión por computadora.</li>
-                    <li><strong>Recomendaciones:</strong> Personalización de productos y servicios.</li>
-                    <li><strong>Predicción de demanda:</strong> Análisis de datos para inventarios.</li>
-                </ul>
-                <p><strong>Actividades:</strong> Ideación en grupos, roadmap de implementación, análisis de ROI, identificación de casos de uso.</p>
-                <p><strong>Entregables:</strong> Propuesta de caso de uso, cronograma de 6 meses, lista de recursos.</p>
-                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Metodologías:</strong> <a href="https://www.microsoft.com/en-us/ai/ai-for-good" target="_blank">Microsoft AI for Good</a> | <a href="https://www.datascience-pm.com/crisp-dm-2/" target="_blank">CRISP-DM</a> | <a href="https://aws.amazon.com/ai/machine-learning/" target="_blank">AWS ML Solutions</a></p>
+                <p>Los talleres prácticos de IA son fundamentales para la adopción empresarial exitosa. Desde la implementación de chatbots para atención al cliente hasta algoritmos de optimización de rutas en logística, cada caso de uso debe demostrar valor tangible y ROI medible.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-taller-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué recomienda una IA para talleres?</button>
+                    <div id="ai-taller-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide extra: ¿Por qué IA ahora? -->
             <section>
                 <h2>¿Por qué IA ahora?</h2>
-                <ul>
-                    <li>Avances en hardware y algoritmos.</li>
-                    <li>Disponibilidad masiva de datos.</li>
-                    <li>Demanda de automatización y eficiencia.</li>
-                    <li>Competitividad global y transformación digital.</li>
-                </ul>
-                <canvas id="canvas-ia-now" width="600" height="180" style="margin-top:20px;"></canvas>
+                <p>El momento actual presenta una convergencia única de factores que hacen de la IA una oportunidad sin precedentes: avances exponenciales en hardware, disponibilidad masiva de datos y una demanda empresarial urgente de eficiencia e innovación.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-ahora-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué opina una IA sobre el momento actual?</button>
+                    <div id="ai-ahora-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide extra: ¿Cómo aprende una IA? -->
             <section>
                 <h2>¿Cómo aprende una IA?</h2>
-                <ul>
-                    <li>Entrenamiento con datos históricos.</li>
-                    <li>Identificación de patrones y correlaciones.</li>
-                    <li>Evaluación y ajuste de modelos.</li>
-                    <li>Mejora continua con nuevos datos.</li>
-                </ul>
-                <canvas id="canvas-learn" width="600" height="180" style="margin-top:20px;"></canvas>
+                <p>El proceso de aprendizaje de una IA involucra el entrenamiento continuo con grandes volúmenes de datos, donde los algoritmos identifican patrones complejos y refinan constantemente su capacidad de predicción y toma de decisiones.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-learn-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Cómo lo resumiría una IA?</button>
+                    <div id="ai-learn-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide extra: IA en la vida diaria -->
             <section>
                 <h2>IA en la vida diaria</h2>
-                <ul>
-                    <li>Asistentes de voz y chatbots.</li>
-                    <li>Recomendaciones en plataformas digitales.</li>
-                    <li>Traducción automática y reconocimiento de voz.</li>
-                    <li>Automatización en el hogar y la industria.</li>
-                </ul>
-                <canvas id="canvas-daily" width="600" height="180" style="margin-top:20px;"></canvas>
+                <p>La inteligencia artificial ya forma parte integral de nuestro día a día, desde los asistentes de voz en nuestros teléfonos hasta las recomendaciones personalizadas en plataformas digitales, transformando silenciosamente cómo interactuamos con la tecnología.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-daily-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué ejemplos daría una IA?</button>
+                    <div id="ai-daily-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide 12: Pregunta Final -->
             <section data-background-color="var(--dell-blue-800)">
                 <div class="question">
                     <p>¿Estás listo para idear cómo tu empresa podría usar IA?</p>
-                    <button onclick="showFeedback(this, true, '¡Excelente! Pensemos en ello.')">Sí</button>
-                    <button onclick="showFeedback(this, false, 'No te preocupes, ¡lo exploraremos juntos!')">No estoy seguro</button>
+                    <button onclick="showFeedback(this, true, '¡Excelente! Esta actitud proactiva es clave para el éxito en la transformación digital. Te recomiendo comenzar identificando procesos repetitivos en tu empresa, evaluar qué datos tienes disponibles y considerar casos de uso específicos como automatización de atención al cliente, análisis predictivo de ventas o optimización de operaciones. El primer paso es siempre empezar pequeño con un piloto bien definido.')">Sí</button>
+                    <button onclick="showFeedback(this, false, 'No te preocupes, es completamente normal sentirse abrumado al principio. La IA puede parecer compleja, pero hay muchas herramientas accesibles y consultores especializados que pueden guiarte en el proceso. Lo importante es mantener una mentalidad abierta al aprendizaje. Te sugiero comenzar con casos de uso simples y educarte sobre las posibilidades. ¡Exploraremos juntos las oportunidades para tu industria específica!')">No estoy seguro</button>
                     <p class="feedback" style="display:none;"></p>
                 </div>
             </section>
             <!-- Slide 13: Cierre -->
             <section id="slide-final">
-                <h2>Muchas gracias</h2>
-                <p>¡Gracias por su atención!</p>
+                <h2>Más información</h2>
                 <p>Esperamos que esta formación les sea útil para liderar la transformación digital con IA.</p>
                 <div style="margin-top: 30px; padding: 20px; border: 1px dashed var(--dell-blue-300); background-color: rgba(0,0,0,0.1);">
                     <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap;">
-                        <a href="https://panamcham.com/" target="_blank" style="color:var(--dell-blue-100);">
+                        <a href="https://panamcham.com/" target="_blank" style="color:var(--dell-blue-100);"></a>
                             <img src="https://panamcham.com/sites/default/files/logo.png" alt="Panamcham Logo" style="height: 90px; background-color: white; padding: 10px; border-radius: 5px;">
                         </a>
                         <div id="qrcode" style="display: flex; justify-content: center; margin-top: 0;"></div>
@@ -373,11 +452,31 @@
         let userScore = 0;
         let totalQuestions = 0;
 
+        // Función global reutilizable para efecto de escritura
+        function typeText(element, text, speed = 70, callback = null) {
+            if (!element || !text) return;
+            
+            element.textContent = '';
+            const words = text.split(' ');
+            let i = 0;
+            
+            function typeWord() {
+                if (i < words.length) {
+                    element.textContent += (i === 0 ? '' : ' ') + words[i];
+                    i++;
+                    setTimeout(typeWord, speed);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            typeWord();
+        }
+
         // Marcar los botones correctos para el score
         function showFeedback(buttonEl, isCorrect, customMessage) {
             const feedbackEl = buttonEl.parentElement.querySelector('.feedback');
+            
             if (isCorrect) {
-                feedbackEl.textContent = customMessage || '¡Correcto!';
                 feedbackEl.style.color = 'lightgreen';
                 // Solo sumar si no se ha respondido correctamente antes
                 if (!buttonEl.parentElement.classList.contains('answered-correct')) {
@@ -385,11 +484,18 @@
                     buttonEl.parentElement.classList.add('answered-correct');
                 }
             } else {
-                feedbackEl.textContent = customMessage || 'Inténtalo de nuevo.';
                 feedbackEl.style.color = 'pink';
             }
+            
             feedbackEl.style.display = 'block';
+            feedbackEl.textContent = '';
             buttonEl.classList.add('answered');
+            
+            // Efecto de escritura para el mensaje
+            if (customMessage) {
+                typeText(feedbackEl, customMessage, 60);
+            }
+            
             setTimeout(() => buttonEl.classList.remove('answered'), 600);
         }
 
@@ -438,12 +544,6 @@
                     ctx.lineWidth = 16;
                     ctx.lineCap = 'round';
                     ctx.stroke();
-                    // Texto
-                    // ctx.font = 'bold 1.2em Sans-serif';
-                    // ctx.fillStyle = '#fff';
-                    // ctx.textAlign = 'center';
-                    // ctx.textBaseline = 'middle';
-                    // ctx.fillText(percent + '%', 60, 60);
                 }
             }
         });
@@ -588,6 +688,1128 @@
         }
         Reveal.on('slidechanged', animateCanvasIA);
         window.addEventListener('DOMContentLoaded', animateCanvasIA);
+
+        // AI typing effect for interactive slide
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slide 1: AI autocompleta frase
+            const btn = document.getElementById('ai-answer-btn');
+            const answerDiv = document.getElementById('ai-typing-answer');
+            if (btn && answerDiv) {
+                const aiAnswer = "automatizar tareas repetitivas, analizar grandes volúmenes de datos para tomar mejores decisiones, personalizar la experiencia del cliente y optimizar procesos internos, impulsando así la innovación y la eficiencia en la organización.";
+                let typing = false;
+                btn.addEventListener('click', function() {
+                    if (typing) return;
+                    typing = true;
+                    typeText(answerDiv, aiAnswer, 90, () => { typing = false; });
+                });
+            }
+            // Slide 2: IA identifica necesidades en salud
+            const healthBtn = document.getElementById('ai-health-btn');
+            const healthList = document.getElementById('ai-health-list');
+            if (healthBtn && healthList) {
+                const needs = [
+                    'Digitalización y análisis de historiales médicos',
+                    'Modelos predictivos para anticipar enfermedades',
+                    'Optimización de recursos y logística hospitalaria',
+                    'Sistemas de recomendación para tratamientos personalizados',
+                    'Automatización de procesos administrativos'
+                ];
+                healthBtn.addEventListener('click', function() {
+                    if (healthList.style.display === 'block') return;
+                    healthList.innerHTML = '';
+                    let i = 0;
+                    healthList.style.display = 'block';
+                    function showItem() {
+                        if (i < needs.length) {
+                            const li = document.createElement('li');
+                            li.textContent = needs[i];
+                            healthList.appendChild(li);
+                            i++;
+                            setTimeout(showItem, 400);
+                        }
+                    }
+                    showItem();
+                });
+            }
+            // Slide: IA identifica oportunidades en retail
+            const retailBtn = document.getElementById('ai-retail-btn');
+            const retailList = document.getElementById('ai-retail-list');
+            if (retailBtn && retailList) {
+                const items = [
+                    'Personalización de recomendaciones y ofertas',
+                    'Optimización dinámica de inventarios',
+                    'Análisis predictivo de tendencias de consumo',
+                    'Automatización de atención al cliente',
+                    'Gestión inteligente de precios y promociones'
+                ];
+                retailBtn.addEventListener('click', function() {
+                    if (retailList.style.display === 'block') return;
+                    retailList.innerHTML = '';
+                    let i = 0;
+                    retailList.style.display = 'block';
+                    function showItem() {
+                        if (i < items.length) {
+                            const li = document.createElement('li');
+                            li.textContent = items[i];
+                            retailList.appendChild(li);
+                            i++;
+                            setTimeout(showItem, 400);
+                        }
+                    }
+                    showItem();
+                });
+            }
+            // Slide: IA identifica mejoras en logística
+            const logBtn = document.getElementById('ai-log-btn');
+            const logList = document.getElementById('ai-log-list');
+            if (logBtn && logList) {
+                const items = [
+                    'Optimización de rutas en tiempo real',
+                    'Predicción de demanda y volúmenes de envío',
+                    'Automatización de la gestión de flotas',
+                    'Reducción de tiempos y costos de entrega',
+                    'Monitoreo inteligente de mercancías'
+                ];
+                logBtn.addEventListener('click', function() {
+                    if (logList.style.display === 'block') return;
+                    logList.innerHTML = '';
+                    let i = 0;
+                    logList.style.display = 'block';
+                    function showItem() {
+                        if (i < items.length) {
+                            const li = document.createElement('li');
+                            li.textContent = items[i];
+                            logList.appendChild(li);
+                            i++;
+                            setTimeout(showItem, 400);
+                        }
+                    }
+                    showItem();
+                });
+            }
+            // Slide 3: IA responde a pregunta sobre PDF
+            const pdfBtn = document.getElementById('ai-pdf-btn');
+            const pdfAnswer = document.getElementById('ai-pdf-answer');
+            if (pdfBtn && pdfAnswer) {
+                const answer = "La IA puede optimizar cadenas de suministro, reducir desperdicios mediante predicción de demanda, mejorar la trazabilidad de productos y facilitar el cumplimiento de regulaciones ambientales, contribuyendo así a un comercio internacional más sostenible y eficiente.";
+                let typing = false;
+                pdfBtn.addEventListener('click', function() {
+                    if (typing) return;
+                    typing = true;
+                    typeText(pdfAnswer, answer, 80, () => { typing = false; });
+                });
+            }
+            // ¿Cómo lo explicaría una IA?
+            const aiDefBtn = document.getElementById('ai-def-btn');
+            const aiDefAnswer = document.getElementById('ai-def-answer');
+            if (aiDefBtn && aiDefAnswer) {
+                const defText = 'La inteligencia artificial es la capacidad de sistemas informáticos para realizar tareas que normalmente requieren inteligencia humana, como el aprendizaje (adquiriendo conocimiento de datos), el razonamiento (usando lógica para tomar decisiones) y la resolución de problemas (encontrando soluciones óptimas). Piensa en ello como crear \'mentes\' digitales que pueden asistirnos o incluso superar nuestras capacidades en áreas específicas.';
+                aiDefBtn.addEventListener('click', function() {
+                    typeText(aiDefAnswer, defText, 70);
+                });
+            }
+            // Historia IA
+            const aiHistBtn = document.getElementById('ai-hist-btn');
+            const aiHistAnswer = document.getElementById('ai-hist-answer');
+            if (aiHistBtn && aiHistAnswer) {
+                const histText = "La historia de la IA es un viaje fascinante. Comenzó en los años 50 con pioneros como Alan Turing, quien se preguntó si las máquinas podían pensar. Pasamos por 'inviernos de IA' (períodos de poco financiamiento) y 'veranos' de avances, como el auge del Machine Learning en los 80 y 90. Hoy, con el Big Data y el poder computacional, modelos como ChatGPT demuestran un salto cuántico, transformando cómo interactuamos con la tecnología y abriendo puertas a innovaciones antes inimaginables en todas las industrias.";
+                aiHistBtn.addEventListener('click', function() {
+                    typeText(aiHistAnswer, histText, 70);
+                });
+            }
+            // Tipos IA
+            const aiTiposBtn = document.getElementById('ai-tipos-btn');
+            const aiTiposAnswer = document.getElementById('ai-tipos-answer');
+            if (aiTiposBtn && aiTiposAnswer) {
+                const tiposText = "Principalmente, distinguimos tres tipos: 1) IA Débil o Estrecha (ANI): Es la que vemos hoy, especializada en tareas específicas (ej. reconocimiento facial, chatbots). ¡Es muy buena en lo que hace, pero no tiene conciencia! 2) IA General (AGI): El santo grial. Una IA con la capacidad intelectual de un ser humano, capaz de aprender y razonar en cualquier dominio. Aún es teórica. 3) Superinteligencia (ASI): Una IA que superaría la inteligencia humana en todos los aspectos. Es un concepto futurista con grandes implicaciones éticas y de seguridad.";
+                aiTiposBtn.addEventListener('click', function() {
+                    typeText(aiTiposAnswer, tiposText, 70);
+                });
+            }
+            // Subcampos y aplicaciones
+            const aiAppsBtn = document.getElementById('ai-apps-btn');
+            const aiAppsAnswer = document.getElementById('ai-apps-answer');
+            if (aiAppsBtn && aiAppsAnswer) {
+                const appsText = "La IA es un campo vasto. Algunos subcampos clave son: Machine Learning (sistemas que aprenden de datos, como para predecir ventas), Procesamiento del Lenguaje Natural (NLP) (para que las máquinas entiendan y generen lenguaje humano, como en chatbots o traducción automática), y Visión por Computadora (para interpretar imágenes, usado en control de calidad o vehículos autónomos). Las aplicaciones son infinitas: desde optimizar la manufactura y diagnosticar enfermedades en salud, hasta personalizar la educación y descubrir nuevos fármacos.";
+                aiAppsBtn.addEventListener('click', function() {
+                    typeText(aiAppsAnswer, appsText, 70);
+                });
+            }
+            // Mitos vs realidad
+            const aiMitosBtn = document.getElementById('ai-mitos-btn');
+            const aiMitosAnswer = document.getElementById('ai-mitos-answer');
+            if (aiMitosBtn && aiMitosAnswer) {
+                const mitosText = "¡Desmitifiquemos! Mito 1: 'La IA nos quitará todos los trabajos'. Realidad: La IA transformará trabajos, automatizando tareas repetitivas y creando nuevos roles que requieren colaboración humano-IA. Mito 2: 'La IA es consciente y malvada como en las películas'. Realidad: La IA actual es una herramienta; no tiene intenciones ni conciencia. La ética y la gobernanza son cruciales para guiar su desarrollo responsable. Mito 3: 'Necesitas ser un genio matemático para usar IA'. Realidad: Cada vez hay más herramientas 'low-code' y 'no-code' que democratizan el acceso a la IA para resolver problemas de negocio.";
+                aiMitosBtn.addEventListener('click', function() {
+                    typeText(aiMitosAnswer, mitosText, 70);
+                });
+            }
+            // IA ética
+            const aiEthicsBtn = document.getElementById('ai-ethics-btn');
+            const aiEthicsAnswer = document.getElementById('ai-ethics-answer');
+            if (aiEthicsBtn && aiEthicsAnswer) {
+                const ethicsText = "La ética en IA es fundamental. No se trata solo de lo que la IA *puede* hacer, sino de lo que *debería* hacer. Principios clave incluyen: Justicia y Equidad (evitar sesgos discriminatorios en los datos o algoritmos), Transparencia y Explicabilidad (entender cómo toma decisiones una IA), Responsabilidad (quién es responsable si una IA comete un error), Privacidad (proteger los datos personales) y Seguridad (asegurar que los sistemas sean robustos y no se usen maliciosamente). Una IA ética inspira confianza y asegura que beneficie a la humanidad.";
+                aiEthicsBtn.addEventListener('click', function() {
+                    typeText(aiEthicsAnswer, ethicsText, 70);
+                });
+            }
+            // Agentes de IA
+            const aiAgentsBtn = document.getElementById('ai-agents-btn');
+            const aiAgentsAnswer = document.getElementById('ai-agents-answer');
+            if (aiAgentsBtn && aiAgentsAnswer) {
+                const agentsText = "Los agentes de IA son como empleados digitales súper especializados que nunca duermen. En ventas, pueden cualificar prospectos 24/7, analizar patrones de compra y personalizar ofertas. En soporte, resuelven consultas instantáneamente y escalan casos complejos. En finanzas, monitean transacciones en tiempo real y detectan anomalías. Lo revolucionario es que pueden colaborar entre sí: un agente detecta una oportunidad, otro la analiza, y un tercero ejecuta la acción. Es como tener un equipo de especialistas trabajando en perfecta sincronía.";
+                aiAgentsBtn.addEventListener('click', function() {
+                    typeText(aiAgentsAnswer, agentsText, 70);
+                });
+            }
+            const aiGenBtn = document.getElementById('ai-gen-btn');
+            const aiGenAnswer = document.getElementById('ai-gen-answer');
+            if (aiGenBtn && aiGenAnswer) {
+                const genText = "La IA generativa es fascinante porque puede crear contenido nuevo: texto, imágenes, música, código. A diferencia de la IA tradicional que clasifica o predice, la generativa 'imagina' y produce. GPT genera texto coherente, DALL-E crea imágenes a partir de descripciones, y herramientas como GitHub Copilot escriben código. Funciona entrenando modelos en enormes datasets para aprender patrones y luego generar variaciones creativas. Es una revolución para contenido, marketing, diseño y programación.";
+                aiGenBtn.addEventListener('click', function() {
+                    typeText(aiGenAnswer, genText, 70);
+                });
+            }
+            // Industria 4.0
+            const aiInd40Btn = document.getElementById('ai-ind40-btn');
+            const aiInd40Answer = document.getElementById('ai-ind40-answer');
+            if (aiInd40Btn && aiInd40Answer) {
+                const ind40Text = "La Industria 4.0 es donde la IA realmente brilla. Imagina fábricas que se auto-optimizan: sensores IoT recopilan datos en tiempo real, la IA predice cuándo una máquina fallará antes de que ocurra (mantenimiento predictivo), robots colaborativos trabajan junto a humanos, y sistemas inteligentes ajustan la producción según la demanda. Esto reduce costos, mejora calidad, minimiza desperdicios y maximiza eficiencia. Es la convergencia de lo físico y lo digital.";
+                aiInd40Btn.addEventListener('click', function() {
+                    typeText(aiInd40Answer, ind40Text, 70);
+                });
+            }
+            // Gobernanza de datos
+            const aiGobBtn = document.getElementById('ai-gob-btn');
+            const aiGobAnswer = document.getElementById('ai-gob-answer');
+            if (aiGobBtn && aiGobAnswer) {
+                const gobText = "Los datos son el combustible de la IA, por eso la gobernanza es crucial. Sin datos de calidad, la IA más sofisticada fallará. La gobernanza asegura que los datos sean: precisos (sin errores), actualizados (relevantes al momento), seguros (protegidos de accesos no autorizados), y cumplan regulaciones como GDPR. También establece quién puede acceder a qué datos, cómo se usan, y garantiza trazabilidad. Es la base para una IA confiable y efectiva.";
+                aiGobBtn.addEventListener('click', function() {
+                    typeText(aiGobAnswer, gobText, 70);
+                });
+            }
+            // Talleres y casos de uso
+            const aiTallerBtn = document.getElementById('ai-taller-btn');
+            const aiTallerAnswer = document.getElementById('ai-taller-answer');
+            if (aiTallerBtn && aiTallerAnswer) {
+                const tallerText = "Para talleres efectivos de IA, recomiendo enfoque práctico y específico por industria. Empiecen con casos de uso tangibles: en atención al cliente, implementen chatbots que resuelvan el 80% de consultas básicas. En logística, usen algoritmos de optimización de rutas que reduzcan costos de combustible 15-20%. Incluyan demos en vivo, datos reales anonimizados, y métricas de ROI. El secreto es mostrar valor inmediato y escalable.";
+                aiTallerBtn.addEventListener('click', function() {
+                    typeText(aiTallerAnswer, tallerText, 70);
+                });
+            }
+            // Por qué IA ahora
+            const aiAhoraBtn = document.getElementById('ai-ahora-btn');
+            const aiAhoraAnswer = document.getElementById('ai-ahora-answer');
+            if (aiAhoraBtn && aiAhoraAnswer) {
+                const ahoraText = "El momento de la IA es AHORA por la convergencia perfecta de factores: tenemos poder computacional masivo (GPUs, cloud computing), enormes volúmenes de datos (Big Data), algoritmos avanzados (deep learning), y APIs accesibles que democratizan la IA. Los costos han bajado dramáticamente mientras que la competencia empresarial exige eficiencia e innovación. Las empresas que adopten IA hoy tendrán ventaja competitiva sostenible mañana.";
+                aiAhoraBtn.addEventListener('click', function() {
+                    typeText(aiAhoraAnswer, ahoraText, 70);
+                });
+            }
+            // Cómo aprende una IA
+            const aiLearnBtn = document.getElementById('ai-learn-btn');
+            const aiLearnAnswer = document.getElementById('ai-learn-answer');
+            if (aiLearnBtn && aiLearnAnswer) {
+                const learnText = "Una IA aprende como un estudiante súper dedicado que nunca se cansa. Le damos miles o millones de ejemplos (datos de entrenamiento), identifica patrones matemáticos complejos, ajusta sus parámetros internos para minimizar errores, y generaliza ese conocimiento para datos nuevos. Es como enseñar a reconocer gatos mostrando 10,000 fotos de gatos hasta que pueda identificar cualquier gato nuevo. La mejora es continua con más datos y feedback.";
+                aiLearnBtn.addEventListener('click', function() {
+                    typeText(aiLearnAnswer, learnText, 70);
+                });
+            }
+            // IA en la vida diaria
+            const aiDailyBtn = document.getElementById('ai-daily-btn');
+            const aiDailyAnswer = document.getElementById('ai-daily-answer');
+            if (aiDailyBtn && aiDailyAnswer) {
+                const dailyText = "La IA ya está en todas partes de nuestra vida diaria: Siri y Alexa nos ayudan con tareas, Netflix sabe qué series nos gustarán, Google Maps optimiza nuestras rutas, los bancos detectan fraudes en tiempo real, las cámaras de nuestros teléfonos mejoran automáticamente las fotos, y los algoritmos de redes sociales curan nuestro feed. Incluso el autocorrector que uso ahora es IA. Es invisible pero omnipresente.";
+                aiDailyBtn.addEventListener('click', function() {
+                    typeText(aiDailyAnswer, dailyText, 70);
+                });
+            }
+            // Explicación IA en preguntas de opción
+            document.querySelectorAll('.question button').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const feedback = btn.parentElement.querySelector('.feedback');
+                    if (feedback && !feedback.dataset.ai) {
+                        let aiMsg = '';
+                        if (btn.textContent.includes('IA Aplicada')) aiMsg = 'La IA Aplicada no es un subcampo, sino una forma de uso.';
+                        if (btn.textContent.includes('Transparencia')) aiMsg = 'La transparencia permite entender cómo decide una IA.';
+                        if (btn.textContent.includes('GPT')) aiMsg = 'GPT es un modelo generativo capaz de crear texto.';
+                        if (aiMsg) feedback.innerHTML += `<br><span style='color:#5CC1EE;'>🤖 ${aiMsg}</span>`;
+                        feedback.dataset.ai = '1';
+                    }
+                });
+            });
+
+            // Diseño CAD interactivo en canvas
+            const designCanvas = document.getElementById('canvas-design');
+            const designBtn = document.getElementById('design-btn');
+            const cadExplanation = document.getElementById('cad-explanation');
+            if (designCanvas && designBtn) {
+                const ctx = designCanvas.getContext('2d');
+                
+                function drawOriginalCAD() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo técnico
+                    ctx.fillStyle = '#0a1420';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Grid técnico
+                    ctx.strokeStyle = '#1a3a5c';
+                    ctx.lineWidth = 0.5;
+                    for(let i = 0; i < 500; i += 20) {
+                        ctx.beginPath();
+                        ctx.moveTo(i, 0);
+                        ctx.lineTo(i, 300);
+                        ctx.stroke();
+                    }
+                    for(let i = 0; i < 300; i += 20) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, i);
+                        ctx.lineTo(500, i);
+                        ctx.stroke();
+                    }
+                    
+                    // Pieza mecánica original - Soporte básico
+                    ctx.strokeStyle = '#5CC1EE';
+                    ctx.lineWidth = 2;
+                    ctx.fillStyle = 'rgba(92, 193, 238, 0.1)';
+                    
+                    // Base rectangular
+                    ctx.beginPath();
+                    ctx.rect(100, 180, 200, 60);
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    // Soporte vertical simple
+                    ctx.beginPath();
+                    ctx.rect(180, 120, 40, 60);
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    // Agujeros de montaje básicos
+                    ctx.fillStyle = '#001122';
+                    ctx.beginPath();
+                    ctx.arc(120, 210, 8, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(280, 210, 8, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Dimensiones básicas
+                    ctx.fillStyle = '#94DCF7';
+                    ctx.font = '10px monospace';
+                    ctx.fillText('200mm', 160, 175);
+                    ctx.fillText('60mm', 85, 215);
+                    
+                    // Etiqueta
+                    ctx.fillStyle = '#FFB347';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Diseño Original', 320, 50);
+                    ctx.fillText('Material: Acero', 320, 70);
+                    ctx.fillText('Peso: 2.3kg', 320, 90);
+                }
+                
+                function drawOptimizedCAD() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo técnico mejorado
+                    ctx.fillStyle = '#0a1420';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Grid técnico más refinado
+                    ctx.strokeStyle = '#1a3a5c';
+                    ctx.lineWidth = 0.5;
+                    for(let i = 0; i < 500; i += 15) {
+                        ctx.beginPath();
+                        ctx.moveTo(i, 0);
+                        ctx.lineTo(i, 300);
+                        ctx.stroke();
+                    }
+                    for(let i = 0; i < 300; i += 15) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, i);
+                        ctx.lineTo(500, i);
+                        ctx.stroke();
+                    }
+                    
+                    // Pieza optimizada por IA
+                    ctx.strokeStyle = '#31A2E3';
+                    ctx.lineWidth = 2;
+                    ctx.fillStyle = 'rgba(49, 162, 227, 0.15)';
+                    
+                    // Base optimizada con nervaduras
+                    ctx.beginPath();
+                    ctx.rect(90, 180, 220, 50);
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    // Nervaduras de refuerzo
+                    ctx.strokeStyle = '#5CC1EE';
+                    ctx.lineWidth = 1.5;
+                    for(let x = 110; x < 300; x += 30) {
+                        ctx.beginPath();
+                        ctx.moveTo(x, 230);
+                        ctx.lineTo(x + 10, 200);
+                        ctx.lineTo(x + 20, 230);
+                        ctx.stroke();
+                    }
+                    
+                    // Soporte vertical optimizado con alivios
+                    ctx.fillStyle = 'rgba(49, 162, 227, 0.15)';
+                    ctx.strokeStyle = '#31A2E3';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(170, 180);
+                    ctx.lineTo(170, 120);
+                    ctx.quadraticCurveTo(180, 110, 190, 115);
+                    ctx.lineTo(210, 115);
+                    ctx.quadraticCurveTo(220, 110, 230, 120);
+                    ctx.lineTo(230, 180);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    // Alivios de material (círculos)
+                    ctx.fillStyle = '#001122';
+                    ctx.beginPath();
+                    ctx.arc(185, 140, 12, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(215, 140, 12, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Agujeros de montaje optimizados
+                    ctx.fillStyle = '#001122';
+                    ctx.beginPath();
+                    ctx.arc(110, 205, 6, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(200, 205, 6, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(290, 205, 6, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Dimensiones optimizadas
+                    ctx.fillStyle = '#94DCF7';
+                    ctx.font = '10px monospace';
+                    ctx.fillText('220mm', 170, 175);
+                    ctx.fillText('50mm', 75, 210);
+                    
+                    // Análisis de esfuerzos (colores)
+                    ctx.fillStyle = 'rgba(255, 179, 71, 0.3)';
+                    ctx.beginPath();
+                    ctx.arc(200, 130, 25, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    ctx.fillStyle = 'rgba(46, 204, 113, 0.3)';
+                    ctx.beginPath();
+                    ctx.ellipse(200, 205, 80, 15, 0, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Etiquetas mejoradas
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Diseño Optimizado por IA', 320, 50);
+                    ctx.fillStyle = '#31A2E3';
+                    ctx.fillText('Material: Aleación Al-Ti', 320, 70);
+                    ctx.fillText('Peso: 1.4kg (-39%)', 320, 90);
+                    ctx.fillText('Resistencia: +25%', 320, 110);
+                    ctx.fillText('Costo: -18%', 320, 130);
+                    
+                    // Leyenda de análisis
+                    ctx.fillStyle = '#FFB347';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('● Esfuerzo máximo', 320, 160);
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.fillText('● Zona segura', 320, 175);
+                }
+                
+                drawOriginalCAD();
+                
+                designBtn.addEventListener('click', () => {
+                    if (designBtn.disabled) return;
+                    
+                    designBtn.disabled = true;
+                    designBtn.textContent = 'Analizando geometría...';
+                    
+                    // Simulación de análisis IA
+                    setTimeout(() => {
+                        designBtn.textContent = 'Optimizando material...';
+                        setTimeout(() => {
+                            designBtn.textContent = 'Calculando esfuerzos...';
+                            setTimeout(() => {
+                                drawOptimizedCAD();
+                                designBtn.textContent = 'Optimización Completa';
+                                
+                                // Explicación detallada
+                                const explanation = "La IA analizó el diseño original y aplicó optimización topológica: redujo el peso 39% mediante alivios estratégicos, agregó nervaduras de refuerzo que aumentan la resistencia 25%, optimizó la distribución de material según análisis de elementos finitos, y sugirió una aleación Al-Ti que reduce costos 18% manteniendo propiedades mecánicas superiores.";
+                                
+                                typeText(cadExplanation, explanation, 80);
+                                
+                            }, 1000);
+                        }, 800);
+                    }, 600);
+                });
+            }
+
+            // Gestión de Proyectos IA
+            const projectCanvas = document.getElementById('canvas-project');
+            const projectBtn = document.getElementById('project-btn');
+            const projectExplanation = document.getElementById('project-explanation');
+            
+            if (projectCanvas && projectBtn) {
+                const ctx = projectCanvas.getContext('2d');
+                
+                function drawOriginalProject() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo oscuro para dashboard
+                    ctx.fillStyle = '#0f1419';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título del proyecto
+                    ctx.fillStyle = '#5CC1EE';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.fillText('Proyecto: Sistema ERP', 20, 30);
+                    
+                    // Línea de tiempo base
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 80);
+                    ctx.lineTo(450, 80);
+                    ctx.stroke();
+                    
+                    // Tareas originales - barras Gantt básicas
+                    const tasks = [
+                        { name: 'Análisis', start: 60, duration: 80, y: 100, color: '#FFB347', progress: 100 },
+                        { name: 'Diseño', start: 120, duration: 90, y: 130, color: '#31A2E3', progress: 70 },
+                        { name: 'Desarrollo', start: 180, duration: 120, y: 160, color: '#2ECC71', progress: 30 },
+                        { name: 'Testing', start: 280, duration: 60, y: 190, color: '#E74C3C', progress: 0 },
+                        { name: 'Deployment', start: 320, duration: 40, y: 220, color: '#9B59B6', progress: 0 }
+                    ];
+                    
+                    tasks.forEach(task => {
+                        // Barra de tarea
+                        ctx.fillStyle = task.color + '40';
+                        ctx.fillRect(task.start, task.y, task.duration, 20);
+                        ctx.strokeStyle = task.color;
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(task.start, task.y, task.duration, 20);
+                        
+                        // Progreso
+                        if (task.progress > 0) {
+                            ctx.fillStyle = task.color;
+                            ctx.fillRect(task.start, task.y, task.duration * (task.progress/100), 20);
+                        }
+                        
+                        // Nombre de tarea
+                        ctx.fillStyle = '#D9F5FD';
+                        ctx.font = '10px Arial';
+                        ctx.fillText(task.name, task.start, task.y - 5);
+                        
+                        // Duración
+                        ctx.fillStyle = '#94DCF7';
+                        ctx.font = '9px Arial';
+                        ctx.fillText(`${task.duration/10}sem`, task.start + task.duration + 5, task.y + 12);
+                    });
+                    
+                    // Fechas
+                    ctx.fillStyle = '#5CC1EE';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('Ene', 60, 95);
+                    ctx.fillText('Feb', 120, 95);
+                    ctx.fillText('Mar', 180, 95);
+                    ctx.fillText('Abr', 240, 95);
+                    ctx.fillText('May', 300, 95);
+                    ctx.fillText('Jun', 360, 95);
+                    
+                    // Indicadores de problemas
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.beginPath();
+                    ctx.arc(250, 170, 8, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.fillStyle = '#fff';
+                    ctx.font = 'bold 10px Arial';
+                    ctx.fillText('!', 247, 174);
+                    
+                    // Etiqueta estado
+                    ctx.fillStyle = '#FFB347';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Cronograma Original', 320, 30);
+                    ctx.fillText('Duración: 18 semanas', 320, 50);
+                    ctx.fillText('Riesgo: Alto', 320, 70);
+                }
+                
+                function drawOptimizedProject() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo mejorado
+                    ctx.fillStyle = '#0f1419';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título optimizado
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.fillText('Proyecto: Sistema ERP (Optimizado por IA)', 20, 30);
+                    
+                    // Línea de tiempo optimizada
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 80);
+                    ctx.lineTo(400, 80);
+                    ctx.stroke();
+                    
+                    // Tareas optimizadas con paralelización
+                    const optimizedTasks = [
+                        { name: 'Análisis', start: 60, duration: 60, y: 100, color: '#FFB347', progress: 100 },
+                        { name: 'Diseño', start: 100, duration: 70, y: 130, color: '#31A2E3', progress: 85 },
+                        { name: 'Dev Frontend', start: 150, duration: 80, y: 160, color: '#2ECC71', progress: 40 },
+                        { name: 'Dev Backend', start: 150, duration: 90, y: 190, color: '#2ECC71', progress: 35 },
+                        { name: 'Testing', start: 240, duration: 50, y: 160, color: '#E74C3C', progress: 0 },
+                        { name: 'Deployment', start: 280, duration: 30, y: 220, color: '#9B59B6', progress: 0 }
+                    ];
+                    
+                    // Conectores de dependencias
+                    ctx.strokeStyle = '#5CC1EE';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([3, 3]);
+                    ctx.beginPath();
+                    ctx.moveTo(120, 110);
+                    ctx.lineTo(100, 140);
+                    ctx.moveTo(170, 140);
+                    ctx.lineTo(150, 170);
+                    ctx.moveTo(170, 140);
+                    ctx.lineTo(150, 200);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    optimizedTasks.forEach(task => {
+                        // Barra de tarea optimizada
+                        ctx.fillStyle = task.color + '50';
+                        ctx.fillRect(task.start, task.y, task.duration, 20);
+                        ctx.strokeStyle = task.color;
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(task.start, task.y, task.duration, 20);
+                        
+                        // Progreso con gradiente
+                        if (task.progress > 0) {
+                            let gradient = ctx.createLinearGradient(task.start, task.y, task.start + task.duration, task.y + 20);
+                            gradient.addColorStop(0, task.color);
+                            gradient.addColorStop(1, task.color + '80');
+                            ctx.fillStyle = gradient;
+                            ctx.fillRect(task.start, task.y, task.duration * (task.progress/100), 20);
+                        }
+                        
+                        // Nombre de tarea
+                        ctx.fillStyle = '#D9F5FD';
+                        ctx.font = 'bold 10px Arial';
+                        ctx.fillText(task.name, task.start, task.y - 5);
+                        
+                        // Duración optimizada
+                        ctx.fillStyle = '#2ECC71';
+                        ctx.font = '9px Arial';
+                        ctx.fillText(`${task.duration/10}sem`, task.start + task.duration + 5, task.y + 12);
+                    });
+                    
+                    // Fechas optimizadas
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('Ene', 60, 95);
+                    ctx.fillText('Feb', 120, 95);
+                    ctx.fillText('Mar', 180, 95);
+                    ctx.fillText('Abr', 240, 95);
+                    ctx.fillText('May', 300, 95);
+                    
+                    // Indicadores de mejora
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.beginPath();
+                    ctx.arc(250, 170, 8, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.fillStyle = '#fff';
+                    ctx.font = 'bold 10px Arial';
+                    ctx.fillText('✓', 246, 174);
+                    
+                    // Alertas IA
+                    ctx.fillStyle = '#31A2E3';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🤖 Paralelización detectada', 320, 170);
+                    ctx.fillText('🤖 Recurso optimizado', 320, 185);
+                    ctx.fillText('🤖 Riesgo mitigado', 320, 200);
+                    
+                    // Etiqueta estado optimizado
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Cronograma Optimizado por IA', 320, 30);
+                    ctx.fillText('Duración: 14 semanas (-22%)', 320, 50);
+                    ctx.fillText('Riesgo: Bajo', 320, 70);
+                    ctx.fillText('Recursos: Optimizados', 320, 90);
+                }
+                
+                drawOriginalProject();
+                
+                projectBtn.addEventListener('click', () => {
+                    if (projectBtn.disabled) return;
+                    
+                    projectBtn.disabled = true;
+                    projectBtn.textContent = 'Analizando dependencias...';
+                    
+                    setTimeout(() => {
+                        projectBtn.textContent = 'Identificando cuellos de botella...';
+                        setTimeout(() => {
+                            projectBtn.textContent = 'Optimizando recursos...';
+                            setTimeout(() => {
+                                drawOptimizedProject();
+                                projectBtn.textContent = 'Optimización Completa';
+                                
+                                const explanation = "La IA analizó el cronograma y aplicó optimización inteligente: identificó oportunidades de paralelización reduciendo 4 semanas del proyecto, optimizó la asignación de recursos detectando sobrecargas, sugirió reagrupación de tareas relacionadas, y implementó alertas predictivas para mitigar riesgos antes de que impacten el cronograma.";
+                                
+                                typeText(projectExplanation, explanation, 80);
+                                
+                            }, 1200);
+                        }, 900);
+                    }, 700);
+                });
+            }
+
+            // Diagnóstico Médico IA
+            const medicalCanvas = document.getElementById('canvas-medical');
+            const medicalBtn = document.getElementById('medical-btn');
+            const medicalExplanation = document.getElementById('medical-explanation');
+            
+            if (medicalCanvas && medicalBtn) {
+                const ctx = medicalCanvas.getContext('2d');
+                
+                function drawOriginalXray() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo médico oscuro
+                    ctx.fillStyle = '#0c0c0c';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Marco de rayos X
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(60, 40, 200, 220);
+                    
+                    // Radiografía de tórax simulada
+                    // Fondo de pulmones
+                    ctx.fillStyle = '#1a1a1a';
+                    ctx.fillRect(65, 45, 190, 210);
+                    
+                    // Costillas
+                    ctx.strokeStyle = '#666';
+                    ctx.lineWidth = 1;
+                    for(let i = 0; i < 8; i++) {
+                        ctx.beginPath();
+                        ctx.arc(160, 80 + i*20, 60 - i*3, 0.2, Math.PI - 0.2);
+                        ctx.stroke();
+                    }
+                    
+                    // Columna vertebral
+                    ctx.strokeStyle = '#888';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(160, 60);
+                    ctx.lineTo(160, 240);
+                    ctx.stroke();
+                    
+                    // Vértebras
+                    for(let i = 0; i < 12; i++) {
+                        ctx.fillStyle = '#666';
+                        ctx.fillRect(155, 65 + i*15, 10, 8);
+                    }
+                    
+                    // Pulmones
+                    ctx.fillStyle = '#2a2a2a';
+                    // Pulmón izquierdo
+                    ctx.beginPath();
+                    ctx.ellipse(120, 150, 40, 70, 0, 0, 2*Math.PI);
+                    ctx.fill();
+                    // Pulmón derecho
+                    ctx.beginPath();
+                    ctx.ellipse(200, 150, 40, 70, 0, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Corazón
+                    ctx.fillStyle = '#444';
+                    ctx.beginPath();
+                    ctx.ellipse(145, 140, 25, 35, -0.3, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Información del paciente
+                    ctx.fillStyle = '#5CC1EE';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Paciente: J. Pérez', 280, 60);
+                    ctx.fillText('Edad: 45 años', 280, 80);
+                    ctx.fillText('Estudio: Tórax AP', 280, 100);
+                    ctx.fillText('Fecha: 15/12/2024', 280, 120);
+                    
+                    ctx.fillStyle = '#FFB347';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Análisis Manual:', 280, 150);
+                    ctx.fillStyle = '#D9F5FD';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('• Revisión requerida', 280, 170);
+                    ctx.fillText('• Tiempo: 15-20 min', 280, 185);
+                    ctx.fillText('• Especialista disponible', 280, 200);
+                }
+                
+                function drawAIAnalyzedXray() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo médico mejorado
+                    ctx.fillStyle = '#0c0c0c';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Marco de rayos X con mejoras IA
+                    ctx.strokeStyle = '#31A2E3';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(60, 40, 200, 220);
+                    
+                    // Radiografía con análisis IA
+                    ctx.fillStyle = '#1a1a1a';
+                    ctx.fillRect(65, 45, 190, 210);
+                    
+                    // Costillas con overlay de análisis
+                    ctx.strokeStyle = '#666';
+                    ctx.lineWidth = 1;
+                    for(let i = 0; i < 8; i++) {
+                        ctx.beginPath();
+                        ctx.arc(160, 80 + i*20, 60 - i*3, 0.2, Math.PI - 0.2);
+                        ctx.stroke();
+                    }
+                    
+                    // Columna vertebral
+                    ctx.strokeStyle = '#888';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(160, 60);
+                    ctx.lineTo(160, 240);
+                    ctx.stroke();
+                    
+                    // Vértebras
+                    for(let i = 0; i < 12; i++) {
+                        ctx.fillStyle = '#666';
+                        ctx.fillRect(155, 65 + i*15, 10, 8);
+                    }
+                    
+                    // Pulmones con análisis
+                    ctx.fillStyle = '#2a2a2a';
+                    // Pulmón izquierdo
+                    ctx.beginPath();
+                    ctx.ellipse(120, 150, 40, 70, 0, 0, 2*Math.PI);
+                    ctx.fill();
+                    // Pulmón derecho
+                    ctx.beginPath();
+                    ctx.ellipse(200, 150, 40, 70, 0, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Corazón
+                    ctx.fillStyle = '#444';
+                    ctx.beginPath();
+                    ctx.ellipse(145, 140, 25, 35, -0.3, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Overlay de análisis IA
+                    // Área de interés detectada
+                    ctx.strokeStyle = '#E74C3C';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    ctx.ellipse(185, 120, 15, 20, 0, 0, 2*Math.PI);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    // Marcadores de confianza
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.beginPath();
+                    ctx.arc(120, 150, 5, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(200, 180, 5, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Área de medición automática
+                    ctx.strokeStyle = '#31A2E3';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(130, 130);
+                    ctx.lineTo(170, 130);
+                    ctx.stroke();
+                    ctx.fillStyle = '#31A2E3';
+                    ctx.font = '8px Arial';
+                    ctx.fillText('12.5cm', 135, 125);
+                    
+                    // Información del paciente con IA
+                    ctx.fillStyle = '#5CC1EE';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Paciente: J. Pérez', 280, 60);
+                    ctx.fillText('Edad: 45 años', 280, 80);
+                    ctx.fillText('Estudio: Tórax AP', 280, 100);
+                    ctx.fillText('Fecha: 15/12/2024', 280, 120);
+                    
+                    // Análisis IA
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Análisis IA Completo:', 280, 150);
+                    
+                    ctx.fillStyle = '#31A2E3';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('✓ Estructuras normales: 95%', 280, 170);
+                    
+                    ctx.fillStyle = '#FFB347';
+                    ctx.fillText('⚠ Área de interés detectada', 280, 185);
+                    ctx.fillText('   Confianza: 87%', 280, 200);
+                    
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.fillText('⏱ Tiempo análisis: 2.3 seg', 280, 215);
+                    ctx.fillText('📋 Reporte generado', 280, 230);
+                    
+                    // Mediciones automáticas
+                    ctx.fillStyle = '#D9F5FD';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('Mediciones automáticas:', 280, 250);
+                    ctx.fillText('• Ratio cardiotorácico: 0.48', 285, 265);
+                    ctx.fillText('• Diámetro AP: Normal', 285, 280);
+                }
+                
+                drawOriginalXray();
+                
+                medicalBtn.addEventListener('click', () => {
+                    if (medicalBtn.disabled) return;
+                    
+                    medicalBtn.disabled = true;
+                    medicalBtn.textContent = 'Procesando imagen...';
+                    
+                    setTimeout(() => {
+                        medicalBtn.textContent = 'Detectando estructuras...';
+                        setTimeout(() => {
+                            medicalBtn.textContent = 'Analizando patrones...';
+                            setTimeout(() => {
+                                drawAIAnalyzedXray();
+                                medicalBtn.textContent = 'Análisis Completo';
+                                
+                                const explanation = "La IA procesó la radiografía en segundos usando visión por computadora: identificó automáticamente estructuras anatómicas con 95% de precisión, detectó un área de interés que requiere atención médica, realizó mediciones precisas del ratio cardiotorácico y generó un reporte estructurado para asistir al radiólogo en el diagnóstico final.";
+                                
+                                typeText(medicalExplanation, explanation, 80);
+                                
+                            }, 1100);
+                        }, 800);
+                    }, 600);
+                });
+            }
+
+            // Revisión de Código IA
+            const codeCanvas = document.getElementById('canvas-code');
+            const codeBtn = document.getElementById('code-btn');
+            const codeExplanation = document.getElementById('code-explanation');
+            
+            if (codeCanvas && codeBtn) {
+                const ctx = codeCanvas.getContext('2d');
+                
+                function drawOriginalCode() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo de editor de código
+                    ctx.fillStyle = '#1e1e1e';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Barra superior del editor
+                    ctx.fillStyle = '#2d2d30';
+                    ctx.fillRect(0, 0, 500, 30);
+                    ctx.fillStyle = '#fff';
+                    ctx.font = '12px monospace';
+                    ctx.fillText('payment_processor.py', 10, 20);
+                    
+                    // Números de línea
+                    ctx.fillStyle = '#6a6a6a';
+                    ctx.font = '11px monospace';
+                    for(let i = 1; i <= 12; i++) {
+                        ctx.fillText(i.toString(), 10, 35 + i*18);
+                    }
+                    
+                    // Código con problemas
+                    const codeLines = [
+                        'def process_payment(amount, card_num):',
+                        '    # Vulnerabilidad: datos sensibles en logs',
+                        '    print(f"Processing ${amount} for {card_num}")',
+                        '    ',
+                        '    if amount > 0:',
+                        '        # Bug: no validación de formato de tarjeta',
+                        '        if len(card_num) == 16:',
+                        '            # SQL Injection vulnerability',
+                        '            query = "INSERT INTO payments VALUES"',
+                        '            query += f"({amount}, \'{card_num}\')"',
+                        '            # Sin manejo de errores',
+                        '            return execute_sql(query)'
+                    ];
+                    
+                    ctx.fillStyle = '#d4d4d4';
+                    ctx.font = '11px monospace';
+                    codeLines.forEach((line, index) => {
+                        ctx.fillText(line, 35, 53 + index*18);
+                    });
+                    
+                    // Resaltar líneas problemáticas
+                    ctx.fillStyle = 'rgba(255, 0, 0, 0.15)';
+                    ctx.fillRect(35, 42, 400, 18); // línea 3
+                    ctx.fillRect(35, 114, 400, 18); // línea 7
+                    ctx.fillRect(35, 150, 400, 18); // línea 9
+                    ctx.fillRect(35, 168, 400, 18); // línea 10
+                    
+                    // Indicadores de problema en el margen
+                    ctx.fillStyle = '#ff4444';
+                    ctx.beginPath();
+                    ctx.arc(25, 51, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 123, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 159, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 177, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Panel de información
+                    ctx.fillStyle = '#ffcccc';
+                    ctx.fillRect(320, 80, 170, 120);
+                    ctx.fillStyle = '#d32f2f';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Problemas Detectados:', 325, 100);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('🔴 4 Vulnerabilidades críticas', 325, 120);
+                    ctx.fillText('🟡 2 Bugs de lógica', 325, 135);
+                    ctx.fillText('🟠 3 Malas prácticas', 325, 150);
+                    ctx.fillText('⚠️ Sin manejo de errores', 325, 165);
+                    ctx.fillText('🛡️ Riesgo de seguridad: ALTO', 325, 185);
+                }
+                
+                function drawOptimizedCode() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo de editor mejorado
+                    ctx.fillStyle = '#1e1e1e';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Barra superior con indicador IA
+                    ctx.fillStyle = '#2d2d30';
+                    ctx.fillRect(0, 0, 500, 30);
+                    ctx.fillStyle = '#4CAF50';
+                    ctx.fillText('🤖', 470, 20);
+                    ctx.fillStyle = '#fff';
+                    ctx.font = '12px monospace';
+                    ctx.fillText('payment_processor.py (IA Fixed)', 10, 20);
+                    
+                    // Números de línea
+                    ctx.fillStyle = '#6a6a6a';
+                    ctx.font = '11px monospace';
+                    for(let i = 1; i <= 12; i++) {
+                        ctx.fillText(i.toString(), 10, 35 + i*18);
+                    }
+                    
+                    // Código corregido por IA
+                    const fixedCodeLines = [
+                        'def process_payment(amount: float, card_token: str):',
+                        '    # IA Fix: usar tokens en lugar de números',
+                        '    logger.info(f"Processing ${amount:.2f}")',
+                        '    ',
+                        '    try:',
+                        '        validate_amount(amount)',
+                        '        validate_card_token(card_token)',
+                        '        # IA Fix: query parametrizada',
+                        '        query = "INSERT INTO payments (amount, token)',
+                        '        VALUES (?, ?)"',
+                        '        return execute_sql(query, (amount, token))',
+                        '    except Exception as e: handle_error(e)'
+                    ];
+                    
+                    ctx.fillStyle = '#d4d4d4';
+                    ctx.font = '11px monospace';
+                    fixedCodeLines.forEach((line, index) => {
+                        ctx.fillText(line, 35, 53 + index*18);
+                    });
+                    
+                    // Resaltar mejoras
+                    ctx.fillStyle = 'rgba(76, 175, 80, 0.2)';
+                    ctx.fillRect(35, 42, 400, 18); // línea 1
+                    ctx.fillRect(35, 60, 400, 18); // línea 2
+                    ctx.fillRect(35, 96, 400, 18); // línea 5
+                    ctx.fillRect(35, 150, 400, 18); // línea 9
+                    ctx.fillRect(35, 204, 400, 18); // línea 12
+                    
+                    // Indicadores de corrección
+                    ctx.fillStyle = '#4CAF50';
+                    ctx.beginPath();
+                    ctx.arc(25, 51, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 69, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 105, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 159, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(25, 213, 3, 0, 2*Math.PI);
+                    ctx.fill();
+                    
+                    // Panel de mejoras IA
+                    ctx.fillStyle = '#e8f5e8';
+                    ctx.fillRect(320, 60, 170, 140);
+                    ctx.fillStyle = '#2e7d32';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Mejoras Aplicadas por IA:', 325, 80);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('✅ Vulnerabilidades corregidas', 325, 100);
+                    ctx.fillText('✅ SQL injection prevented', 325, 115);
+                    ctx.fillText('✅ Data leakage fixed', 325, 130);
+                    ctx.fillText('✅ Type hints added', 325, 145);
+                    ctx.fillText('✅ Error handling implemented', 325, 160);
+                    ctx.fillText('✅ Security: ALTO → SEGURO', 325, 175);
+                    
+                    // Métricas de mejora
+                    ctx.fillStyle = '#1976d2';
+                    ctx.font = 'bold 10px Arial';
+                    ctx.fillText('🚀 Tiempo de revisión: 0.8 seg', 325, 195);
+                }
+                
+                drawOriginalCode();
+                
+                codeBtn.addEventListener('click', () => {
+                    if (codeBtn.disabled) return;
+                    
+                    codeBtn.disabled = true;
+                    codeBtn.textContent = 'Escaneando código...';
+                    
+                    setTimeout(() => {
+                        codeBtn.textContent = 'Detectando vulnerabilidades...';
+                        setTimeout(() => {
+                            codeBtn.textContent = 'Aplicando correcciones...';
+                            setTimeout(() => {
+                                drawOptimizedCode();
+                                codeBtn.textContent = 'Revisión Completa';
+                                
+                                const explanation = "La IA escaneó el código y detectó múltiples vulnerabilidades críticas: eliminó el logging de datos sensibles, implementó queries parametrizadas para prevenir SQL injection, agregó type hints para mejor legibilidad, implementó manejo robusto de errores, y sugirió el uso de tokens en lugar de números de tarjeta directos, transformando código inseguro en código enterprise-grade.";
+                                
+                                typeText(codeExplanation, explanation, 80);
+                                
+                            }, 1000);
+                        }, 700);
+                    }, 500);
+                });
+            }
+        });
     </script>
 </body>
 </html>

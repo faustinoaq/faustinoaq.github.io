@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formación en Inteligencia Artificial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css" id="theme">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --r-main-font: 'Roboto', sans-serif;
+            --r-heading-font: 'Roboto', sans-serif;
+            --r-background-color: #002A58; /* Dell Blue 900 - Original, now slide section will use 600 */
+            --r-main-color: #D9F5FD; /* Dell Blue 100 */
+            --r-heading-color: #5CC1EE; /* Dell Blue 300 */
+            --r-link-color: #94DCF7; /* Dell Blue 200 */
+            --r-link-color-hover: #31A2E3; /* Dell Blue 400 */
+            --dell-primary-interaction: #0672CB; /* Dell Blue 600 */
+            --dell-blue-100: #D9F5FD;
+            --dell-blue-200: #94DCF7;
+            --dell-blue-300: #5CC1EE;
+            --dell-blue-400: #31A2E3;
+            --dell-blue-500: #1282D6;
+            --dell-blue-600: #0672CB;
+            --dell-blue-700: #0063B8;
+            --dell-blue-800: #00468B;
+            --dell-blue-900: #002A58;
+        }
+
+        .reveal {
+            font-size: 28px;
+        }
+
+        .reveal .slides section {
+            background-color: var(--dell-blue-600);
+            color: var(--r-main-color);
+            padding: 32px 40px !important;
+            box-sizing: border-box;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 900px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .reveal .slides section:first-child {
+            align-items: center;
+            text-align: center;
+        }
+
+        .reveal .slides section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            color: var(--r-heading-color);
+            font-family: var(--r-heading-font);
+            margin-bottom: 0.4em;
+        }
+        .reveal h1 { font-size: 2.2em; }
+        .reveal h2 { font-size: 1.5em; }
+        .reveal h3 { font-size: 1.2em; }
+
+        .reveal p, 
+        .reveal li {
+            font-size: 0.8em;
+            line-height: 1.4;
+            margin-bottom: 0.4em;
+        }
+        .reveal ul, .reveal ol {
+            margin: 0.5em 0 1em 28px;
+        }
+
+        .reveal a {
+            color: var(--r-link-color);
+        }
+
+        .reveal a:hover {
+            color: var(--r-link-color-hover);
+        }
+        
+        /* Elegant animated background pattern */
+        .reveal .slides section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(92, 193, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(49, 162, 227, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(148, 220, 247, 0.06) 0%, transparent 50%);
+            background-size: 300px 300px, 250px 250px, 400px 400px;
+            animation: gentleFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                background-position: 0% 0%, 100% 100%, 50% 50%;
+                opacity: 0.8;
+            }
+            50% {
+                background-position: 100% 100%, 0% 0%, 0% 100%;
+                opacity: 1;
+            }
+        }
+
+        .question {
+            margin-top: 20px;
+            padding: 18px 20px;
+            background-color: rgba(0,0,0,0.22);
+            border-left: 6px solid var(--dell-primary-interaction);
+            border-radius: 7px;
+            max-width: 600px;
+        }
+        .question p {
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+        .question button {
+            background-color: var(--dell-primary-interaction);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            margin: 6px 10px 6px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .question button:hover {
+            background-color: var(--dell-blue-500);
+        }
+        .question button:active {
+            animation: bounce 0.3s;
+        }
+        .question button.answered {
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            60% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        .feedback {
+            margin-top:10px;
+            font-style: italic;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Portada -->
+            <section>
+                <img src="https://panamcham.com/sites/default/files/logo.png" alt="Panamcham Logo" style="height: 80px; background-color: white; padding: 10px; border-radius: 5px; display:block; margin:0 auto 20px auto;">
+                <h1 style="text-align:center;">Formación en Inteligencia Artificial para Líderes Empresariales</h1>
+                <p style="color: var(--dell-blue-300); text-align:center;">Introducción interactiva para la transformación digital</p>
+                <p style="font-size: 0.7em; margin-top: 20px; text-align:center;">Capacidades estratégicas en IA • Innovación responsable • Competitividad empresarial</p>
+            </section>
+            <!-- Slide 2: ¿Qué es la IA? -->
+            <section>
+                <h2>¿Qué es la Inteligencia Artificial?</h2>
+                <p><strong>Objetivo:</strong> Entender los conceptos clave, historia y aplicaciones de la IA en el mundo empresarial.</p>
+                <ul>
+                    <li><strong>Definición:</strong> Sistemas que simulan capacidades humanas como aprender, razonar y resolver problemas.</li>
+                    <li><strong>Historia:</strong> De Turing a ChatGPT: evolución en 70 años.</li>
+                    <li><strong>Tipos:</strong> IA débil (narrow), IA general (AGI), superinteligencia.</li>
+                    <li><strong>Subcampos:</strong> Machine Learning, Deep Learning, NLP, Computer Vision.</li>
+                    <li><strong>Aplicaciones:</strong> Manufactura, logística, salud, finanzas, retail.</li>
+                    <li><strong>Mitos vs. realidad:</strong> Separando ciencia ficción de oportunidades reales.</li>
+                </ul>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Recursos:</strong> <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-age-of-ai" target="_blank">McKinsey: The Age of AI</a> | <a href="https://www.weforum.org/agenda/2023/04/artificial-intelligence-ai-applications/" target="_blank">WEF: AI Applications</a></p>
+            </section>
+            <!-- Slide 3: Pregunta 1 -->
+            <section data-background-color="var(--dell-blue-800)">
+                <div class="question">
+                    <p>¿Cuál de estos NO es un tipo de IA según la clasificación por capacidad?</p>
+                    <button onclick="showFeedback(this, false)">IA Débil</button>
+                    <button onclick="showFeedback(this, false)">IA General</button>
+                    <button onclick="showFeedback(this, true)">IA Aplicada</button>
+                    <button onclick="showFeedback(this, false)">Superinteligencia</button>
+                    <p class="feedback" style="display:none;"></p>
+                </div>
+            </section>
+            <!-- Slide 4: IA Responsable -->
+            <section>
+                <h2>IA Responsable y Ética</h2>
+                <p><strong>Objetivo:</strong> Conocer los principios éticos y regulatorios para el uso responsable de la IA.</p>
+                <ul>
+                    <li><strong>Transparencia:</strong> Explicabilidad y auditoría de sistemas.</li>
+                    <li><strong>Equidad:</strong> Evitar sesgos y discriminación.</li>
+                    <li><strong>Privacidad:</strong> Protección de datos personales.</li>
+                    <li><strong>Seguridad:</strong> Sistemas robustos y confiables.</li>
+                    <li><strong>Responsabilidad:</strong> Asignación clara de responsabilidades.</li>
+                </ul>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Referencias:</strong> <a href="https://www.unesco.org/en/artificial-intelligence/recommendation-ethics" target="_blank">UNESCO AI Ethics</a> | <a href="https://oecd.ai/en/ai-principles" target="_blank">OECD AI Principles</a></p>
+            </section>
+            <!-- Slide 5: Pregunta 2 -->
+            <section data-background-color="var(--dell-blue-800)">
+                <div class="question">
+                    <p>¿Cuál de estos es un principio clave de la IA Responsable?</p>
+                    <button onclick="showFeedback(this, false)">Opacidad</button>
+                    <button onclick="showFeedback(this, true)">Transparencia</button>
+                    <button onclick="showFeedback(this, false)">Rentabilidad</button>
+                    <p class="feedback" style="display:none;"></p>
+                </div>
+            </section>
+            <!-- Slide 6: Agentes de IA -->
+            <section>
+                <h2>Agentes de IA</h2>
+                <p><strong>Objetivo:</strong> Explorar el impacto de los agentes autónomos en los procesos empresariales.</p>
+                <ul>
+                    <li><strong>Agentes autónomos:</strong> Sistemas que actúan hacia objetivos específicos.</li>
+                    <li><strong>Sistemas multiagente:</strong> Colaboración entre agentes.</li>
+                    <li><strong>Agentes conversacionales:</strong> Chatbots avanzados.</li>
+                    <li><strong>Agentes especializados:</strong> Ventas, soporte, análisis financiero.</li>
+                </ul>
+                <p><strong>Casos de uso:</strong> Automatización de procesos, asistentes virtuales, análisis predictivo, gestión de inventario.</p>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.langchain.com/docs/" target="_blank">LangChain</a> | <a href="https://microsoft.github.io/autogen/" target="_blank">Microsoft AutoGen</a> | <a href="https://openai.com/blog/introducing-gpts" target="_blank">OpenAI GPTs</a></p>
+            </section>
+            <!-- Slide 7: IA Generativa -->
+            <section>
+                <h2>IA Generativa</h2>
+                <p><strong>Objetivo:</strong> Comprender la IA generativa y su aplicación en la empresa.</p>
+                <ul>
+                    <li><strong>Texto:</strong> GPT-4, Claude, Gemini.</li>
+                    <li><strong>Imágenes:</strong> DALL-E, Midjourney, Stable Diffusion.</li>
+                    <li><strong>Audio:</strong> ElevenLabs, Murf.</li>
+                    <li><strong>Video:</strong> Runway ML, Synthesia.</li>
+                </ul>
+                <p><strong>Aplicaciones:</strong> Marketing, documentación, prototipado, simulaciones.</p>
+                <p><strong>Consideraciones:</strong> Verificación, derechos de autor, integración con procesos.</p>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Plataformas:</strong> <a href="https://openai.com/dall-e-2" target="_blank">DALL-E 2</a> | <a href="https://www.midjourney.com/" target="_blank">Midjourney</a> | <a href="https://stability.ai/" target="_blank">Stability AI</a></p>
+            </section>
+            <!-- Slide 8: Pregunta 3 -->
+            <section data-background-color="var(--dell-blue-800)">
+                <div class="question">
+                    <p>¿Cuál de los siguientes es un ejemplo de modelo de IA Generativa?</p>
+                    <button onclick="showFeedback(this, false)">Excel</button>
+                    <button onclick="showFeedback(this, true)">GPT</button>
+                    <button onclick="showFeedback(this, false)">Photoshop</button>
+                    <p class="feedback" style="display:none;"></p>
+                </div>
+            </section>
+            <!-- Slide 9: Industria 4.0 -->
+            <section>
+                <h2>IA en la Industria 4.0</h2>
+                <p><strong>Objetivo:</strong> Aplicar IA en la transformación digital industrial.</p>
+                <ul>
+                    <li><strong>Industria 4.0:</strong> Integración de sistemas físicos y digitales.</li>
+                    <li><strong>Mantenimiento predictivo:</strong> Sensores e IA para anticipar fallos.</li>
+                    <li><strong>Control de calidad:</strong> Visión por computadora para inspección.</li>
+                    <li><strong>Optimización logística:</strong> Predicción de demanda y rutas.</li>
+                    <li><strong>Gemelos digitales:</strong> Simulación virtual de procesos.</li>
+                </ul>
+                <p><strong>Beneficios:</strong> Reducción de costos, eficiencia energética, menos inactividad.</p>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Plataformas:</strong> <a href="https://azure.microsoft.com/en-us/solutions/industry/manufacturing/" target="_blank">Azure IoT</a> | <a href="https://www.ge.com/digital/predix" target="_blank">GE Predix</a> | <a href="https://www.siemens.com/global/en/products/automation/topic-areas/digital-enterprise.html" target="_blank">Siemens Digital Enterprise</a></p>
+            </section>
+            <!-- Slide 10: Gobernanza de Datos -->
+            <section>
+                <h2>Gobernanza de Datos</h2>
+                <p><strong>Objetivo:</strong> Entender la importancia de la gobernanza de datos para IA.</p>
+                <ul>
+                    <li><strong>Calidad de datos:</strong> Precisión, consistencia, actualidad.</li>
+                    <li><strong>Gestión de metadatos:</strong> Catalogación y documentación.</li>
+                    <li><strong>Seguridad y privacidad:</strong> Cumplimiento normativo.</li>
+                    <li><strong>Linaje de datos:</strong> Trazabilidad y control.</li>
+                    <li><strong>Democratización:</strong> Acceso seguro para equipos autorizados.</li>
+                </ul>
+                <p><strong>Buenas prácticas:</strong> Comité de gobernanza, políticas claras, capacitación.</p>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.microsoft.com/en-us/azure/purview/" target="_blank">Microsoft Purview</a> | <a href="https://www.collibra.com/" target="_blank">Collibra</a> | <a href="https://www.informatica.com/products/data-governance.html" target="_blank">Informatica</a></p>
+            </section>
+            <!-- Slide 11: Talleres y Casos de Uso -->
+            <section>
+                <h2>Talleres y Casos de Uso</h2>
+                <p><strong>Objetivo:</strong> Aplicar los conocimientos en escenarios reales.</p>
+                <ul>
+                    <li><strong>Atención al cliente:</strong> Chatbots y asistentes virtuales.</li>
+                    <li><strong>Optimización de rutas:</strong> Logística y transporte inteligente.</li>
+                    <li><strong>Control de calidad:</strong> Automatización y visión por computadora.</li>
+                    <li><strong>Recomendaciones:</strong> Personalización de productos y servicios.</li>
+                    <li><strong>Predicción de demanda:</strong> Análisis de datos para inventarios.</li>
+                </ul>
+                <p><strong>Actividades:</strong> Ideación en grupos, roadmap de implementación, análisis de ROI, identificación de casos de uso.</p>
+                <p><strong>Entregables:</strong> Propuesta de caso de uso, cronograma de 6 meses, lista de recursos.</p>
+                <p style="margin-top: 10px; font-size: 0.7em;"><strong>Metodologías:</strong> <a href="https://www.microsoft.com/en-us/ai/ai-for-good" target="_blank">Microsoft AI for Good</a> | <a href="https://www.crisp-dm.org/" target="_blank">CRISP-DM</a> | <a href="https://aws.amazon.com/machine-learning/ml-solutions/" target="_blank">AWS ML Solutions</a></p>
+            </section>
+            <!-- Slide extra: ¿Por qué IA ahora? -->
+            <section>
+                <h2>¿Por qué IA ahora?</h2>
+                <ul>
+                    <li>Avances en hardware y algoritmos.</li>
+                    <li>Disponibilidad masiva de datos.</li>
+                    <li>Demanda de automatización y eficiencia.</li>
+                    <li>Competitividad global y transformación digital.</li>
+                </ul>
+                <canvas id="canvas-ia-now" width="600" height="180" style="margin-top:20px;"></canvas>
+            </section>
+            <!-- Slide extra: ¿Cómo aprende una IA? -->
+            <section>
+                <h2>¿Cómo aprende una IA?</h2>
+                <ul>
+                    <li>Entrenamiento con datos históricos.</li>
+                    <li>Identificación de patrones y correlaciones.</li>
+                    <li>Evaluación y ajuste de modelos.</li>
+                    <li>Mejora continua con nuevos datos.</li>
+                </ul>
+                <canvas id="canvas-learn" width="600" height="180" style="margin-top:20px;"></canvas>
+            </section>
+            <!-- Slide extra: IA en la vida diaria -->
+            <section>
+                <h2>IA en la vida diaria</h2>
+                <ul>
+                    <li>Asistentes de voz y chatbots.</li>
+                    <li>Recomendaciones en plataformas digitales.</li>
+                    <li>Traducción automática y reconocimiento de voz.</li>
+                    <li>Automatización en el hogar y la industria.</li>
+                </ul>
+                <canvas id="canvas-daily" width="600" height="180" style="margin-top:20px;"></canvas>
+            </section>
+            <!-- Slide 12: Pregunta Final -->
+            <section data-background-color="var(--dell-blue-800)">
+                <div class="question">
+                    <p>¿Estás listo para idear cómo tu empresa podría usar IA?</p>
+                    <button onclick="showFeedback(this, true, '¡Excelente! Pensemos en ello.')">Sí</button>
+                    <button onclick="showFeedback(this, false, 'No te preocupes, ¡lo exploraremos juntos!')">No estoy seguro</button>
+                    <p class="feedback" style="display:none;"></p>
+                </div>
+            </section>
+            <!-- Slide 13: Cierre -->
+            <section id="slide-final">
+                <h2>Muchas gracias</h2>
+                <p>¡Gracias por su atención!</p>
+                <p>Esperamos que esta formación les sea útil para liderar la transformación digital con IA.</p>
+                <div style="margin-top: 30px; padding: 20px; border: 1px dashed var(--dell-blue-300); background-color: rgba(0,0,0,0.1);">
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap;">
+                        <img src="https://panamcham.com/sites/default/files/logo.png" alt="Panamcham Logo" style="height: 90px; background-color: white; padding: 10px; border-radius: 5px;">
+                        <div id="qrcode" style="display: flex; justify-content: center; margin-top: 0;"></div>
+                    </div>
+                    <p style="text-align: center; color: var(--dell-blue-200); font-size: 0.8em; margin-bottom: 5px; margin-top: 15px;">Más información en:</p>
+                    <p style="text-align: center; font-size: 0.7em;"><a href="https://panamcham.com/" target="_blank" style="color:var(--dell-blue-100);">https://panamcham.com/</a></p>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+                    <canvas id="score-chart" width="120" height="120" style="margin-right: 24px;"></canvas>
+                    <div id="score-container" style="font-size: 1.3em; color: var(--dell-blue-100); font-weight: bold;"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            plugins: []
+        });
+
+        let userScore = 0;
+        let totalQuestions = 0;
+
+        // Marcar los botones correctos para el score
+        function showFeedback(buttonEl, isCorrect, customMessage) {
+            const feedbackEl = buttonEl.parentElement.querySelector('.feedback');
+            if (isCorrect) {
+                feedbackEl.textContent = customMessage || '¡Correcto!';
+                feedbackEl.style.color = 'lightgreen';
+                // Solo sumar si no se ha respondido correctamente antes
+                if (!buttonEl.parentElement.classList.contains('answered-correct')) {
+                    userScore++;
+                    buttonEl.parentElement.classList.add('answered-correct');
+                }
+            } else {
+                feedbackEl.textContent = customMessage || 'Inténtalo de nuevo.';
+                feedbackEl.style.color = 'pink';
+            }
+            feedbackEl.style.display = 'block';
+            buttonEl.classList.add('answered');
+            setTimeout(() => buttonEl.classList.remove('answered'), 600);
+        }
+
+        // Contar total de preguntas al cargar
+        window.addEventListener('DOMContentLoaded', function() {
+            totalQuestions = document.querySelectorAll('.question').length;
+        });
+
+        // Mostrar QR y score al llegar al slide final
+        Reveal.on('slidechanged', function(event) {
+            if (event.currentSlide && event.currentSlide.id === 'slide-final') {
+                // QR
+                const qrDiv = document.getElementById('qrcode');
+                if (qrDiv && qrDiv.childNodes.length === 0) {
+                    new QRCode(qrDiv, {
+                        text: 'https://panamcham.com/',
+                        width: 120,
+                        height: 120,
+                        colorDark : '#0672CB',
+                        colorLight : '#ffffff',
+                        correctLevel : QRCode.CorrectLevel.H
+                    });
+                }
+                // Score
+                const scoreDiv = document.getElementById('score-container');
+                let percent = totalQuestions > 0 ? Math.round((userScore/totalQuestions)*100) : 0;
+                if (scoreDiv) {
+                    scoreDiv.innerHTML = `<span style='font-size:1.5em;'>${percent}%</span><br><span style='font-size:0.9em;'>(${userScore} de ${totalQuestions} respuestas correctas)</span>`;
+                }
+                // Score chart
+                const chart = document.getElementById('score-chart');
+                if (chart) {
+                    const ctx = chart.getContext('2d');
+                    ctx.clearRect(0,0,120,120);
+                    // Fondo
+                    ctx.beginPath();
+                    ctx.arc(60,60,50,0,2*Math.PI);
+                    ctx.strokeStyle = '#233B5E';
+                    ctx.lineWidth = 16;
+                    ctx.stroke();
+                    // Progreso
+                    let angle = (percent/100)*2*Math.PI;
+                    ctx.beginPath();
+                    ctx.arc(60,60,50,-Math.PI/2,angle-Math.PI/2);
+                    ctx.strokeStyle = percent >= 70 ? '#5CC1EE' : '#FFB347';
+                    ctx.lineWidth = 16;
+                    ctx.lineCap = 'round';
+                    ctx.stroke();
+                    // Texto
+                    // ctx.font = 'bold 1.2em Sans-serif';
+                    // ctx.fillStyle = '#fff';
+                    // ctx.textAlign = 'center';
+                    // ctx.textBaseline = 'middle';
+                    // ctx.fillText(percent + '%', 60, 60);
+                }
+            }
+        });
+
+        // Animaciones canvas para slides explicativos
+        let animationFrameId = null;
+        function animateCanvasIA() {
+            const c1 = document.getElementById('canvas-ia-now');
+            const c2 = document.getElementById('canvas-learn');
+            const c3 = document.getElementById('canvas-daily');
+            if (!c1 && !c2 && !c3) {
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+                return;
+            }
+            // IA ahora
+            if (c1 && c1.offsetParent !== null) {
+                const ctx = c1.getContext('2d');
+                ctx.clearRect(0,0,600,180);
+                let t = (Date.now()/600)%1;
+                // Fondo degradado
+                let grad = ctx.createLinearGradient(0,0,600,0);
+                grad.addColorStop(0,'#5CC1EE'); grad.addColorStop(1,'#0672CB');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0,0,600,180);
+                // Datos
+                ctx.font = 'bold 28px Roboto';
+                ctx.fillStyle = '#fff';
+                ctx.fillText('Datos', 40, 90);
+                // Flecha animada
+                ctx.save();
+                ctx.strokeStyle = '#31A2E3'; ctx.lineWidth = 8;
+                ctx.beginPath();
+                ctx.moveTo(120, 90); ctx.lineTo(400, 90);
+                ctx.stroke();
+                // Circulo animado
+                let x = 120 + 280*t;
+                ctx.beginPath(); ctx.arc(x, 90, 22, 0, 2*Math.PI);
+                ctx.fillStyle = '#FFB347'; ctx.shadowColor = '#fff'; ctx.shadowBlur = 10; ctx.fill(); ctx.shadowBlur = 0;
+                ctx.restore();
+                // IA
+                ctx.fillStyle = '#233B5E';
+                ctx.beginPath(); ctx.arc(470, 90, 50, 0, 2*Math.PI);
+                ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 32px Roboto';
+                ctx.fillText('IA', 445, 100);
+                // Valor
+                ctx.fillStyle = '#D9F5FD';
+                ctx.font = 'bold 28px Roboto';
+                ctx.fillText('Valor', 540, 100);
+            }
+            // Aprende IA
+            if (c2 && c2.offsetParent !== null) {
+                const ctx = c2.getContext('2d');
+                ctx.clearRect(0,0,600,180);
+                let t = (Date.now()/800)%1;
+                // Fondo
+                let grad = ctx.createLinearGradient(0,0,600,0);
+                grad.addColorStop(0,'#31A2E3'); grad.addColorStop(1,'#5CC1EE');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0,0,600,180);
+                // Datos
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(60, 140, 80, 30);
+                ctx.font = 'bold 22px Roboto';
+                ctx.fillStyle = '#0672CB';
+                ctx.fillText('Datos', 75, 162);
+                // Flecha animada
+                ctx.save();
+                ctx.strokeStyle = '#FFB347'; ctx.lineWidth = 7;
+                ctx.beginPath();
+                ctx.moveTo(140, 155); ctx.lineTo(260, 90);
+                ctx.stroke();
+                // Circulo modelo
+                ctx.beginPath(); ctx.arc(320, 90, 38, 0, 2*Math.PI);
+                ctx.fillStyle = '#fff'; ctx.fill();
+                ctx.lineWidth = 4; ctx.strokeStyle = '#0672CB'; ctx.stroke();
+                ctx.fillStyle = '#0672CB'; ctx.font = 'bold 22px Roboto';
+                ctx.fillText('Modelo', 285, 98);
+                // Flecha animada
+                ctx.beginPath();
+                ctx.moveTo(358, 90); ctx.lineTo(470, 60);
+                ctx.strokeStyle = '#FFB347'; ctx.lineWidth = 7;
+                ctx.stroke();
+                // Rectángulo predicción
+                ctx.fillStyle = '#fff'; ctx.fillRect(470, 40, 90, 30);
+                ctx.fillStyle = '#31A2E3'; ctx.font = 'bold 22px Roboto';
+                ctx.fillText('Predicción', 480, 62);
+                // Puntos animados
+                let px = 140 + 120*t;
+                ctx.beginPath(); ctx.arc(px, 155-(65*t), 12, 0, 2*Math.PI);
+                ctx.fillStyle = '#FFB347'; ctx.fill();
+                let px2 = 358 + 112*t;
+                ctx.beginPath(); ctx.arc(px2, 90-(30*t), 12, 0, 2*Math.PI);
+                ctx.fillStyle = '#FFB347'; ctx.fill();
+                ctx.restore();
+            }
+            // IA diaria
+            if (c3 && c3.offsetParent !== null) {
+                const ctx = c3.getContext('2d');
+                ctx.clearRect(0,0,600,180);
+                let t = (Date.now()/1000)%1;
+                // Fondo
+                let grad = ctx.createLinearGradient(0,0,600,0);
+                grad.addColorStop(0,'#0672CB'); grad.addColorStop(1,'#5CC1EE');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0,0,600,180);
+                // Voz
+                ctx.beginPath(); ctx.arc(100, 90, 45, 0, 2*Math.PI); ctx.fillStyle = '#FFB347'; ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 22px Roboto'; ctx.fillText('Voz', 80, 98);
+                // Onda animada
+                ctx.save();
+                ctx.strokeStyle = '#fff'; ctx.lineWidth = 3;
+                ctx.beginPath();
+                for(let i=0;i<40;i++){
+                    let x = 60+i*2.2;
+                    let y = 90+Math.sin(i/2+t*2*Math.PI)*14;
+                    ctx.lineTo(x+40, y);
+                }
+                ctx.stroke(); ctx.restore();
+                // Texto
+                ctx.beginPath(); ctx.arc(260, 90, 45, 0, 2*Math.PI); ctx.fillStyle = '#31A2E3'; ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 22px Roboto'; ctx.fillText('Texto', 235, 98);
+                // Burbuja animada
+                ctx.save();
+                ctx.globalAlpha = 0.5+0.5*Math.sin(t*2*Math.PI);
+                ctx.beginPath(); ctx.arc(260, 50+20*Math.sin(t*2*Math.PI), 18, 0, 2*Math.PI);
+                ctx.fillStyle = '#fff'; ctx.fill(); ctx.restore();
+                // Imagen
+                ctx.beginPath(); ctx.arc(440, 90, 45, 0, 2*Math.PI); ctx.fillStyle = '#0672CB'; ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 22px Roboto'; ctx.fillText('Imagen', 410, 98);
+                // Flash animado
+                ctx.save();
+                ctx.globalAlpha = 0.4+0.6*Math.abs(Math.cos(t*2*Math.PI));
+                ctx.beginPath(); ctx.arc(440, 90, 30+12*Math.abs(Math.cos(t*2*Math.PI)), 0, 2*Math.PI);
+                ctx.fillStyle = '#D9F5FD'; ctx.fill(); ctx.restore();
+            }
+            if ((c1 && c1.offsetParent !== null) || (c2 && c2.offsetParent !== null) || (c3 && c3.offsetParent !== null)) {
+                animationFrameId = requestAnimationFrame(animateCanvasIA);
+            } else {
+                if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            }
+        }
+        Reveal.on('slidechanged', animateCanvasIA);
+        window.addEventListener('DOMContentLoaded', animateCanvasIA);
+    </script>
+</body>
+</html>

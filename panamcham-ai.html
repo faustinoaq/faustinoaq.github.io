@@ -164,6 +164,73 @@
             font-style: italic;
             font-size: 0.95em;
         }
+
+        section canvas {
+            display: block;
+            margin: 0 auto;
+            border-radius: 6px;
+        }
+
+        section button {
+            margin: 6px auto !important;
+        }
+
+        .aiButton {
+            background: linear-gradient(90deg, #5CC1EE 0%, #0672CB 100%);
+            color: #fff;
+            border: none;
+            box-shadow: 0 2px 8px rgba(6,114,203,0.18);
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.3s;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1);}
+            100% { transform: scale(1.12);}
+        }
+        .aiButton:hover {
+            background: linear-gradient(90deg, #5CC1EE 0%, #0672CB 120%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 18px rgba(49,162,227,0.22);
+        }
+        .aiButton:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 4px rgba(6,114,203,0.12);
+        }
+        .aiButton span {
+            display: inline-block;
+            vertical-align: middle;
+            animation: pulseBtn 1.2s infinite alternate;
+        }
+        .aiUsecaseButtom {
+            background: linear-gradient(90deg, #5CC1EE 0%, #0672CB 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.7em;
+            font-weight: bold;
+            letter-spacing: 0.02em;
+            transition: background 0.3s, transform 0.15s, box-shadow 0.15s;
+            margin: 10px auto !important;
+            display: block;
+            box-shadow: 0 2px 8px rgba(6,114,203,0.18);
+        }
+        .aiUsecaseButtom:hover {
+            background: linear-gradient(90deg, #5CC1EE 0%, #0672CB 120%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 6px 18px rgba(49,162,227,0.22);
+        }
+        .aiUsecaseButtom:active {
+            transform: scale(0.97);
+            box-shadow: 0 1px 4px rgba(6,114,203,0.12);
+        }
     </style>
 </head>
 <body>
@@ -184,7 +251,8 @@
                     <span style="font-weight:bold;">Pregunta:</span> <span id="ai-prompt">La inteligencia artificial en mi empresa puede ayudar a...</span>
                 </div>
                 <div style="margin-top: 18px;">
-                    <button id="ai-answer-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver respuesta de la IA</button>
+                    <button id="ai-answer-btn" class="aiButton">
+                        <span>✨</span>Ver respuesta de la IA</button>
                 </div>
                 <div id="ai-typing-answer" style="margin-top: 24px; min-height: 48px; font-size: 1.1em; color: var(--dell-blue-100); font-style: italic;"></div>
             </section>
@@ -195,7 +263,8 @@
                 <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 14px; border-radius: 6px; color: #D9F5FD; font-size:0.85em;">
                     El sector salud enfrenta retos como la gestión eficiente de historiales médicos, la predicción de enfermedades, la optimización de recursos hospitalarios y la personalización de tratamientos para los pacientes.
                 </div>
-                <button id="ai-health-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver necesidades identificadas por IA</button>
+                <button id="ai-health-btn" class="aiButton">
+                        <span>✨</span>Ver necesidades identificadas por IA</button>
                 <ul id="ai-health-list" style="margin-top: 22px; display: none; color: #D9F5FD; font-size: 1em;"></ul>
             </section>
             <!-- Slide: Interactivo necesidades industria (Retail) -->
@@ -205,7 +274,8 @@
                 <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 14px; border-radius: 6px; color: #D9F5FD; font-size:0.85em;">
                     El sector retail busca mejorar la experiencia del cliente, optimizar inventarios, personalizar ofertas y anticipar tendencias de consumo en un entorno cada vez más digitalizado.
                 </div>
-                <button id="ai-retail-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver oportunidades identificadas por IA</button>
+                <button id="ai-retail-btn" class="aiButton">
+                        <span>✨</span>Ver oportunidades identificadas por IA</button>
                 <ul id="ai-retail-list" style="margin-top: 22px; display: none; color: #D9F5FD; font-size: 1em;"></ul>
             </section>
             <!-- Slide: Interactivo necesidades industria (Logística) -->
@@ -215,7 +285,8 @@
                 <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 14px; border-radius: 6px; color: #D9F5FD; font-size:0.85em;">
                     Las empresas de logística enfrentan desafíos como la optimización de rutas, la gestión de flotas, la predicción de demanda y la reducción de tiempos de entrega.
                 </div>
-                <button id="ai-log-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver mejoras sugeridas por IA</button>
+                <button id="ai-log-btn" class="aiButton">
+                        <span>✨</span>Ver mejoras sugeridas por IA</button>
                 <ul id="ai-log-list" style="margin-top: 22px; display: none; color: #D9F5FD; font-size: 1em;"></ul>
             </section>
             <!-- Slide: Interactivo pregunta sobre PDF -->
@@ -225,15 +296,157 @@
                 <div style="margin: 18px 0; background: rgba(255,255,255,0.08); padding: 16px; border-radius: 6px; color: #D9F5FD;">
                     <strong>Pregunta:</strong> ¿Cómo puede la IA contribuir a la sostenibilidad en el comercio internacional?
                 </div>
-                <button id="ai-pdf-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 10px 18px; border-radius: 3px; cursor: pointer; font-size: 0.9em; font-weight: bold;">Ver respuesta de la IA</button>
+                <button id="ai-pdf-btn" class="aiButton">
+                        <span>✨</span>Ver respuesta de la IA</button>
                 <div id="ai-pdf-answer" style="margin-top: 22px; min-height: 48px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+            </section>
+            <section style="top: 41px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>¿Qué es la Inteligencia Artificial?</h2>
+                <p>La IA son sistemas computacionales diseñados para simular capacidades humanas como el aprendizaje, razonamiento y resolución de problemas.</p>
+                <p style="font-size: 0.85em; color: #94DCF7; margin-top: 16px;">Pero... ¿cómo explicaría esto una IA de manera más profunda y accesible?</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-def-btn" class="aiButton">
+                        <span>✨</span>Consultar a la IA</button>
+                    <div id="ai-def-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section style="top: 47.5px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>Historia de la IA</h2>
+                <p>La inteligencia artificial tiene una fascinante evolución de más de 70 años, desde las primeras ideas de Alan Turing hasta los modernos sistemas como ChatGPT.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-hist-btn" class="aiButton">
+                        <span>✨</span>Ver resumen histórico de la IA</button>
+                    <div id="ai-hist-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section style="top: 32px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>Tipos de IA</h2>
+                <p>Existen diferentes categorías de inteligencia artificial según su capacidad y alcance: desde la IA débil que vemos hoy en día, hasta conceptos futuros como la superinteligencia.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-tipos-btn" class="aiButton">
+                        <span>✨</span>¿Cómo explicaría una IA los tipos?</button>
+                    <div id="ai-tipos-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section style="top: 32px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>Subcampos y aplicaciones</h2>
+                <p>La IA abarca múltiples disciplinas especializadas como Machine Learning, Procesamiento de Lenguaje Natural y Visión por Computadora, con aplicaciones revolucionarias en manufactura, salud, finanzas y más.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-apps-btn" class="aiButton">
+                        <span>✨</span>¿Qué ejemplos daría una IA?</button>
+                    <div id="ai-apps-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <section style="top: 13.5px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>Mitos vs. Realidad</h2>
+                <p>Existen muchos conceptos erróneos sobre la IA, desde la idea de que reemplazará todos los trabajos hasta la creencia de que es consciente como en las películas de ciencia ficción.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-mitos-btn" class="aiButton">
+                        <span>✨</span>¿Qué aclararía una IA?</button>
+                    <div id="ai-mitos-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <!-- Slide 3: Pregunta 1 -->
+            <section data-background-color="var(--dell-blue-800)" style="top: 28.5px; display: none;" class="has-dark-background past" hidden="" aria-hidden="true">
+                <div class="question answered-correct">
+                    <p>¿Cuál es el principal beneficio de la IA en los negocios?</p>
+                    <button onclick="showFeedback(this, false, 'La IA puede reducir costos, pero su principal valor está en generar nuevas oportunidades de negocio y mejorar la toma de decisiones estratégicas.')" class="">Reducir costos</button>
+                    <button onclick="showFeedback(this, true, 'Exactamente. La IA automatiza tareas rutinarias, liberando tiempo humano para actividades de mayor valor, mejora la precisión en decisiones y descubre patrones ocultos en los datos que impulsan la innovación.')" class="">Automatizar procesos y mejorar decisiones</button>
+                    <button onclick="showFeedback(this, false, 'Aunque la IA puede reemplazar algunas tareas, su mayor impacto está en augmentar las capacidades humanas y crear nuevos roles que requieren colaboración humano-IA.')" class="">Reemplazar empleados</button>
+                    <p class="feedback" style="display: block; color: lightgreen;" data-ai="1"></p>
+                </div>
+            </section>
+            <!-- Slide 4: IA Responsable -->
+            <section style="top: 32px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA Responsable y Ética</h2>
+                <p>El desarrollo de IA responsable requiere considerar principios éticos fundamentales como la transparencia para explicar decisiones automatizadas y la equidad para evitar sesgos discriminatorios.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-ethics-btn" class="aiButton">
+                        <span>✨</span>¿Qué diría una IA sobre la ética?</button>
+                    <div id="ai-ethics-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <!-- Slide 5: Pregunta 2 -->
+            <section data-background-color="var(--dell-blue-800)" style="top: 31px; display: none;" class="has-dark-background past" hidden="" aria-hidden="true">
+                <div class="question answered-correct">
+                    <p>¿Cuál de estos es un principio clave de la IA Responsable?</p>
+                    <button onclick="showFeedback(this, false, 'La opacidad es lo contrario de lo que buscamos en IA responsable. Necesitamos transparencia para entender cómo toman decisiones los sistemas de IA. Sin esta visibilidad, no podemos confiar en las decisiones automatizadas, especialmente en sectores críticos como salud, finanzas o justicia donde las decisiones de IA pueden tener impactos significativos en la vida de las personas.')" class="">Opacidad</button>
+                    <button onclick="showFeedback(this, true, 'Correcto. La transparencia es fundamental para la IA responsable porque permite que usuarios, reguladores y stakeholders entiendan cómo funciona el sistema, qué datos utiliza, cómo llega a sus conclusiones y si existe algún sesgo. Esta explicabilidad genera confianza, facilita la auditoría y permite la mejora continua del sistema.')" class="">Transparencia</button>
+                    <button onclick="showFeedback(this, false, 'Aunque la rentabilidad es importante para la sostenibilidad empresarial, no es un principio ético de IA responsable. Los principios éticos como equidad, transparencia, responsabilidad y beneficencia van más allá del beneficio económico, buscando asegurar que la IA sirva al bien común y no cause daños a individuos o grupos vulnerables.')" class="">Rentabilidad</button>
+                    <p class="feedback" style="display: block; color: lightgreen;" data-ai="1"></p>
+                </div>
+            </section>
+            <!-- Slide 6: Agentes de IA -->
+            <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>Agentes de IA</h2>
+                <p>Los agentes de IA son sistemas autónomos que pueden actuar hacia objetivos específicos, desde chatbots conversacionales hasta sistemas multiagente que colaboran en tareas complejas. Incluyen agentes especializados para ventas, soporte y análisis financiero.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-agents-btn" class="aiButton">
+                        <span>✨</span>
+                        ¿Qué dice la IA sobre agentes?
+                    </button>
+                    <div id="ai-agents-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.langchain.com/docs/" target="_blank">LangChain</a> | <a href="https://microsoft.github.io/autogen/" target="_blank">Microsoft AutoGen</a> | <a href="https://openai.com/blog/introducing-gpts" target="_blank">OpenAI GPTs</a></p>
+            </section>
+            <!-- Slide 7: IA Generativa -->
+            <section style="top: 32px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA Generativa</h2>
+                <p>La IA generativa revoluciona la creación de contenido al producir texto, imágenes, música y código de forma automática. Modelos como GPT-4 y Claude transforman el texto, mientras que DALL-E revoluciona la generación de imágenes.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-gen-btn" class="aiButton">
+                        <span>✨</span>
+                        ¿Cómo explicaría una IA la IA generativa?
+                        </button>
+                    <div id="ai-gen-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <!-- Slide 8: Pregunta 3 -->
+            <section data-background-color="var(--dell-blue-800)" style="top: 11.5px; display: none;" class="has-dark-background past" hidden="" aria-hidden="true">
+                <div class="question answered-correct">
+                    <p>¿Cuál de los siguientes es un ejemplo de modelo de IA Generativa?</p>
+                    <button onclick="showFeedback(this, false, 'Excel es una herramienta de hoja de cálculo tradicional que no utiliza modelos generativos de IA, aunque las versiones más recientes pueden integrar funciones de IA como asistentes para análisis de datos. Sin embargo, Excel en sí mismo es software de productividad, no un modelo de inteligencia artificial generativa.')" class="">Excel</button>
+                    <button onclick="showFeedback(this, true, 'Exacto. GPT (Generative Pre-trained Transformer) es un modelo de IA generativa que puede crear texto coherente y natural a partir de instrucciones o prompts. Utiliza arquitectura transformer y ha sido entrenado en enormes datasets de texto para aprender patrones del lenguaje y generar respuestas contextualmente relevantes, siendo uno de los ejemplos más conocidos de esta tecnología.')" class="">GPT</button>
+                    <button onclick="showFeedback(this, false, 'Photoshop es un editor de imágenes tradicional creado por Adobe. Aunque las versiones más recientes incluyen herramientas de IA generativa como relleno generativo y filtros neurales, el software en sí no es un modelo de IA generativa sino una aplicación que puede integrar estas tecnologías como características adicionales.')" class="">Photoshop</button>
+                    <p class="feedback" style="display: block; color: lightgreen;" data-ai="1"></p>
+                </div>
+            </section>
+            <!-- Slide 9: Industria 4.0 -->
+            <section style="top: 34.5px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA en la Industria 4.0</h2>
+                <p>La Industria 4.0 representa la integración inteligente de sistemas físicos y digitales, donde la IA juega un rol fundamental en el mantenimiento predictivo para anticipar fallos antes de que ocurran y en la optimización continua de procesos.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-ind40-btn" class="aiButton">
+                        <span>✨</span>¿Qué valor ve una IA en la industria 4.0?</button>
+                    <div id="ai-ind40-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <!-- Slide 10: Gobernanza de Datos -->
+            <section style="top: 50px; display: block;" class="past" hidden="" aria-hidden="true">
+                <h2>Gobernanza de Datos</h2>
+                <p>La gobernanza de datos es fundamental para el éxito de cualquier iniciativa de IA, asegurando la calidad, precisión y actualidad de la información, así como el cumplimiento de regulaciones de seguridad y privacidad.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-gob-btn" class="aiButton">
+                        <span>✨</span>¿Por qué es clave la gobernanza según IA?</button>
+                    <div id="ai-gob-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
+            </section>
+            <!-- Slide 11: Talleres y Casos de Uso -->
+            <section style="top: 34.5px; display: block;" class="past" hidden="" aria-hidden="true">
+                <h2>Talleres y Casos de Uso</h2>
+                <p>Los talleres prácticos de IA son fundamentales para la adopción empresarial exitosa. Desde la implementación de chatbots para atención al cliente hasta algoritmos de optimización de rutas en logística, cada caso de uso debe demostrar valor tangible y ROI medible.</p>
+                <div style="margin-top:18px;">
+                    <button id="ai-taller-btn" class="aiButton">
+                        <span>✨</span>¿Qué recomienda una IA para talleres?</button>
+                    <div id="ai-taller-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
+                </div>
             </section>
             <!-- Slide: Diseño CAD Inteligente -->
             <section>
                 <h2>IA en Diseño CAD</h2>
                 <p>Observa cómo la IA analiza y optimiza un diseño mecánico en tiempo real:</p>
                 <canvas id="canvas-design" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #001122;"></canvas>
-                <button id="design-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Optimizar con IA</button>
+                <button id="design-btn" class="aiUsecaseButtom">Optimizar con IA</button>
                 <div id="cad-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
             </section>
             <!-- Slide: IA en Gestión de Proyectos -->
@@ -241,7 +454,9 @@
                 <h2>IA en Gestión de Proyectos</h2>
                 <p>Ve cómo la IA analiza un cronograma y sugiere optimizaciones automáticamente:</p>
                 <canvas id="canvas-project" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #0f1419;"></canvas>
-                <button id="project-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Optimizar cronograma con IA</button>
+                <button id="project-btn" class="aiUsecaseButtom">
+                    Optimizar cronograma con IA
+                </button>
                 <div id="project-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
             </section>
             <!-- Slide: IA en Diagnóstico Médico -->
@@ -249,7 +464,7 @@
                 <h2>IA en Diagnóstico Médico</h2>
                 <p>Observa cómo la IA analiza una radiografía y asiste en el diagnóstico:</p>
                 <canvas id="canvas-medical" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #0c0c0c;"></canvas>
-                <button id="medical-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Analizar con IA médica</button>
+                <button id="medical-btn" class="aiUsecaseButtom">Analizar con IA médica</button>
                 <div id="medical-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
             </section>
             <!-- Slide: IA en Revisión de Código -->
@@ -257,141 +472,65 @@
                 <h2>IA en Revisión de Código</h2>
                 <p>Ve cómo la IA detecta vulnerabilidades, bugs y optimiza código automáticamente:</p>
                 <canvas id="canvas-code" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #1e1e1e;"></canvas>
-                <button id="code-btn" style="display: block;margin-top: 12px; background-color:#fff; color:#0672CB; border:2px solid #0672CB; padding:10px 18px; border-radius:3px; cursor:pointer; font-weight:bold;">Revisar código con IA</button>
+                <button id="code-btn" class="aiUsecaseButtom">Revisar código con IA</button>
                 <div id="code-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
             </section>
+            <!-- Slide: IA en Branding y Contenido -->
+            <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA en Branding y Contenido</h2>
+                <p>Observa cómo la IA crea contenido personalizado y adaptable:</p>
+                <canvas id="canvas-branding" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #f8f9fa;"></canvas>
+                <button id="branding-btn" class="aiUsecaseButtom">Campaña Generada</button>
+                <div id="branding-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: Gestión de Agentes IA como Recursos -->
+            <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>Agentes IA como Recursos de Equipo</h2>
+                <p>Ve cómo integrar agentes IA especializados en tu estructura organizacional:</p>
+                <canvas id="canvas-agents" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #fafafa;"></canvas>
+                <button id="agents-btn" class="aiUsecaseButtom">Equipo Híbrido Activo</button>
+                <div id="agents-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Marketing Digital -->
+            <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA en Marketing Digital y Audiencias</h2>
+                <p>Observa cómo la IA transforma el marketing digital con segmentación inteligente:</p>
+                <canvas id="canvas-marketing" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #f1f3f4;"></canvas>
+                <button id="marketing-btn" class="aiUsecaseButtom">Análisis Completo</button>
+                <div id="marketing-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Recursos Humanos -->
+            <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA en Recursos Humanos y Talento</h2>
+                <p>RRHH con selección inteligente de candidatos, análisis personalizado:</p>
+                <canvas id="canvas-hr" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #fef7f0;"></canvas>
+                <button id="hr-btn" class="aiUsecaseButtom">Optimización Completa</button>
+                <div id="hr-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Customer Experience -->
+            <section style="top: 0px; display: none;" class="past" hidden="" aria-hidden="true">
+                <h2>IA en Customer Experience</h2>
+                <p>Experiencias de cliente hiperpersonalizadas, optimizadas al customer journey:</p>
+                <canvas id="canvas-cx" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #f0f8ff;"></canvas>
+                <button id="cx-btn" class="aiUsecaseButtom">CX Personalizado Activo</button>
+                <div id="cx-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
+            </section>
+            <!-- Slide: IA en Finanzas y Detección de Fraude -->
             <section>
-                <h2>¿Qué es la Inteligencia Artificial?</h2>
-                <p>La IA son sistemas computacionales diseñados para simular capacidades humanas como el aprendizaje, razonamiento y resolución de problemas.</p>
-                <p style="font-size: 0.85em; color: #94DCF7; margin-top: 16px;">Pero... ¿cómo explicaría esto una IA de manera más profunda y accesible?</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-def-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">Consultar a la IA</button>
-                    <div id="ai-def-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <section>
-                <h2>Historia de la IA</h2>
-                <p>La inteligencia artificial tiene una fascinante evolución de más de 70 años, desde las primeras ideas de Alan Turing hasta los modernos sistemas como ChatGPT.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-hist-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">Ver resumen histórico de la IA</button>
-                    <div id="ai-hist-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <section>
-                <h2>Tipos de IA</h2>
-                <p>Existen diferentes categorías de inteligencia artificial según su capacidad y alcance: desde la IA débil que vemos hoy en día, hasta conceptos futuros como la superinteligencia.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-tipos-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Cómo explicaría una IA los tipos?</button>
-                    <div id="ai-tipos-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <section>
-                <h2>Subcampos y aplicaciones</h2>
-                <p>La IA abarca múltiples disciplinas especializadas como Machine Learning, Procesamiento de Lenguaje Natural y Visión por Computadora, con aplicaciones revolucionarias en manufactura, salud, finanzas y más.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-apps-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué ejemplos daría una IA?</button>
-                    <div id="ai-apps-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <section>
-                <h2>Mitos vs. Realidad</h2>
-                <p>Existen muchos conceptos erróneos sobre la IA, desde la idea de que reemplazará todos los trabajos hasta la creencia de que es consciente como en las películas de ciencia ficción.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-mitos-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué aclararía una IA?</button>
-                    <div id="ai-mitos-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <!-- Slide 3: Pregunta 1 -->
-            <section data-background-color="var(--dell-blue-800)">
-                <div class="question">
-                    <p>¿Cuál es el principal beneficio de la IA en los negocios?</p>
-                    <button onclick="showFeedback(this, false, 'La IA puede reducir costos, pero su principal valor está en generar nuevas oportunidades de negocio y mejorar la toma de decisiones estratégicas.')">Reducir costos</button>
-                    <button onclick="showFeedback(this, true, 'Exactamente. La IA automatiza tareas rutinarias, liberando tiempo humano para actividades de mayor valor, mejora la precisión en decisiones y descubre patrones ocultos en los datos que impulsan la innovación.')">Automatizar procesos y mejorar decisiones</button>
-                    <button onclick="showFeedback(this, false, 'Aunque la IA puede reemplazar algunas tareas, su mayor impacto está en augmentar las capacidades humanas y crear nuevos roles que requieren colaboración humano-IA.')">Reemplazar empleados</button>
-                    <p class="feedback" style="display:none;"></p>
-                </div>
-            </section>
-            <!-- Slide 4: IA Responsable -->
-            <section>
-                <h2>IA Responsable y Ética</h2>
-                <p>El desarrollo de IA responsable requiere considerar principios éticos fundamentales como la transparencia para explicar decisiones automatizadas y la equidad para evitar sesgos discriminatorios.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-ethics-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué diría una IA sobre la ética?</button>
-                    <div id="ai-ethics-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <!-- Slide 5: Pregunta 2 -->
-            <section data-background-color="var(--dell-blue-800)">
-                <div class="question">
-                    <p>¿Cuál de estos es un principio clave de la IA Responsable?</p>
-                    <button onclick="showFeedback(this, false, 'La opacidad es lo contrario de lo que buscamos en IA responsable. Necesitamos transparencia para entender cómo toman decisiones los sistemas de IA. Sin esta visibilidad, no podemos confiar en las decisiones automatizadas, especialmente en sectores críticos como salud, finanzas o justicia donde las decisiones de IA pueden tener impactos significativos en la vida de las personas.')">Opacidad</button>
-                    <button onclick="showFeedback(this, true, 'Correcto. La transparencia es fundamental para la IA responsable porque permite que usuarios, reguladores y stakeholders entiendan cómo funciona el sistema, qué datos utiliza, cómo llega a sus conclusiones y si existe algún sesgo. Esta explicabilidad genera confianza, facilita la auditoría y permite la mejora continua del sistema.')">Transparencia</button>
-                    <button onclick="showFeedback(this, false, 'Aunque la rentabilidad es importante para la sostenibilidad empresarial, no es un principio ético de IA responsable. Los principios éticos como equidad, transparencia, responsabilidad y beneficencia van más allá del beneficio económico, buscando asegurar que la IA sirva al bien común y no cause daños a individuos o grupos vulnerables.')">Rentabilidad</button>
-                    <p class="feedback" style="display:none;"></p>
-                </div>
-            </section>
-            <!-- Slide 6: Agentes de IA -->
-            <section>
-                <h2>Agentes de IA</h2>
-                <p>Los agentes de IA son sistemas autónomos que pueden actuar hacia objetivos específicos, desde chatbots conversacionales hasta sistemas multiagente que colaboran en tareas complejas. Incluyen agentes especializados para ventas, soporte y análisis financiero.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-agents-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué dice la IA sobre agentes?</button>
-                    <div id="ai-agents-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.7em;"><strong>Herramientas:</strong> <a href="https://docs.langchain.com/docs/" target="_blank">LangChain</a> | <a href="https://microsoft.github.io/autogen/" target="_blank">Microsoft AutoGen</a> | <a href="https://openai.com/blog/introducing-gpts" target="_blank">OpenAI GPTs</a></p>
-            </section>
-            <!-- Slide 7: IA Generativa -->
-            <section>
-                <h2>IA Generativa</h2>
-                <p>La IA generativa revoluciona la creación de contenido al producir texto, imágenes, música y código de forma automática. Modelos como GPT-4 y Claude transforman el texto, mientras que DALL-E revoluciona la generación de imágenes.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-gen-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Cómo explicaría una IA la IA generativa?</button>
-                    <div id="ai-gen-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <!-- Slide 8: Pregunta 3 -->
-            <section data-background-color="var(--dell-blue-800)">
-                <div class="question">
-                    <p>¿Cuál de los siguientes es un ejemplo de modelo de IA Generativa?</p>
-                    <button onclick="showFeedback(this, false, 'Excel es una herramienta de hoja de cálculo tradicional que no utiliza modelos generativos de IA, aunque las versiones más recientes pueden integrar funciones de IA como asistentes para análisis de datos. Sin embargo, Excel en sí mismo es software de productividad, no un modelo de inteligencia artificial generativa.')">Excel</button>
-                    <button onclick="showFeedback(this, true, 'Exacto. GPT (Generative Pre-trained Transformer) es un modelo de IA generativa que puede crear texto coherente y natural a partir de instrucciones o prompts. Utiliza arquitectura transformer y ha sido entrenado en enormes datasets de texto para aprender patrones del lenguaje y generar respuestas contextualmente relevantes, siendo uno de los ejemplos más conocidos de esta tecnología.')">GPT</button>
-                    <button onclick="showFeedback(this, false, 'Photoshop es un editor de imágenes tradicional creado por Adobe. Aunque las versiones más recientes incluyen herramientas de IA generativa como relleno generativo y filtros neurales, el software en sí no es un modelo de IA generativa sino una aplicación que puede integrar estas tecnologías como características adicionales.')">Photoshop</button>
-                    <p class="feedback" style="display:none;"></p>
-                </div>
-            </section>
-            <!-- Slide 9: Industria 4.0 -->
-            <section>
-                <h2>IA en la Industria 4.0</h2>
-                <p>La Industria 4.0 representa la integración inteligente de sistemas físicos y digitales, donde la IA juega un rol fundamental en el mantenimiento predictivo para anticipar fallos antes de que ocurran y en la optimización continua de procesos.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-ind40-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué valor ve una IA en la industria 4.0?</button>
-                    <div id="ai-ind40-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <!-- Slide 10: Gobernanza de Datos -->
-            <section>
-                <h2>Gobernanza de Datos</h2>
-                <p>La gobernanza de datos es fundamental para el éxito de cualquier iniciativa de IA, asegurando la calidad, precisión y actualidad de la información, así como el cumplimiento de regulaciones de seguridad y privacidad.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-gob-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Por qué es clave la gobernanza según IA?</button>
-                    <div id="ai-gob-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
-            </section>
-            <!-- Slide 11: Talleres y Casos de Uso -->
-            <section>
-                <h2>Talleres y Casos de Uso</h2>
-                <p>Los talleres prácticos de IA son fundamentales para la adopción empresarial exitosa. Desde la implementación de chatbots para atención al cliente hasta algoritmos de optimización de rutas en logística, cada caso de uso debe demostrar valor tangible y ROI medible.</p>
-                <div style="margin-top:18px;">
-                    <button id="ai-taller-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué recomienda una IA para talleres?</button>
-                    <div id="ai-taller-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
-                </div>
+                <h2>IA en Finanzas y Detección de Fraude</h2>
+                <p>Explora cómo la IA protege activos, optimiza inversiones y detecta fraudes con precisión milimétrica en tiempo real:</p>
+                <canvas id="canvas-finance" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #e8f5e9;"></canvas>
+                <button id="finance-btn" class="aiUsecaseButtom">Analizar transacciones con IA</button>
+                <div id="finance-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;"></div>
             </section>
             <!-- Slide extra: ¿Por qué IA ahora? -->
             <section>
                 <h2>¿Por qué IA ahora?</h2>
                 <p>El momento actual presenta una convergencia única de factores que hacen de la IA una oportunidad sin precedentes: avances exponenciales en hardware, disponibilidad masiva de datos y una demanda empresarial urgente de eficiencia e innovación.</p>
+                <canvas id="canvas-ia-now" width="600" height="180" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #e8f0f7; display: block; margin-left: auto; margin-right: auto;"></canvas>
                 <div style="margin-top:18px;">
-                    <button id="ai-ahora-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué opina una IA sobre el momento actual?</button>
+                    <button id="ai-ahora-btn" class="aiButton">
+                        <span>✨</span>¿Qué opina una IA sobre el momento actual?</button>
                     <div id="ai-ahora-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
                 </div>
             </section>
@@ -399,8 +538,10 @@
             <section>
                 <h2>¿Cómo aprende una IA?</h2>
                 <p>El proceso de aprendizaje de una IA involucra el entrenamiento continuo con grandes volúmenes de datos, donde los algoritmos identifican patrones complejos y refinan constantemente su capacidad de predicción y toma de decisiones.</p>
+                <canvas id="canvas-learn" width="600" height="180" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #e8f0f7; display: block; margin-left: auto; margin-right: auto;"></canvas>
                 <div style="margin-top:18px;">
-                    <button id="ai-learn-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Cómo lo resumiría una IA?</button>
+                    <button id="ai-learn-btn" class="aiButton">
+                        <span>✨</span>¿Cómo lo resumiría una IA?</button>
                     <div id="ai-learn-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
                 </div>
             </section>
@@ -408,10 +549,20 @@
             <section>
                 <h2>IA en la vida diaria</h2>
                 <p>La inteligencia artificial ya forma parte integral de nuestro día a día, desde los asistentes de voz en nuestros teléfonos hasta las recomendaciones personalizadas en plataformas digitales, transformando silenciosamente cómo interactuamos con la tecnología.</p>
+                <canvas id="canvas-daily" width="600" height="180" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #e8f0f7; display: block; margin-left: auto; margin-right: auto;"></canvas>
                 <div style="margin-top:18px;">
-                    <button id="ai-daily-btn" style="background-color: #fff; color: #0672CB; border: 2px solid #0672CB; padding: 8px 16px; border-radius: 3px; cursor: pointer; font-size: 0.85em; font-weight: bold;">¿Qué ejemplos daría una IA?</button>
+                    <button id="ai-daily-btn" class="aiButton">
+                        <span>✨</span>¿Qué ejemplos daría una IA?</button>
                     <div id="ai-daily-answer" style="margin-top: 16px; min-height: 32px; color: #D9F5FD; font-size: 1em; font-style: italic;"></div>
                 </div>
+            </section>
+            <!-- Slide: Desarrollando tu Estrategia de IA -->
+            <section style="top: 0px; display: block;" class="present">
+                <h2>Desarrollando tu Estrategia de IA</h2>
+                <p>Pasos clave para integrar la IA de forma efectiva en tu organización y asegurar un impacto transformador:</p>
+                <canvas id="canvas-strategy" width="500" height="300" style="border:1px solid var(--dell-blue-300); margin-top: 12px; background-color: #e8f0f7;"></canvas>
+                <button id="strategy-btn" class="aiUsecaseButtom">Siguiente Paso: Evaluar Madurez</button>
+                <div id="strategy-explanation" style="margin-top: 16px; min-height: 48px; color: #D9F5FD; font-size: 0.85em; font-style: italic;">Diagnosticar capacidades actuales, infraestructura de datos y talento disponible.</div>
             </section>
             <!-- Slide 12: Pregunta Final -->
             <section data-background-color="var(--dell-blue-800)">
@@ -455,19 +606,27 @@
         // Función global reutilizable para efecto de escritura
         function typeText(element, text, speed = 70, callback = null) {
             if (!element || !text) return;
-            
+
+            // Desactivar todos los botones mientras escribe
+            const allButtons = document.querySelectorAll('button');
+            allButtons.forEach(btn => btn.disabled = true);
+
             element.textContent = '';
             const words = text.split(' ');
             let i = 0;
-            
+
             function typeWord() {
-                if (i < words.length) {
-                    element.textContent += (i === 0 ? '' : ' ') + words[i];
-                    i++;
-                    setTimeout(typeWord, speed);
-                } else if (callback) {
-                    callback();
+            if (i < words.length) {
+                element.textContent += (i === 0 ? '' : ' ') + words[i];
+                i++;
+                setTimeout(typeWord, speed);
+            } else {
+                // Reactivar todos los botones al terminar
+                allButtons.forEach(btn => btn.disabled = false);
+                if (callback) {
+                callback();
                 }
+            }
             }
             typeWord();
         }
@@ -592,7 +751,7 @@
                 // Valor
                 ctx.fillStyle = '#D9F5FD';
                 ctx.font = 'bold 28px Roboto';
-                ctx.fillText('Valor', 540, 100);
+                ctx.fillText('Valor', 530, 100);
             }
             // Aprende IA
             if (c2 && c2.offsetParent !== null) {
@@ -606,7 +765,7 @@
                 ctx.fillRect(0,0,600,180);
                 // Datos
                 ctx.fillStyle = '#fff';
-                ctx.fillRect(60, 140, 80, 30);
+                ctx.fillRect(60, 140, 90, 30);
                 ctx.font = 'bold 22px Roboto';
                 ctx.fillStyle = '#0672CB';
                 ctx.fillText('Datos', 75, 162);
@@ -614,21 +773,21 @@
                 ctx.save();
                 ctx.strokeStyle = '#FFB347'; ctx.lineWidth = 7;
                 ctx.beginPath();
-                ctx.moveTo(140, 155); ctx.lineTo(260, 90);
+                ctx.moveTo(150, 155); ctx.lineTo(290, 110);
                 ctx.stroke();
                 // Circulo modelo
-                ctx.beginPath(); ctx.arc(320, 90, 38, 0, 2*Math.PI);
+                ctx.beginPath(); ctx.arc(320, 90, 48, 0, 2*Math.PI);
                 ctx.fillStyle = '#fff'; ctx.fill();
                 ctx.lineWidth = 4; ctx.strokeStyle = '#0672CB'; ctx.stroke();
                 ctx.fillStyle = '#0672CB'; ctx.font = 'bold 22px Roboto';
                 ctx.fillText('Modelo', 285, 98);
                 // Flecha animada
                 ctx.beginPath();
-                ctx.moveTo(358, 90); ctx.lineTo(470, 60);
+                ctx.moveTo(370, 90); ctx.lineTo(470, 60);
                 ctx.strokeStyle = '#FFB347'; ctx.lineWidth = 7;
                 ctx.stroke();
                 // Rectángulo predicción
-                ctx.fillStyle = '#fff'; ctx.fillRect(470, 40, 90, 30);
+                ctx.fillStyle = '#fff'; ctx.fillRect(470, 40, 125, 32);
                 ctx.fillStyle = '#31A2E3'; ctx.font = 'bold 22px Roboto';
                 ctx.fillText('Predicción', 480, 62);
                 // Puntos animados
@@ -901,7 +1060,7 @@
             const aiAhoraBtn = document.getElementById('ai-ahora-btn');
             const aiAhoraAnswer = document.getElementById('ai-ahora-answer');
             if (aiAhoraBtn && aiAhoraAnswer) {
-                const ahoraText = "El momento de la IA es AHORA por la convergencia perfecta de factores: tenemos poder computacional masivo (GPUs, cloud computing), enormes volúmenes de datos (Big Data), algoritmos avanzados (deep learning), y APIs accesibles que democratizan la IA. Los costos han bajado dramáticamente mientras que la competencia empresarial exige eficiencia e innovación. Las empresas que adopten IA hoy tendrán ventaja competitiva sostenible mañana.";
+                const ahoraText = "La IA es clave hoy porque tenemos más datos, computadoras potentes y algoritmos avanzados. Adoptarla ahora permite a las empresas ser más eficientes, innovar y ganar ventaja competitiva.";
                 aiAhoraBtn.addEventListener('click', function() {
                     typeText(aiAhoraAnswer, ahoraText, 70);
                 });
@@ -910,7 +1069,7 @@
             const aiLearnBtn = document.getElementById('ai-learn-btn');
             const aiLearnAnswer = document.getElementById('ai-learn-answer');
             if (aiLearnBtn && aiLearnAnswer) {
-                const learnText = "Una IA aprende como un estudiante súper dedicado que nunca se cansa. Le damos miles o millones de ejemplos (datos de entrenamiento), identifica patrones matemáticos complejos, ajusta sus parámetros internos para minimizar errores, y generaliza ese conocimiento para datos nuevos. Es como enseñar a reconocer gatos mostrando 10,000 fotos de gatos hasta que pueda identificar cualquier gato nuevo. La mejora es continua con más datos y feedback.";
+                const learnText = "Una IA aprende analizando muchos datos, detectando patrones y ajustando sus parámetros para mejorar. Así, puede predecir o reconocer cosas nuevas cada vez mejor, como aprender a identificar gatos viendo miles de fotos.";
                 aiLearnBtn.addEventListener('click', function() {
                     typeText(aiLearnAnswer, learnText, 70);
                 });
@@ -919,7 +1078,7 @@
             const aiDailyBtn = document.getElementById('ai-daily-btn');
             const aiDailyAnswer = document.getElementById('ai-daily-answer');
             if (aiDailyBtn && aiDailyAnswer) {
-                const dailyText = "La IA ya está en todas partes de nuestra vida diaria: Siri y Alexa nos ayudan con tareas, Netflix sabe qué series nos gustarán, Google Maps optimiza nuestras rutas, los bancos detectan fraudes en tiempo real, las cámaras de nuestros teléfonos mejoran automáticamente las fotos, y los algoritmos de redes sociales curan nuestro feed. Incluso el autocorrector que uso ahora es IA. Es invisible pero omnipresente.";
+                const dailyText = "La IA ya está en nuestra vida diaria: asistentes de voz, recomendaciones en Netflix, rutas en Google Maps, detección de fraudes bancarios y mejoras automáticas en fotos. Es invisible, pero está en todas partes.";
                 aiDailyBtn.addEventListener('click', function() {
                     typeText(aiDailyAnswer, dailyText, 70);
                 });
@@ -1808,6 +1967,1421 @@
                         }, 700);
                     }, 500);
                 });
+            }
+
+
+            // IA en Branding y Contenido de Marca
+            const brandingCanvas = document.getElementById('canvas-branding');
+            const brandingBtn = document.getElementById('branding-btn');
+            const brandingExplanation = document.getElementById('branding-explanation');
+            
+            if (brandingCanvas && brandingBtn) {
+                const ctx = brandingCanvas.getContext('2d');
+                
+                function drawOriginalBranding() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo blanco para simular documento
+                    ctx.fillStyle = '#f8f9fa';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título del brief original
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('Brief de Campaña Manual', 20, 30);
+                    
+                    // Contenido básico del brief
+                    ctx.fillStyle = '#666';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Público objetivo: Profesionales 25-45 años', 20, 60);
+                    ctx.fillText('Producto: Software empresarial', 20, 80);
+                    ctx.fillText('Mensaje: "Optimiza tu empresa"', 20, 100);
+                    
+                    // Mockup básico de contenido
+                    ctx.strokeStyle = '#ddd';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(20, 120, 200, 150);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('Contenido genérico:', 25, 140);
+                    ctx.fillText('• Un solo tono de comunicación', 25, 160);
+                    ctx.fillText('• Mensaje universal', 25, 180);
+                    ctx.fillText('• Sin personalización', 25, 200);
+                    ctx.fillText('• Manual y lento', 25, 220);
+                    ctx.fillText('• Inconsistencias de marca', 25, 240);
+                    
+                    // Indicadores de problemas
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.fillText('❌ Proceso Manual', 250, 140);
+                    ctx.fillText('❌ Sin segmentación', 250, 170);
+                    ctx.fillText('❌ Tono inconsistente', 250, 200);
+                    ctx.fillText('❌ Tiempo: 5-7 días', 250, 230);
+                    
+                    // Timeline manual
+                    ctx.strokeStyle = '#ff6b6b';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(300, 260);
+                    ctx.lineTo(480, 260);
+                    ctx.stroke();
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('Día 1-7: Creación manual', 300, 280);
+                }
+                
+                function drawAIBranding() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo mejorado con gradiente
+                    let gradient = ctx.createLinearGradient(0, 0, 500, 300);
+                    gradient.addColorStop(0, '#f8f9fa');
+                    gradient.addColorStop(1, '#e9ecef');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título optimizado por IA
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('🤖 Campaña Generada por IA', 20, 30);
+                    
+                    // Análisis de audiencia inteligente
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('✓ Segmentación automática: 3 audiencias', 20, 60);
+                    ctx.fillText('✓ Personalización por sector', 20, 80);
+                    ctx.fillText('✓ Tono adaptativo por canal', 20, 100);
+                    
+                    // Múltiples variaciones generadas
+                    const variations = [
+                        { x: 20, y: 120, title: 'LinkedIn (Ejecutivos)', content: 'Estratégico\nROI comprobado\nLiderazgo digital' },
+                        { x: 130, y: 120, title: 'Instagram (Startups)', content: 'Dinámico\nInnovación\nCrecimiento ágil' },
+                        { x: 240, y: 120, title: 'Email (PYMES)', content: 'Práctico\nSoluciones claras\nResultados rápidos' }
+                    ];
+                    
+                    variations.forEach((variation, index) => {
+                        // Marco de cada variación
+                        ctx.strokeStyle = '#0672CB';
+                        ctx.lineWidth = 2;
+                        ctx.strokeRect(variation.x, variation.y, 100, 80);
+                        
+                        // Fondo de variación
+                        ctx.fillStyle = `rgba(6, 114, 203, 0.${1 + index})`; 
+                        ctx.fillRect(variation.x + 1, variation.y + 1, 98, 78);
+                        
+                        // Título de variación
+                        ctx.fillStyle = '#333';
+                        ctx.font = 'bold 9px Arial';
+                        ctx.fillText(variation.title, variation.x + 5, variation.y + 15);
+                        
+                        // Contenido
+                        ctx.fillStyle = '#666';
+                        ctx.font = '8px Arial';
+                        const lines = variation.content.split('\n');
+                        lines.forEach((line, lineIndex) => {
+                            ctx.fillText(line, variation.x + 5, variation.y + 35 + lineIndex * 12);
+                        });
+                    });
+                    
+                    // Panel de análisis IA
+                    ctx.fillStyle = '#e8f5e8';
+                    ctx.fillRect(360, 120, 130, 120);
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(360, 120, 130, 120);
+                    
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Análisis IA:', 365, 140);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🎯 3 audiencias identificadas', 365, 155);
+                    ctx.fillText('📊 A/B testing automático', 365, 170);
+                    ctx.fillText('🎨 Consistencia visual: 98%', 365, 185);
+                    ctx.fillText('📝 Tono apropiado: 96%', 365, 200);
+                    ctx.fillText('⚡ Generación: 12 minutos', 365, 215);
+                    ctx.fillText('🚀 CTR esperado: +47%', 365, 230);
+                    
+                    // Timeline optimizado
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(20, 260);
+                    ctx.lineTo(120, 260);
+                    ctx.stroke();
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 10px Arial';
+                    ctx.fillText('12 min: Campaña completa', 20, 280);
+                    
+                    // Indicadores de mejora con animación
+                    const time = Date.now() / 1000;
+                    const pulse = 0.8 + 0.2 * Math.sin(time * 3);
+                    
+                    ctx.save();
+                    ctx.globalAlpha = pulse;
+                    ctx.fillStyle = '#FFB347';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('⚡ 95% más rápido', 250, 270);
+                    ctx.restore();
+                }
+                
+                drawOriginalBranding();
+                
+                brandingBtn.addEventListener('click', () => {
+                    if (brandingBtn.disabled) return;
+                    
+                    brandingBtn.disabled = true;
+                    brandingBtn.textContent = 'Analizando audiencia...';
+                    
+                    setTimeout(() => {
+                        brandingBtn.textContent = 'Generando contenido...';
+                        setTimeout(() => {
+                            brandingBtn.textContent = 'Adaptando tono por canal...';
+                            setTimeout(() => {
+                                brandingBtn.textContent = 'Optimizando mensajes...';
+                                setTimeout(() => {
+                                    drawAIBranding();
+                                    brandingBtn.textContent = 'Campaña Generada';
+                                    
+                                    const explanation = "La IA analizó el brief y generó una campaña multi-canal completa: segmentó automáticamente la audiencia en 3 perfiles (ejecutivos, startups, PYMES), adaptó el tono y mensaje para LinkedIn, Instagram y Email, mantuvo 98% de consistencia visual de marca, optimizó el copy para cada plataforma y generó variaciones A/B testing, reduciendo el tiempo de creación de 7 días a 12 minutos con un CTR esperado 47% superior.";
+                                    
+                                    typeText(brandingExplanation, explanation, 80);
+                                    
+                                }, 1000);
+                            }, 800);
+                        }, 700);
+                    }, 600);
+                });
+            }
+
+            // Gestión de Agentes IA como Recursos de Equipo
+            const agentsCanvas = document.getElementById('canvas-agents');
+            const agentsBtn = document.getElementById('agents-btn');
+            const agentsExplanation = document.getElementById('agents-explanation');
+            
+            if (agentsCanvas && agentsBtn) {
+                const ctx = agentsCanvas.getContext('2d');
+                
+                function drawTraditionalTeam() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo organizacional
+                    ctx.fillStyle = '#fafafa';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('Equipo Tradicional', 20, 30);
+                    
+                    // Estructura jerárquica tradicional
+                    const teamMembers = [
+                        { name: 'Director', x: 200, y: 60, color: '#0672CB' },
+                        { name: 'Analista', x: 120, y: 120, color: '#31A2E3' },
+                        { name: 'Desarrollador', x: 200, y: 120, color: '#31A2E3' },
+                        { name: 'Diseñador', x: 280, y: 120, color: '#31A2E3' },
+                        { name: 'Support', x: 160, y: 180, color: '#5CC1EE' },
+                        { name: 'QA Tester', x: 240, y: 180, color: '#5CC1EE' }
+                    ];
+                    
+                    // Dibujar miembros tradicionales
+                    teamMembers.forEach(member => {
+                        // Círculo para persona
+                        ctx.beginPath();
+                        ctx.arc(member.x, member.y, 20, 0, 2*Math.PI);
+                        ctx.fillStyle = member.color;
+                        ctx.fill();
+                        ctx.strokeStyle = '#333';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        // Icono de persona
+                        ctx.fillStyle = '#fff';
+                        ctx.font = '16px Arial';
+                        ctx.fillText('👤', member.x - 8, member.y + 5);
+                        
+                        // Nombre del rol
+                        ctx.fillStyle = '#333';
+                        ctx.font = '10px Arial';
+                        ctx.fillText(member.name, member.x - 25, member.y + 35);
+                    });
+                    
+                    // Líneas de reporte tradicionales
+                    ctx.strokeStyle = '#999';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    // Director a managers
+                    ctx.moveTo(200, 80); ctx.lineTo(120, 100);
+                    ctx.moveTo(200, 80); ctx.lineTo(200, 100);
+                    ctx.moveTo(200, 80); ctx.lineTo(280, 100);
+                    // Managers a ejecutores
+                    ctx.moveTo(120, 140); ctx.lineTo(160, 160);
+                    ctx.moveTo(200, 140); ctx.lineTo(160, 160);
+                    ctx.moveTo(280, 140); ctx.lineTo(240, 160);
+                    ctx.stroke();
+                    
+                    // Limitaciones del equipo tradicional
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Limitaciones:', 320, 80);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('• Horario laboral limitado', 320, 100);
+                    ctx.fillText('• Capacidad humana finita', 320, 115);
+                    ctx.fillText('• Procesos manuales lentos', 320, 130);
+                    ctx.fillText('• Escalabilidad limitada', 320, 145);
+                    ctx.fillText('• Costos fijos altos', 320, 160);
+                    ctx.fillText('• Errores humanos', 320, 175);
+                    
+                    // Métricas tradicionales
+                    ctx.fillStyle = '#FFB347';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Productividad: 8h/día', 320, 200);
+                    ctx.fillText('Disponibilidad: 40h/sem', 320, 215);
+                    ctx.fillText('Escalabilidad: Lenta', 320, 230);
+                    ctx.fillText('Costo: Alto', 320, 245);
+                }
+                
+                function drawHybridTeam() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo mejorado
+                    let gradient = ctx.createLinearGradient(0, 0, 500, 300);
+                    gradient.addColorStop(0, '#fafafa');
+                    gradient.addColorStop(1, '#f0f8ff');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título híbrido
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('🤖 Equipo Híbrido (Humanos + IA)', 20, 30);
+                    
+                    // Humanos (azul)
+                    const humans = [
+                        { name: 'Director Estratégico', x: 100, y: 70, color: '#0672CB' },
+                        { name: 'Lead Developer', x: 180, y: 120, color: '#31A2E3' },
+                        { name: 'Creative Director', x: 300, y: 120, color: '#31A2E3' }
+                    ];
+                    
+                    // Agentes IA (verde)
+                    const aiAgents = [
+                        { name: 'Agente Análisis', x: 120, y: 180, color: '#2ECC71', type: 'AI' },
+                        { name: 'Agente Código', x: 180, y: 180, color: '#2ECC71', type: 'AI' },
+                        { name: 'Agente Support', x: 240, y: 180, color: '#2ECC71', type: 'AI' },
+                        { name: 'Agente QA', x: 300, y: 180, color: '#2ECC71', type: 'AI' },
+                        { name: 'Agente Content', x: 360, y: 180, color: '#2ECC71', type: 'AI' }
+                    ];
+                    
+                    // Dibujar humanos
+                    humans.forEach(human => {
+                        ctx.beginPath();
+                        ctx.arc(human.x, human.y, 22, 0, 2*Math.PI);
+                        ctx.fillStyle = human.color;
+                        ctx.fill();
+                        ctx.strokeStyle = '#333';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        ctx.fillStyle = '#fff';
+                        ctx.font = '18px Arial';
+                        ctx.fillText('👤', human.x - 9, human.y + 6);
+                        
+                        ctx.fillStyle = '#333';
+                        ctx.font = '9px Arial';
+                        ctx.fillText(human.name, human.x - 30, human.y + 40);
+                    });
+                    
+                    // Dibujar agentes IA
+                    aiAgents.forEach((agent, index) => {
+                        // Efecto de pulso para agentes IA
+                        const time = Date.now() / 1000;
+                        const pulse = 1 + 0.2 * Math.sin(time * 2 + index);
+                        
+                        ctx.save();
+                        ctx.scale(pulse, pulse);
+                        
+                        const scaledX = agent.x / pulse;
+                        const scaledY = agent.y / pulse;
+                        
+                        ctx.beginPath();
+                        ctx.arc(scaledX, scaledY, 18, 0, 2*Math.PI);
+                        ctx.fillStyle = agent.color;
+                        ctx.fill();
+                        ctx.strokeStyle = '#27AE60';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        ctx.fillStyle = '#fff';
+                        ctx.font = '14px Arial';
+                        ctx.fillText('🤖', scaledX - 7, scaledY + 4);
+                        
+                        ctx.restore();
+                        
+                        ctx.fillStyle = '#333';
+                        ctx.font = '8px Arial';
+                        ctx.fillText(agent.name, agent.x - 25, agent.y + 35);
+                        
+                        // Indicador 24/7
+                        ctx.fillStyle = '#27AE60';
+                        ctx.font = '6px Arial';
+                        ctx.fillText('24/7', agent.x - 8, agent.y + 45);
+                    });
+                    
+                    // Conexiones colaborativas (no jerárquicas)
+                    ctx.strokeStyle = '#5CC1EE';
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.beginPath();
+                    // Humanos a agentes IA (colaboración)
+                    ctx.moveTo(180, 140); ctx.lineTo(180, 160);
+                    ctx.moveTo(180, 140); ctx.lineTo(240, 160);
+                    ctx.moveTo(300, 140); ctx.lineTo(360, 160);
+                    ctx.moveTo(300, 140); ctx.lineTo(300, 160);
+                    // Agentes IA entre sí (coordinación)
+                    ctx.moveTo(140, 180); ctx.lineTo(220, 180);
+                    ctx.moveTo(260, 180); ctx.lineTo(340, 180);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    // Panel de capacidades mejoradas
+                    ctx.fillStyle = '#e8f5e8';
+                    ctx.fillRect(20, 220, 460, 70);
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(20, 220, 460, 70);
+                    
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Capacidades del Equipo Híbrido:', 25, 240);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('✓ Productividad 24/7 con agentes IA', 25, 255);
+                    ctx.fillText('✓ Escalabilidad instantánea', 25, 270);
+                    ctx.fillText('✓ Precisión + Creatividad humana', 200, 255);
+                    ctx.fillText('✓ Costos optimizados', 200, 270);
+                    ctx.fillText('✓ Colaboración inteligente', 350, 255);
+                    ctx.fillText('✓ Aprendizaje continuo', 350, 270);
+                    
+                    // Métricas mejoradas
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('📊 Métricas del Equipo Híbrido:', 380, 100);
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('🚀 Productividad: +300%', 380, 120);
+                    ctx.fillText('⏰ Disponibilidad: 24/7', 380, 135);
+                    ctx.fillText('📈 Escalabilidad: Instantánea', 380, 150);
+                    ctx.fillText('💰 ROI: +250%', 380, 165);
+                }
+                
+                drawTraditionalTeam();
+                
+                agentsBtn.addEventListener('click', () => {
+                    if (agentsBtn.disabled) return;
+                    
+                    agentsBtn.disabled = true;
+                    agentsBtn.textContent = 'Analizando estructura actual...';
+                    
+                    setTimeout(() => {
+                        agentsBtn.textContent = 'Identificando oportunidades IA...';
+                        setTimeout(() => {
+                            agentsBtn.textContent = 'Desplegando agentes especializados...';
+                            setTimeout(() => {
+                                agentsBtn.textContent = 'Configurando colaboración...';
+                                setTimeout(() => {
+                                    drawHybridTeam();
+                                    agentsBtn.textContent = 'Equipo Híbrido Activo';
+                                    
+                                    const explanation = "Se configuró un equipo híbrido revolucionario: los humanos se enfocan en estrategia, creatividad y liderazgo, mientras 5 agentes IA especializados manejan análisis de datos, generación de código, soporte al cliente, testing automatizado y creación de contenido. Los agentes operan 24/7, se coordinan entre sí, aprenden continuamente y escalan instantáneamente, multiplicando la productividad del equipo por 3x mientras reducen costos operativos.";
+                                    
+                                    typeText(agentsExplanation, explanation, 80);
+                                    
+                                }, 1200);
+                            }, 900);
+                        }, 800);
+                    }, 600);
+                });
+            }
+
+            // IA en Marketing Digital
+            const marketingCanvas = document.getElementById('canvas-marketing');
+            const marketingBtn = document.getElementById('marketing-btn');
+            const marketingExplanation = document.getElementById('marketing-explanation');
+            
+            if (marketingCanvas && marketingBtn) {
+                const ctx = marketingCanvas.getContext('2d');
+                
+                function drawTraditionalMarketing() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo de dashboard tradicional
+                    ctx.fillStyle = '#f1f3f4';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('Marketing Tradicional', 20, 30);
+                    
+                    // Audiencia genérica
+                    ctx.fillStyle = '#666';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Audiencia Universal:', 20, 60);
+                    
+                    // Círculo grande para audiencia no segmentada
+                    ctx.beginPath();
+                    ctx.arc(150, 120, 60, 0, 2*Math.PI);
+                    ctx.fillStyle = '#FFB347';
+                    ctx.fill();
+                    ctx.strokeStyle = '#333';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 14px Arial';
+                    ctx.fillText('Todos', 130, 120);
+                    ctx.font = '10px Arial';
+                    ctx.fillText('Sin segmentación', 115, 135);
+                    
+                    // Mensaje único
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.fillRect(250, 80, 200, 80);
+                    ctx.fillStyle = '#fff';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Mensaje Universal:', 260, 100);
+                    ctx.font = '10px Arial';
+                    ctx.fillText('• Mismo contenido para todos', 260, 120);
+                    ctx.fillText('• Sin personalización', 260, 135);
+                    ctx.fillText('• Bajo engagement', 260, 150);
+                    
+                    // Métricas pobres
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Métricas Tradicionales:', 20, 200);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('📧 Open Rate: 18%', 20, 220);
+                    ctx.fillText('👆 Click Rate: 2.5%', 20, 235);
+                    ctx.fillText('💰 Conversión: 1.2%', 20, 250);
+                    ctx.fillText('⏱️ Tiempo análisis: 2-3 días', 20, 265);
+                    
+                    // Problemas
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('❌ Desperdicio presupuesto', 250, 200);
+                    ctx.fillText('❌ Baja relevancia', 250, 220);
+                    ctx.fillText('❌ Análisis manual lento', 250, 240);
+                    ctx.fillText('❌ Sin insights predictivos', 250, 260);
+                }
+                
+                function drawAIMarketing() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo mejorado con gradiente
+                    let gradient = ctx.createLinearGradient(0, 0, 500, 300);
+                    gradient.addColorStop(0, '#f1f3f4');
+                    gradient.addColorStop(1, '#e3f2fd');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título optimizado
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('🤖 Marketing Digital con IA', 20, 30);
+                    
+                    // Segmentación inteligente
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = '12px Arial';
+                    ctx.fillText('Segmentación Inteligente:', 20, 60);
+                    
+                    // Múltiples segmentos
+                    const segments = [
+                        { name: 'Millennials', x: 80, y: 100, color: '#31A2E3', interest: 'Tech' },
+                        { name: 'Gen X', x: 150, y: 100, color: '#2ECC71', interest: 'Familia' },
+                        { name: 'Gen Z', x: 220, y: 100, color: '#9B59B6', interest: 'Social' },
+                        { name: 'Boomers', x: 100, y: 150, color: '#E67E22', interest: 'Estabilidad' },
+                        { name: 'Ejecutivos', x: 170, y: 150, color: '#E74C3C', interest: 'ROI' }
+                    ];
+                    
+                    segments.forEach((segment, index) => {
+                        // Efecto pulsante para cada segmento
+                        const time = Date.now() / 1000;
+                        const pulse = 1 + 0.1 * Math.sin(time * 2 + index);
+                        
+                        ctx.save();
+                        ctx.scale(pulse, pulse);
+                        
+                        const scaledX = segment.x / pulse;
+                        const scaledY = segment.y / pulse;
+                        
+                        ctx.beginPath();
+                        ctx.arc(scaledX, scaledY, 20, 0, 2*Math.PI);
+                        ctx.fillStyle = segment.color;
+                        ctx.fill();
+                        ctx.strokeStyle = '#333';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                        
+                        ctx.restore();
+                        
+                        // Texto del segmento
+                        ctx.fillStyle = '#fff';
+                        ctx.font = '8px Arial';
+                        ctx.fillText(segment.name, segment.x - 15, segment.y + 2);
+                        
+                        // Interés
+                        ctx.fillStyle = '#333';
+                        ctx.font = '7px Arial';
+                        ctx.fillText(segment.interest, segment.x - 10, segment.y + 35);
+                    });
+                    
+                    // Conexiones entre segmentos
+                    ctx.strokeStyle = '#5CC1EE';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([2, 2]);
+                    ctx.beginPath();
+                    segments.forEach((segment, index) => {
+                        if (index < segments.length - 1) {
+                            const next = segments[index + 1];
+                            ctx.moveTo(segment.x, segment.y);
+                            ctx.lineTo(next.x, next.y);
+                        }
+                    });
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    // Panel de análisis en tiempo real
+                    ctx.fillStyle = '#e8f5e8';
+                    ctx.fillRect(280, 80, 200, 120);
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(280, 80, 200, 120);
+                    
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Análisis IA en Tiempo Real:', 285, 100);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🎯 5 segmentos identificados', 285, 115);
+                    ctx.fillText('📊 Patrones de comportamiento', 285, 130);
+                    ctx.fillText('⚡ Optimización automática', 285, 145);
+                    ctx.fillText('🔮 Predicción de conversión', 285, 160);
+                    ctx.fillText('📱 Cross-channel sync', 285, 175);
+                    ctx.fillText('🚀 A/B testing continuo', 285, 190);
+                    
+                    // Métricas mejoradas
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Métricas Optimizadas:', 20, 200);
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('📧 Open Rate: 47% (+161%)', 20, 220);
+                    ctx.fillText('👆 Click Rate: 12% (+380%)', 20, 235);
+                    ctx.fillText('💰 Conversión: 8.5% (+608%)', 20, 250);
+                    ctx.fillText('⚡ Tiempo análisis: Tiempo real', 20, 265);
+                    ctx.fillText('🎯 ROI: +340%', 20, 280);
+                }
+                
+                drawTraditionalMarketing();
+                
+                marketingBtn.addEventListener('click', () => {
+                    if (marketingBtn.disabled) return;
+                    
+                    marketingBtn.disabled = true;
+                    marketingBtn.textContent = 'Analizando datos de audiencia...';
+                    
+                    setTimeout(() => {
+                        marketingBtn.textContent = 'Segmentando inteligentemente...';
+                        setTimeout(() => {
+                            marketingBtn.textContent = 'Personalizando mensajes...';
+                            setTimeout(() => {
+                                marketingBtn.textContent = 'Optimizando campañas...';
+                                setTimeout(() => {
+                                    drawAIMarketing();
+                                    marketingBtn.textContent = 'Análisis Completo';
+                                    
+                                    const explanation = "La IA transformó completamente el marketing digital: segmentó automáticamente la audiencia en 5 perfiles demográficos y psicográficos detallados, personalizó mensajes para cada segmento basándose en patrones de comportamiento, optimizó timing y canales en tiempo real, predijo probabilidades de conversión individuales y ejecutó A/B testing continuo, resultando en un incremento del 340% en ROI y 608% en conversiones.";
+                                    
+                                    typeText(marketingExplanation, explanation, 80);
+                                    
+                                }, 1000);
+                            }, 800);
+                        }, 700);
+                    }, 600);
+                });
+            }
+
+            // IA en Recursos Humanos
+            const hrCanvas = document.getElementById('canvas-hr');
+            const hrBtn = document.getElementById('hr-btn');
+            const hrExplanation = document.getElementById('hr-explanation');
+            
+            if (hrCanvas && hrBtn) {
+                const ctx = hrCanvas.getContext('2d');
+                
+                function drawTraditionalHR() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo de oficina tradicional
+                    ctx.fillStyle = '#fef7f0';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('Proceso de RRHH Tradicional', 20, 30);
+                    
+                    // Timeline manual
+                    ctx.strokeStyle = '#E67E22';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 70);
+                    ctx.lineTo(450, 70);
+                    ctx.stroke();
+                    
+                    // Etapas del proceso tradicional
+                    const stages = [
+                        { name: 'Publicar\nvacante', x: 80, time: '3 días' },
+                        { name: 'Recibir\nCVs', x: 160, time: '7 días' },
+                        { name: 'Revisar\nmanual', x: 240, time: '5 días' },
+                        { name: 'Entrevistas', x: 320, time: '10 días' },
+                        { name: 'Decisión', x: 400, time: '3 días' }
+                    ];
+                    
+                    stages.forEach(stage => {
+                        // Marcador en timeline
+                        ctx.fillStyle = '#E67E22';
+                        ctx.beginPath();
+                        ctx.arc(stage.x, 70, 6, 0, 2*Math.PI);
+                        ctx.fill();
+                        
+                        // Nombre de etapa
+                        ctx.fillStyle = '#333';
+                        ctx.font = '9px Arial';
+                        const lines = stage.name.split('\n');
+                        lines.forEach((line, index) => {
+                            ctx.fillText(line, stage.x - 15, 90 + index * 12);
+                        });
+                        
+                        // Tiempo
+                        ctx.fillStyle = '#E67E22';
+                        ctx.font = '8px Arial';
+                        ctx.fillText(stage.time, stage.x - 10, 55);
+                    });
+                    
+                    // Pila de CVs manual
+                    ctx.fillStyle = '#fff';
+                    for(let i = 0; i < 8; i++) {
+                        ctx.fillRect(70 + i*2, 140 + i*3, 60, 80);
+                        ctx.strokeStyle = '#333';
+                        ctx.lineWidth = 1;
+                        ctx.strokeRect(70 + i*2, 140 + i*3, 60, 80);
+                    }
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('250 CVs', 90, 260);
+                    ctx.fillText('Revisión manual', 90, 275);
+                    
+                    // Problemas del proceso tradicional
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Limitaciones:', 200, 140);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('• 28 días tiempo total', 200, 160);
+                    ctx.fillText('• Sesgo humano en selección', 200, 175);
+                    ctx.fillText('• Análisis superficial de CVs', 200, 190);
+                    ctx.fillText('• Sin predicción de retención', 200, 205);
+                    ctx.fillText('• Proceso costoso y lento', 200, 220);
+                    ctx.fillText('• Pérdida de talento', 200, 235);
+                    ctx.fillText('• Sin análisis predictivo', 200, 250);
+                    
+                    // Costos
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('💰 Costo: $15,000', 350, 160);
+                    ctx.fillText('⏱️ Eficiencia: 23%', 350, 180);
+                    ctx.fillText('🎯 Acierto: 67%', 350, 200);
+                }
+                
+                function drawAIHR() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo mejorado
+                    let gradient = ctx.createLinearGradient(0, 0, 500, 300);
+                    gradient.addColorStop(0, '#fef7f0');
+                    gradient.addColorStop(1, '#f3e5f5');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título optimizado
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('🤖 RRHH Potenciado por IA', 20, 30);
+                    
+                    // Timeline optimizado
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 70);
+                    ctx.lineTo(300, 70);
+                    ctx.stroke();
+                    
+                    // Etapas optimizadas
+                    const aiStages = [
+                        { name: 'Auto-publica\nmulti-canal', x: 80, time: '2h' },
+                        { name: 'Screening\nIA', x: 140, time: '1h' },
+                        { name: 'Ranking\ninteligente', x: 200, time: '15min' },
+                        { name: 'Entrevistas\npreselección', x: 260, time: '2 días' }
+                    ];
+                    
+                    aiStages.forEach((stage, index) => {
+                        // Marcador en timeline con animación
+                        const time = Date.now() / 1000;
+                        const pulse = 1 + 0.2 * Math.sin(time * 3 + index);
+                        
+                        ctx.save();
+                        ctx.scale(pulse, pulse);
+                        
+                        const scaledX = stage.x / pulse;
+                        const scaledY = 70 / pulse;
+                        
+                        ctx.fillStyle = '#2ECC71';
+                        ctx.beginPath();
+                        ctx.arc(scaledX, scaledY, 6, 0, 2*Math.PI);
+                        ctx.fill();
+                        
+                        ctx.restore();
+                        
+                        // Nombre de etapa
+                        ctx.fillStyle = '#333';
+                        ctx.font = '9px Arial';
+                        const lines = stage.name.split('\n');
+                        lines.forEach((line, lineIndex) => {
+                            ctx.fillText(line, stage.x - 20, 90 + lineIndex * 12);
+                        });
+                        
+                        // Tiempo
+                        ctx.fillStyle = '#2ECC71';
+                        ctx.font = 'bold 8px Arial';
+                        ctx.fillText(stage.time, stage.x - 10, 55);
+                    });
+                    
+                    // Panel de análisis IA
+                    ctx.fillStyle = '#e3f2fd';
+                    ctx.fillRect(20, 120, 220, 130);
+                    ctx.strokeStyle = '#0672CB';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(20, 120, 220, 130);
+                    
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Análisis IA de Candidatos:', 25, 140);
+                    
+                    // Candidatos rankeados
+                    const candidates = [
+                        { name: 'Ana García', score: 94, skills: 'Python, ML', x: 30, y: 155 },
+                        { name: 'Luis Torres', score: 89, skills: 'React, Node', x: 30, y: 175 },
+                        { name: 'María López', score: 85, skills: 'Java, Spring', x: 30, y: 195 }
+                    ];
+                    
+                    candidates.forEach((candidate, index) => {
+                        // Barra de score
+                        ctx.fillStyle = index === 0 ? '#2ECC71' : index === 1 ? '#31A2E3' : '#FFB347';
+                        ctx.fillRect(candidate.x, candidate.y, candidate.score * 1.5, 12);
+                        
+                        // Info del candidato
+                        ctx.fillStyle = '#333';
+                        ctx.font = '8px Arial';
+                        ctx.fillText(`${candidate.name} - ${candidate.score}%`, candidate.x + 5, candidate.y + 8);
+                        ctx.fillText(candidate.skills, candidate.x + 5, candidate.y + 18);
+                    });
+                    
+                    // Predicciones IA
+                    ctx.fillStyle = '#f3e5f5';
+                    ctx.fillRect(260, 120, 220, 130);
+                    ctx.strokeStyle = '#9B59B6';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(260, 120, 220, 130);
+                    
+                    ctx.fillStyle = '#9B59B6';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Predicciones IA:', 265, 140);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🎯 Probabilidad éxito: 91%', 265, 155);
+                    ctx.fillText('📈 Retención esperada: 4.2 años', 265, 170);
+                    ctx.fillText('💰 ROI del hire: +285%', 265, 185);
+                    ctx.fillText('⚡ Tiempo adaptación: 3 semanas', 265, 200);
+                    ctx.fillText('🏆 Performance esperado: Alto', 265, 215);
+                    ctx.fillText('🎓 Potencial crecimiento: 95%', 265, 230);
+                    
+                    // Métricas mejoradas
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Resultados Optimizados:', 320, 50);
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('⏱️ Tiempo total: 5 días (-82%)', 320, 70);
+                    ctx.fillText('💰 Costo: $3,200 (-79%)', 320, 85);
+                    ctx.fillText('🎯 Acierto: 94% (+40%)', 320, 100);
+                    ctx.fillText('🚀 Eficiencia: 96% (+317%)', 320, 115);
+                }
+                
+                drawTraditionalHR();
+                
+                hrBtn.addEventListener('click', () => {
+                    if (hrBtn.disabled) return;
+                    
+                    hrBtn.disabled = true;
+                    hrBtn.textContent = 'Analizando perfiles...';
+                    
+                    setTimeout(() => {
+                        hrBtn.textContent = 'Aplicando ML scoring...';
+                        setTimeout(() => {
+                            hrBtn.textContent = 'Prediciendo retención...';
+                            setTimeout(() => {
+                                hrBtn.textContent = 'Generando recomendaciones...';
+                                setTimeout(() => {
+                                    drawAIHR();
+                                    hrBtn.textContent = 'Optimización Completa';
+                                    
+                                    const explanation = "La IA revolucionó el proceso de RRHH: automatizó el screening inicial con análisis de CV usando NLP, aplicó machine learning para rankear candidatos por fit cultural y técnico, predijo probabilidades de retención y performance futura, redujo tiempo de contratación de 28 días a 5 días, incrementó tasa de acierto del 67% al 94%, y disminuyó costos de contratación 79% mientras elimina sesgos humanos en la selección.";
+                                    
+                                    typeText(hrExplanation, explanation, 80);
+                                    
+                                }, 1100);
+                            }, 900);
+                        }, 700);
+                    }, 600);
+                });
+            }
+
+            // IA en Customer Experience
+            const cxCanvas = document.getElementById('canvas-cx');
+            const cxBtn = document.getElementById('cx-btn');
+            const cxExplanation = document.getElementById('cx-explanation');
+            
+            if (cxCanvas && cxBtn) {
+                const ctx = cxCanvas.getContext('2d');
+                
+                function drawTraditionalCX() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo azul claro
+                    ctx.fillStyle = '#f0f8ff';
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('Customer Experience Tradicional', 20, 30);
+                    
+                    // Customer journey lineal
+                    ctx.strokeStyle = '#666';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 80);
+                    ctx.lineTo(450, 80);
+                    ctx.stroke();
+                    
+                    // Touchpoints tradicionales
+                    const touchpoints = [
+                        { name: 'Awareness', x: 80, exp: 'Genérica' },
+                        { name: 'Consideración', x: 160, exp: 'Estándar' },
+                        { name: 'Compra', x: 240, exp: 'Básica' },
+                        { name: 'Soporte', x: 320, exp: 'Reactiva' },
+                        { name: 'Retención', x: 400, exp: 'Manual' }
+                    ];
+                    
+                    touchpoints.forEach(point => {
+                        // Punto en el journey
+                        ctx.fillStyle = '#666';
+                        ctx.beginPath();
+                        ctx.arc(point.x, 80, 8, 0, 2*Math.PI);
+                        ctx.fill();
+                        
+                        // Nombre
+                        ctx.fillStyle = '#333';
+                        ctx.font = '10px Arial';
+                        ctx.fillText(point.name, point.x - 20, 100);
+                        
+                        // Experiencia
+                        ctx.fillStyle = '#E74C3C';
+                        ctx.font = '8px Arial';
+                        ctx.fillText(point.exp, point.x - 15, 115);
+                    });
+                    
+                    // Problemas del CX tradicional
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Limitaciones del CX Tradicional:', 20, 150);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('• Experiencia genérica para todos', 20, 170);
+                    ctx.fillText('• Sin personalización en tiempo real', 20, 185);
+                    ctx.fillText('• Soporte reactivo únicamente', 20, 200);
+                    ctx.fillText('• Datos fragmentados entre canales', 20, 215);
+                    ctx.fillText('• No predice necesidades futuras', 20, 230);
+                    ctx.fillText('• Tiempo respuesta lento', 20, 245);
+                    
+                    // Métricas pobres
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Métricas Actuales:', 300, 150);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('😐 CSAT: 6.8/10', 300, 170);
+                    ctx.fillText('📉 NPS: +12', 300, 185);
+                    ctx.fillText('💸 Churn Rate: 23%', 300, 200);
+                    ctx.fillText('⏱️ Respuesta: 4-6 horas', 300, 215);
+                    ctx.fillText('🎯 Personalización: 15%', 300, 230);
+                    ctx.fillText('🔄 Retención: 77%', 300, 245);
+                }
+                
+                function drawAICX() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    
+                    // Fondo mejorado con gradiente
+                    let gradient = ctx.createLinearGradient(0, 0, 500, 300);
+                    gradient.addColorStop(0, '#f0f8ff');
+                    gradient.addColorStop(1, '#e8f4fd');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 500, 300);
+                    
+                    // Título optimizado
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('🤖 Customer Experience con IA', 20, 30);
+                    
+                    // Customer journey inteligente
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 80);
+                    ctx.lineTo(450, 80);
+                    ctx.stroke();
+                    
+                    // Touchpoints optimizados con IA
+                    const aiTouchpoints = [
+                        { name: 'Smart\nAwareness', x: 80, exp: 'Personalizada', color: '#31A2E3' },
+                        { name: 'Intelligent\nMatching', x: 160, exp: 'Predictiva', color: '#2ECC71' },
+                        { name: 'Dynamic\nPricing', x: 240, exp: 'Optimizada', color: '#9B59B6' },
+                        { name: 'Proactive\nSupport', x: 320, exp: 'Anticipativa', color: '#E67E22' },
+                        { name: 'AI-Driven\nRetention', x: 400, exp: 'Inteligente', color: '#E74C3C' }
+                    ];
+                    
+                    aiTouchpoints.forEach((point, index) => {
+                        // Animación de pulso
+                        const time = Date.now() / 1000;
+                        const pulse = 1 + 0.3 * Math.sin(time * 2 + index);
+                        
+                        ctx.save();
+                        ctx.scale(pulse, pulse);
+                        
+                        const scaledX = point.x / pulse;
+                        const scaledY = 80 / pulse;
+                        
+                        // Punto mejorado
+                        ctx.fillStyle = point.color;
+                        ctx.beginPath();
+                        ctx.arc(scaledX, scaledY, 10, 0, 2*Math.PI);
+                        ctx.fill();
+                        ctx.strokeStyle = '#fff';
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+                        
+                        ctx.restore();
+                        
+                        // Nombre
+                        ctx.fillStyle = '#333';
+                        ctx.font = '8px Arial';
+                        const lines = point.name.split('\n');
+                        lines.forEach((line, lineIndex) => {
+                            ctx.fillText(line, point.x - 20, 100 + lineIndex * 10);
+                        });
+                        
+                        // Experiencia
+                        ctx.fillStyle = point.color;
+                        ctx.font = 'bold 8px Arial';
+                        ctx.fillText(point.exp, point.x - 20, 125);
+                        
+                        // Conectores inteligentes
+                        if (index < aiTouchpoints.length - 1) {
+                            ctx.strokeStyle = point.color;
+                            ctx.lineWidth = 2;
+                            ctx.setLineDash([3, 3]);
+                            ctx.beginPath();
+                            ctx.moveTo(point.x + 15, 80);
+                            ctx.lineTo(aiTouchpoints[index + 1].x - 15, 80);
+                            ctx.stroke();
+                            ctx.setLineDash([]);
+                        }
+                    });
+                    
+                    // Panel de personalización IA
+                    ctx.fillStyle = '#e3f2fd';
+                    ctx.fillRect(20, 150, 220, 100);
+                    ctx.strokeStyle = '#0672CB';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(20, 150, 220, 100);
+                    
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Personalización IA:', 25, 170);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🎯 Micro-segmentación en tiempo real', 25, 185);
+                    ctx.fillText('🔮 Predicción de comportamiento', 25, 200);
+                    ctx.fillText('⚡ Respuestas instantáneas 24/7', 25, 215);
+                    ctx.fillText('🎨 Contenido dinámico adaptativo', 25, 230);
+                    ctx.fillText('📊 Análisis sentimiento en tiempo real', 25, 245);
+                    
+                    // Métricas mejoradas
+                    ctx.fillStyle = '#e8f5e8';
+                    ctx.fillRect(260, 150, 220, 100);
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(260, 150, 220, 100);
+                    
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Métricas Optimizadas:', 265, 170);
+                    
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('😍 CSAT: 9.2/10 (+35%)', 265, 185);
+                    ctx.fillText('📈 NPS: +67 (+458%)', 265, 200);
+                    ctx.fillText('💰 Churn Rate: 8% (-65%)', 265, 215);
+                    ctx.fillText('⚡ Respuesta: <30 seg (-99%)', 265, 230);
+                    ctx.fillText('🎯 Personalización: 94% (+527%)', 265, 245);
+                }
+                
+                drawTraditionalCX();
+                
+                cxBtn.addEventListener('click', () => {
+                    if (cxBtn.disabled) return;
+                    
+                    cxBtn.disabled = true;
+                    cxBtn.textContent = 'Analizando journey actual...';
+                    
+                    setTimeout(() => {
+                        cxBtn.textContent = 'Micro-segmentando audiencias...';
+                        setTimeout(() => {
+                            cxBtn.textContent = 'Personalizando touchpoints...';
+                            setTimeout(() => {
+                                cxBtn.textContent = 'Optimizando experiencias...';
+                                setTimeout(() => {
+                                    drawAICX();
+                                    cxBtn.textContent = 'CX Personalizado Activo';
+                                    
+                                    const explanation = "La IA transformó completamente el customer experience: implementó micro-segmentación en tiempo real para personalizar cada touchpoint, desarrolló capacidades predictivas para anticipar necesidades del cliente, automatizó respuestas inteligentes disponibles 24/7, sincronizó datos cross-channel para una vista 360°, y optimizó continuamente la experiencia basándose en análisis de sentimiento, resultando en un CSAT de 9.2/10.";
+                                    
+                                    typeText(cxExplanation, explanation, 80);
+                                    
+                                }, 1200);
+                            }, 900);
+                        }, 800);
+                    }, 600);
+                });
+            }
+
+            // IA en Finanzas y Detección de Fraude
+            const financeCanvas = document.getElementById('canvas-finance');
+            const financeBtn = document.getElementById('finance-btn');
+            const financeExplanation = document.getElementById('finance-explanation');
+
+            if (financeCanvas && financeBtn) {
+                const ctx = financeCanvas.getContext('2d');
+
+                function drawTraditionalFinance() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    // Fondo verde claro
+                    ctx.fillStyle = '#e8f5e9';
+                    ctx.fillRect(0, 0, 500, 300);
+
+                    // Título
+                    ctx.fillStyle = '#333';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('Análisis Financiero Tradicional', 20, 30);
+
+                    // Gráfico de transacciones simple
+                    ctx.strokeStyle = '#999';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(50, 200);
+                    ctx.lineTo(80, 150);
+                    ctx.lineTo(110, 180);
+                    ctx.lineTo(140, 120);
+                    ctx.lineTo(170, 160);
+                    ctx.lineTo(200, 140);
+                    ctx.stroke();
+
+                    // Puntos de transacción
+                    [50, 80, 110, 140, 170, 200].forEach(x => {
+                        ctx.fillStyle = '#E74C3C';
+                        ctx.beginPath();
+                        ctx.arc(x, x === 50 ? 200 : x === 80 ? 150 : x === 110 ? 180 : x === 140 ? 120 : x === 170 ? 160 : 140, 5, 0, 2 * Math.PI);
+                        ctx.fill();
+                    });
+
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('Transacciones', 50, 220);
+
+                    // Problemas del análisis tradicional
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = 'bold 12px Arial';
+                    ctx.fillText('Limitaciones:', 250, 60);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('• Detección de fraude reactiva (post-evento)', 250, 80);
+                    ctx.fillText('• Análisis manual de grandes volúmenes de datos', 250, 95);
+                    ctx.fillText('• Reglas de fraude estáticas y fáciles de evadir', 250, 110);
+                    ctx.fillText('• Alto número de falsos positivos', 250, 125);
+                    ctx.fillText('• Lento para identificar patrones complejos', 250, 140);
+                    ctx.fillText('• Riesgo de crédito subestimado/sobreestimado', 250, 155);
+
+                    // Métricas
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Métricas Actuales:', 250, 185);
+                    ctx.fillStyle = '#666';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('📉 Precisión Fraude: 65%', 250, 205);
+                    ctx.fillText('⏳ Tiempo Detección: 24-48h', 250, 220);
+                    ctx.fillText('🔍 Falsos Positivos: 15%', 250, 235);
+                    ctx.fillText('💰 Pérdidas por Fraude: Elevadas', 250, 250);
+                }
+
+                function drawAIFinance() {
+                    ctx.clearRect(0, 0, 500, 300);
+                    // Fondo mejorado
+                    let gradient = ctx.createLinearGradient(0, 0, 500, 300);
+                    gradient.addColorStop(0, '#e8f5e9');
+                    gradient.addColorStop(1, '#dcedc8');
+                    ctx.fillStyle = gradient;
+                    ctx.fillRect(0, 0, 500, 300);
+
+                    // Título optimizado
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.fillText('🤖 Finanzas y Detección de Fraude con IA', 20, 30);
+
+                    // Gráfico de transacciones con detección IA
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    // Transacciones normales
+                    const normalTransactions = [{ x: 50, y: 200 }, { x: 80, y: 150 }, { x: 110, y: 180 }, { x: 170, y: 160 }];
+                    normalTransactions.forEach((p, i) => {
+                        if (i === 0) ctx.moveTo(p.x, p.y);
+                        else ctx.lineTo(p.x, p.y);
+                    });
+                    ctx.stroke();
+
+                    // Transacción fraudulenta detectada
+                    const fraudTransaction = { x: 140, y: 60 }; // Anómala
+                    ctx.strokeStyle = '#E74C3C';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(110, 180); // Conecta desde la anterior normal
+                    ctx.lineTo(fraudTransaction.x, fraudTransaction.y);
+                    ctx.lineTo(170, 160); // Conecta a la siguiente normal
+                    ctx.stroke();
+
+
+                    // Puntos de transacción
+                    normalTransactions.forEach(p => {
+                        ctx.fillStyle = '#2ECC71';
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+                        ctx.fill();
+                    });
+                    // Punto de fraude
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.beginPath();
+                    ctx.arc(fraudTransaction.x, fraudTransaction.y, 8, 0, 2 * Math.PI); // Más grande
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 2;
+                    ctx.stroke(); // Borde blanco para destacar
+
+                    ctx.fillStyle = '#333';
+                    ctx.font = '10px Arial';
+                    ctx.fillText('Transacciones Analizadas por IA', 50, 220);
+                    ctx.fillStyle = '#E74C3C';
+                    ctx.fillText('¡Fraude Detectado!', fraudTransaction.x - 30, fraudTransaction.y - 10);
+
+
+                    // Panel de análisis IA
+                    ctx.fillStyle = '#dcedc8';
+                    ctx.fillRect(250, 60, 230, 120);
+                    ctx.strokeStyle = '#2ECC71';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(250, 60, 230, 120);
+
+                    ctx.fillStyle = '#2ECC71';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Análisis IA en Tiempo Real:', 255, 80);
+
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🎯 Detección de anomalías instantánea', 255, 95);
+                    ctx.fillText('📈 Modelos predictivos de riesgo', 255, 110);
+                    ctx.fillText('🛡️ Prevención proactiva de fraude', 255, 125);
+                    ctx.fillText('📊 Scoring de crédito inteligente', 255, 140);
+                    ctx.fillText('⚙️ Optimización de portafolios', 255, 155);
+                    ctx.fillText('📉 Reducción de falsos positivos', 255, 170);
+
+                    // Métricas mejoradas
+                    ctx.fillStyle = '#e8f5e9'; // Fondo ligeramente diferente para el panel de métricas
+                    ctx.fillRect(250, 190, 230, 80);
+                    ctx.strokeStyle = '#0672CB';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(250, 190, 230, 80);
+
+                    ctx.fillStyle = '#0672CB';
+                    ctx.font = 'bold 11px Arial';
+                    ctx.fillText('Métricas Optimizadas:', 255, 210);
+
+                    ctx.fillStyle = '#333';
+                    ctx.font = '9px Arial';
+                    ctx.fillText('🚀 Precisión Fraude: 99.8% (+53%)', 255, 225);
+                    ctx.fillText('⚡ Tiempo Detección: <100ms (-99%)', 255, 240);
+                    ctx.fillText('✅ Falsos Positivos: <1% (-93%)', 255, 255);
+                    ctx.fillText('🔒 Pérdidas por Fraude: Mínimas', 255, 270);
+                }
+
+                drawTraditionalFinance();
+
+                financeBtn.addEventListener('click', () => {
+                    if (financeBtn.disabled) return;
+
+                    financeBtn.disabled = true;
+                    financeBtn.textContent = 'Analizando datos transaccionales...';
+
+                    setTimeout(() => {
+                        financeBtn.textContent = 'Aplicando modelos de detección...';
+                        setTimeout(() => {
+                            financeBtn.textContent = 'Identificando anomalías...';
+                            setTimeout(() => {
+                                drawAIFinance();
+                                financeBtn.textContent = 'Análisis Completo';
+
+                                const explanation = "La IA revolucionó el análisis financiero: procesa millones de transacciones en tiempo real, detecta patrones de fraude complejos con 99.8% de precisión (antes 65%), reduce falsos positivos a menos del 1%, y permite la prevención proactiva. Además, optimiza la evaluación de riesgo crediticio y la gestión de portafolios de inversión, minimizando pérdidas y maximizando retornos.";
+                                typeText(financeExplanation, explanation, 80);
+
+                            }, 1200);
+                        }, 900);
+                    }, 700);
+                });
+            }
+
+            // Desarrollando tu Estrategia de IA
+            const strategyCanvas = document.getElementById('canvas-strategy');
+            const strategyBtn = document.getElementById('strategy-btn');
+            const strategyExplanation = document.getElementById('strategy-explanation');
+
+            if (strategyCanvas && strategyBtn) {
+                const ctx = strategyCanvas.getContext('2d');
+                let currentStep = 0;
+                const steps = [
+                    { name: 'Evaluar Madurez', color: '#31A2E3', icon: '📊', details: 'Diagnosticar capacidades actuales, infraestructura de datos y talento disponible.' },
+                    { name: 'Definir Objetivos', color: '#2ECC71', icon: '🎯', details: 'Establecer metas claras y medibles alineadas con la estrategia de negocio (ej. reducir costos 15%, aumentar ventas 10%).' },
+                    { name: 'Identificar Casos de Uso', color: '#FFB347', icon: '💡', details: 'Priorizar iniciativas de IA con alto impacto y ROI, comenzando con pilotos manejables.' },
+                    { name: 'Gobernanza y Ética', color: '#E74C3C', icon: '🛡️', details: 'Establecer políticas de IA responsable, seguridad de datos y cumplimiento normativo.' },
+                    { name: 'Desarrollar Talento', color: '#9B59B6', icon: '🎓', details: 'Capacitar equipos internos y/o contratar especialistas en IA para asegurar la ejecución.' },
+                    { name: 'Implementar y Escalar', color: '#0672CB', icon: '🚀', details: 'Desplegar soluciones IA, monitorear resultados, iterar y escalar las iniciativas exitosas.' }
+                ];
+
+                function drawStrategyStep(stepIndex) {
+                    ctx.clearRect(0, 0, 500, 300);
+                    // Fondo
+                    ctx.fillStyle = '#e8f0f7';
+                    ctx.fillRect(0, 0, 500, 300);
+
+                    const step = steps[stepIndex];
+                    const centerX = 250;
+                    const centerY = 100;
+
+                    // Círculo del paso actual
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, 80, 0, 2 * Math.PI);
+                    ctx.fillStyle = step.color;
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 5;
+                    ctx.stroke();
+
+                    // Icono
+                    ctx.font = '60px Arial';
+                    ctx.fillStyle = '#fff';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(step.icon, centerX, centerY + 20);
+                    
+                    // Nombre del paso
+                    ctx.font = 'bold 18px Arial';
+                    ctx.fillStyle = '#333';
+                    ctx.fillText(step.name, centerX, centerY + 110);
+
+                    // Detalles del paso
+                    ctx.font = '12px Arial';
+                    ctx.fillStyle = '#555';
+                    // wrap text
+                    const details = step.details;
+                    const maxWidth = 400;
+                    const lineHeight = 18;
+                    let y = centerY + 140;
+                    let line = '';
+                    const words = details.split(' ');
+                    for(let n = 0; n < words.length; n++) {
+                        const testLine = line + words[n] + ' ';
+                        const metrics = ctx.measureText(testLine);
+                        const testWidth = metrics.width;
+                        if (testWidth > maxWidth && n > 0) {
+                            ctx.fillText(line, centerX, y);
+                            line = words[n] + ' ';
+                            y += lineHeight;
+                        } else {
+                            line = testLine;
+                        }
+                    }
+                    ctx.fillText(line, centerX, y);
+
+
+                    // Indicadores de progreso (dots)
+                    const dotRadius = 8;
+                    const dotSpacing = 30;
+                    const totalWidth = (steps.length -1) * dotSpacing;
+                    const startX = centerX - totalWidth / 2;
+
+                    for (let i = 0; i < steps.length; i++) {
+                        ctx.beginPath();
+                        ctx.arc(startX + i * dotSpacing, 280, dotRadius, 0, 2 * Math.PI);
+                        ctx.fillStyle = i === stepIndex ? step.color : '#ccc';
+                        ctx.fill();
+                    }
+                }
+
+                drawStrategyStep(currentStep);
+
+                strategyBtn.addEventListener('click', () => {
+                    currentStep = (currentStep + 1) % steps.length;
+                    drawStrategyStep(currentStep);
+                    strategyBtn.textContent = `Siguiente Paso: ${steps[currentStep].name}`;
+                    typeText(strategyExplanation, steps[currentStep].details, 50);
+                });
+                 // Inicializar explicación con el primer paso
+                typeText(strategyExplanation, steps[currentStep].details, 50);
             }
         });
     </script>

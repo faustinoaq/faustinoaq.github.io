@@ -183,7 +183,7 @@ h1 em { color: var(--text); }
 .icon-link .mail-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .icon-link[href^="mailto:"] .mail-text { position: static; width: auto; height: auto; clip: auto; font-size: 14px; }
 @media (max-width: 700px) { .contact-links .text-link { font-size: 14px; } }
-.more-btn { margin-top: 28px; background: none; border: 0; border-bottom: 1px solid var(--accent); font-family: inherit; cursor: pointer; }
+.more-btn { margin-top: 32px; padding: 10px 0; background: none; border: 0; border-bottom: 1px solid var(--accent); border-radius: 0; font: 400 14px/1.65 var(--sans); color: var(--text); cursor: pointer; -webkit-appearance: none; appearance: none; }
 .more-btn[hidden] { display: none; }
 .modal { border: 1px solid var(--line); border-radius: 0; background: var(--bg); color: var(--text); padding: 0 36px 20px; width: min(680px, calc(100vw - 32px)); max-height: 82vh; overflow: auto; }
 .modal::backdrop { background: rgba(8,14,18,.62); }
@@ -192,3 +192,4 @@ h1 em { color: var(--text); }
 .modal-close { background: none; border: 1px solid var(--line); border-radius: 0; color: var(--text); width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; }
 .modal-close:hover { border-color: var(--accent); color: var(--accent); }
 .modal .entry { grid-template-columns: 120px 1fr; gap: 24px; } .modal .entry:last-child { border-bottom: 0; } @media (max-width: 700px) { .modal { padding-inline: 20px; } .modal .entry { grid-template-columns: 1fr; } }
+.more-btn { margin-left: 256px; } @media (max-width: 700px) { .more-btn { margin-left: 0; } }

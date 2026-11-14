@@ -183,3 +183,12 @@ h1 em { color: var(--text); }
 .icon-link .mail-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .icon-link[href^="mailto:"] .mail-text { position: static; width: auto; height: auto; clip: auto; font-size: 14px; }
 @media (max-width: 700px) { .contact-links .text-link { font-size: 14px; } }
+.more-btn { margin-top: 28px; background: none; border: 0; border-bottom: 1px solid var(--accent); font-family: inherit; cursor: pointer; }
+.more-btn[hidden] { display: none; }
+.modal { border: 1px solid var(--line); border-radius: 0; background: var(--bg); color: var(--text); padding: 0 36px 20px; width: min(680px, calc(100vw - 32px)); max-height: 82vh; overflow: auto; }
+.modal::backdrop { background: rgba(8,14,18,.62); }
+.modal-head { display: flex; justify-content: space-between; align-items: center; padding-block: 26px 10px; position: sticky; top: 0; background: var(--bg); }
+.modal-head h3 { font: 300 26px/1.2 var(--serif); letter-spacing: -.03em; }
+.modal-close { background: none; border: 1px solid var(--line); border-radius: 0; color: var(--text); width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; }
+.modal-close:hover { border-color: var(--accent); color: var(--accent); }
+.modal .entry { grid-template-columns: 120px 1fr; gap: 24px; } .modal .entry:last-child { border-bottom: 0; } @media (max-width: 700px) { .modal { padding-inline: 20px; } .modal .entry { grid-template-columns: 1fr; } }

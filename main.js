@@ -89,3 +89,14 @@ document.querySelectorAll('.places figure').forEach(f => {
   f.addEventListener('click', () => { const o = f.classList.contains('open'); document.querySelectorAll('.places figure.open').forEach(x => x.classList.remove('open')); if (!o) f.classList.add('open'); });
   f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); f.click(); } });
 });
+(() => {
+  'use strict';
+  document.querySelectorAll('[data-open]').forEach(btn => {
+    const dlg = document.getElementById(btn.dataset.open);
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+    btn.hidden = false;
+    btn.addEventListener('click', () => { dlg.showModal(); document.body.style.overflow = 'hidden'; });
+    dlg.addEventListener('close', () => { document.body.style.overflow = ''; btn.focus(); });
+    dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
+  });
+})();

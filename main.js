@@ -104,3 +104,29 @@ document.querySelectorAll('.places figure').forEach(f => {
     dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
   });
 })();
+(() => {
+  'use strict';
+  const figs = document.querySelectorAll('.places figure');
+  if (!figs.length || typeof HTMLDialogElement === 'undefined') return;
+  const dlg = document.createElement('dialog');
+  dlg.className = 'modal lightbox';
+  dlg.setAttribute('aria-label', 'Photo');
+  dlg.innerHTML = '<button class="modal-close" type="button" aria-label="Close" data-close><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button><img alt=""><p class="lb-cap"></p>';
+  document.body.appendChild(dlg);
+  const img = dlg.querySelector('img'), cap = dlg.querySelector('.lb-cap');
+  let from = null;
+  figs.forEach(f => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'zoom-btn'; b.setAttribute('aria-label', 'Open photo larger');
+    b.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>';
+    b.addEventListener('click', e => {
+      e.stopPropagation(); from = b;
+      const i = f.querySelector('img'), c = f.querySelector('figcaption');
+      img.src = i.currentSrc || i.src; img.alt = i.alt; cap.textContent = c ? c.textContent : '';
+      dlg.showModal(); document.body.style.overflow = 'hidden';
+    });
+    f.appendChild(b);
+  });
+  dlg.addEventListener('close', () => { document.body.style.overflow = ''; if (from) from.focus(); });
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
+})();

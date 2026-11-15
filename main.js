@@ -113,4 +113,33 @@ document.querySelectorAll('.places figure').forEach(f => {
     figs.forEach(x => x.classList.remove('open'));
     if (!on) f.classList.add('open');
   }));
+  // Arrows below the strip for mouse users; hidden when everything fits.
+  const strip = document.querySelector('.places');
+  if (!strip) return;
+  const nav = document.createElement('div');
+  nav.className = 'places-nav';
+  const mk = (dir, d) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'places-arrow';
+    b.setAttribute('aria-label', dir === -1 ? 'Previous photos' : 'Next photos');
+    b.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d + '"/></svg>';
+    b.addEventListener('click', () => {
+      const step = (strip.querySelector('figure') || strip).getBoundingClientRect().width + 24;
+      strip.scrollBy({ left: dir * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+    return b;
+  };
+  const prev = mk(-1, 'M19 12H5M11 6l-6 6 6 6'), next = mk(1, 'M5 12h14M13 6l6 6-6 6');
+  nav.append(prev, next);
+  strip.insertAdjacentElement('afterend', nav);
+  const sync = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    nav.hidden = max <= 2;
+    prev.disabled = strip.scrollLeft <= 2;
+    next.disabled = strip.scrollLeft >= max - 2;
+  };
+  strip.addEventListener('scroll', sync, { passive: true });
+  addEventListener('resize', sync);
+  addEventListener('load', sync);
+  sync();
 })();

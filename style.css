@@ -199,3 +199,10 @@ h1 em { color: var(--text); }
 .lightbox .modal-close { position: absolute; top: 24px; right: 24px; background: rgba(8,16,22,.55); border-color: rgba(255,255,255,.55); color: #fff; }
 .lightbox img { display: block; height: min(68vh, 860px); width: auto; max-width: 100%; object-fit: contain; border-radius: 0; margin: 0 auto; }
 .lb-cap { font-size: 14px; color: var(--muted); padding-top: 12px; }
+
+.contact-portrait { flex-direction: column; align-items: flex-start; gap: 12px; }
+.contact-portrait a { display: block; line-height: 0; }
+@media (min-width: 900px) {
+  .lightbox { width: min(92vw, 960px); max-width: 92vw; max-height: 94vh; overflow: auto; }
+  .lightbox img { width: 100%; height: auto; max-height: none; }
+}

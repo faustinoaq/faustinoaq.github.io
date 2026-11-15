@@ -35,20 +35,6 @@
   });
   updateThemeControl();
 
-  const clock = document.querySelector('[data-clock]');
-  if (clock) {
-    const formatter = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'America/Panama', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-    });
-    const updateClock = () => {
-      const now = new Date();
-      clock.textContent = formatter.format(now);
-      clock.dateTime = now.toISOString();
-    };
-    updateClock();
-    window.setInterval(updateClock, 1000);
-  }
-
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if ('IntersectionObserver' in window && !reducedMotion.matches) {
     const observer = new IntersectionObserver(entries => {
